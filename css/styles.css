@@ -1,0 +1,355 @@
+
+
+html, body {
+  font-size: 100%;
+  background-color: #f7f7f7;
+  background:url('../images/body_bg.jpg') 0 0% repeat;
+  font-family: 'Roboto', sans-serif;
+}
+
+.navbar {
+  background:url('../images/head_bg.jpg') 0 0% repeat;
+}
+
+.navbar-fixed-top {
+  border-bottom:2px solid #eaeaea;
+}
+
+.navbar-default .navbar-brand {
+  color: #e6e6e6;
+}
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-brand:hover{
+  color: #fff;
+}
+
+.navbar-default .navbar-nav>.disabled>a,
+.navbar-default .navbar-nav>.disabled>a:hover,
+.navbar-default .navbar-nav>.disabled>a:focus{
+  color:#666;background-color:transparent
+}
+
+.navbar-default .navbar-nav>li>a{
+  color:#e6e6e6
+}
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus{
+  color:#fff;background-color:transparent
+}
+
+.box {
+  border: 1px solid #d9d6d6;
+  width: 100%;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top: 70px;
+  background-color: #f7f7f7;
+}
+
+.box .box-header {
+  font-weight: 500;
+  font-style: normal;
+  background: #f7f7f7;
+  background: -webkit-linear-gradient(#fff,#f7f7f7); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#fff,#f7f7f7); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#fff,#f7f7f7); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#fff,#f7f7f7); /* Standard syntax (must be last) */
+  text-transform: uppercase;
+  height: 45px;
+  font-size: 16px;
+  border-bottom: 1px solid #d9d6d6;
+}
+
+.box .box-header .box-header-content {
+  padding: 12px 20px;
+  font-weight: 700;
+  position: relative;
+}
+
+.box .box-content {
+  width: 97%;
+  margin: 20px auto;
+  background: #fff;
+}
+
+.box.box-breadcrumbs .box-header {
+  height: auto;
+}
+
+.box.box-breadcrumbs .box-header-content {
+  padding: 0;
+}
+
+.breadcrumbs a {
+  position: relative;
+  display: inline-block;
+  padding: 8px 18px 8px 10px;
+  font-weight: 400;
+  font-size: 12px;
+  color: #a3a9ab;
+  text-shadow: 0 1px 0 #FFF;
+  -webkit-transition: 300ms color;
+  transition: 300ms color;
+}
+
+.breadcrumbs a:after {
+  display: block;
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  background: url(../images/breadcrumb.png) no-repeat center right;
+}
+
+.breadcrumbs a:hover {
+  color: #50b1ff;
+  text-decoration: none;
+  background: none;
+}
+
+tr.e {
+  background:#f7f7f7;
+}
+
+th,td {
+  padding:0.1em 0.5em;
+}
+
+td {
+  height:38px;
+}
+
+th {
+  text-align:left;
+  font-weight:500;
+  background:#eee;
+  border-bottom: 1px solid #d9d6d6;
+}
+
+th > a {
+  color: #333;
+}
+
+h1 {
+  display: none;
+}
+
+#list {
+  border:1px solid #d9d6d6;
+  width:100%;
+}
+
+td > a {
+   display: block;
+}
+
+a {
+  color:#777;
+  text-decoration: none;
+}
+
+a:hover {
+  color:#333;
+}
+
+@media screen and (min-width: 768px){
+/********** ICON **********/
+/* GENERAL */
+    #list a[href*="."]:before, #list a[href*="/"]:before {
+        background: url('../images/icons/_blank.png') left center no-repeat;
+        content: ""; padding: 5px 34px 5px 0;
+    }
+    #list a[href*="."]:after, #list a[href*="/"]:after {
+        content: "";
+    }
+    #list a[href$="/"]:before {
+        background: url('../images/icons/folder.png') left center no-repeat;
+    }
+
+/* AUDIO */
+    #list a[href$=".aac"]:before {
+          background: url('../images/icons/aac.png') left center no-repeat;
+    }
+    #list a[href$=".mp3"]:before {
+          background: url('../images/icons/mp3.png') left center no-repeat;
+    }
+    #list a[href$=".wav"]:before {
+          background: url('../images/icons/wav.png') left center no-repeat;
+    }
+    
+/* VIDEO */
+    #list a[href$=".avi"]:before {
+          background: url('../images/icons/avi.png') left center no-repeat;
+    }
+    #list a[href$=".flv"]:before {
+          background: url('../images/icons/flv.png') left center no-repeat;
+    }
+    #list a[href$=".mkv"]:before {
+          background: url('../images/icons/mkv.png') left center no-repeat;
+    }
+    #list a[href$=".mp4"]:before {
+          background: url('../images/icons/mp4.png') left center no-repeat;
+    }
+    #list a[href$=".sub"]:before,
+    #list a[href$=".lrc"]:before,
+    #list a[href$=".srt"]:before,
+    #list a[href$=".ass"]:before,
+    #list a[href$=".ssa"]:before{
+          background: url('../images/icons/sub.png') left center no-repeat;
+    }
+
+/* IMAGE */
+    #list a[href$=".bmp"]:before {
+          background: url('../images/icons/bmp.png') left center no-repeat;
+    }
+    #list a[href$=".gif"]:before {
+          background: url('../images/icons/gif.png') left center no-repeat;
+    }
+    #list a[href$=".jpg"]:before,
+    #list a[href$=".jpeg"]:before {
+          background: url('../images/icons/jpg.png') left center no-repeat;
+    }
+    #list a[href$=".png"]:before {
+          background: url('../images/icons/png.png') left center no-repeat;
+    }
+    #list a[href$=".psd"]:before {
+          background: url('../images/icons/psd.png') left center no-repeat;
+    }
+    
+/* ARCHIVE */
+    #list a[href$=".7z"]:before,
+    #list a[href$=".7zip"]:before {
+          background: url('../images/icons/mp4.png') left center no-repeat;
+    }
+    #list a[href$=".dmg"]:before {
+          background: url('../images/icons/dmg.png') left center no-repeat;
+    }
+    #list a[href$=".iso"]:before {
+          background: url('../images/icons/iso.png') left center no-repeat;
+    }
+    #list a[href$=".rar"]:before {
+          background: url('../images/icons/rar.png') left center no-repeat;
+    }
+    #list a[href$=".tgz"]:before,
+    #list a[href$=".tar"]:before,
+    #list a[href$=".tar.gz"]:before,
+    #list a[href$=".tar.lz"]:before,
+    #list a[href$=".tar.xz"]:before {
+          background: url('../images/icons/tgz.png') left center no-repeat;
+    }
+    #list a[href$=".zip"]:before {
+          background: url('../images/icons/zip.png') left center no-repeat;
+    }
+    
+/* OFFICE */
+    #list a[href$=".doc"]:before,
+    #list a[href$=".docx"]:before {
+          background: url('../images/icons/doc.png') left center no-repeat;
+    }
+    #list a[href$=".ppt"]:before,
+    #list a[href$=".pptx"]:before {
+          background: url('../images/icons/ppt.png') left center no-repeat;
+    }
+    #list a[href$=".xls"]:before,
+    #list a[href$=".xlsx"]:before {
+          background: url('../images/icons/xls.png') left center no-repeat;
+    }
+    #list a[href$=".otp"]:before,
+    #list a[href$=".odp"]:before {
+          background: url('../images/icons/otp.png') left center no-repeat;
+    }
+    #list a[href$=".ods"]:before {
+          background: url('../images/icons/ods.png') left center no-repeat;
+    }
+    #list a[href$=".odt"]:before {
+          background: url('../images/icons/odt.png') left center no-repeat;
+    }
+    #list a[href$=".pdf"]:before {
+          background: url('../images/icons/pdf.png') left center no-repeat;
+    }
+    #list a[href$=".rtf"]:before {
+          background: url('../images/icons/rtf.png') left center no-repeat;
+    }
+    #list a[href$=".txt"]:before {
+          background: url('../images/icons/txt.png') left center no-repeat;
+    }
+    
+/* MISC */
+    #list a[href$=".px"]:before {
+          background: url('../images/icons/key.png') left center no-repeat;
+    }
+    #list a[href$=".md5sum"]:before {
+          background: url('../images/icons/md5.png') left center no-repeat;
+    }
+    
+/* PROGRAMING */
+    #list a[href$=".c"]:before ,
+    #list a[href$=".cpp"]:before  {
+          background: url('../images/icons/c.png') left center no-repeat;
+    }
+    #list a[href$=".css"]:before ,
+    #list a[href$=".less"]:before  {
+          background: url('../images/icons/css.png') left center no-repeat;
+    }
+    #list a[href$=".exe"]:before  {
+          background: url('../images/icons/exe.png') left center no-repeat;
+    }
+    #list a[href$=".h"]:before,
+    #list a[href$=".hpp"]:before {
+          background: url('../images/icons/h.png') left center no-repeat;
+    }
+    #list a[href$=".html"]:before,
+    #list a[href$=".htm"]:before {
+          background: url('../images/icons/html.png') left center no-repeat;
+    }
+    #list a[href$=".java"]:before {
+          background: url('../images/icons/java.png') left center no-repeat;
+    }
+    #list a[href$=".js"]:before {
+          background: url('../images/icons/js.png') left center no-repeat;
+    }
+    #list a[href$=".php"]:before {
+          background: url('../images/icons/php.png') left center no-repeat;
+    }
+    #list a[href$=".py"]:before {
+          background: url('../images/icons/py.png') left center no-repeat;
+    }
+    #list a[href$=".rb"]:before {
+          background: url('../images/icons/rb.png') left center no-repeat;
+    }
+    #list a[href$=".sql"]:before {
+          background: url('../images/icons/sql.png') left center no-repeat;
+    }
+    #list a[href$=".xml"]:before {
+          background: url('../images/icons/html.xml') left center no-repeat;
+    }
+}
+    
+@media screen and (max-width: 767px) {
+  tr > td:nth-child(2),td:nth-child(3) {
+    display: none;
+  }
+  thead > tr > th:nth-child(2),th:nth-child(3) {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  tr > td:nth-child(3) {
+    display: none;
+  }
+  thead > tr > th:nth-child(3) {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1152px) {
+
+  .box {
+    width: 75%;
+    margin-left:auto;
+    margin-right:auto;
+  }
+}
