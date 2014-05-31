@@ -51,6 +51,12 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+  <div class="wrapper">
+    <div class="alert alert-info">
+      <a href="#" class="close" data-dismiss="alert">&times;</a>
+      <strong>Welcome to PX Download page V<?php echo VER?></strong>
+    </div>
+  </div>
 <div class="box box-breadcrumbs">
     <div class="box-header">
       <div class="box-header-content">

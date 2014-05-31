@@ -37,12 +37,19 @@ html, body {
   color:#fff;background-color:transparent
 }
 
+.wrapper{
+  width:75%;
+  text-align:center;
+  margin-top: 70px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
 .box {
   border: 1px solid #d9d6d6;
   width: 100%;
   margin-left:auto;
   margin-right:auto;
-  margin-top: 70px;
   background-color: #f7f7f7;
 }
 
