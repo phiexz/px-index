@@ -48,6 +48,7 @@
           </ul>
         </li>
         <li data-container="body" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="Report broken / ilegal files here!"><a href="#" data-toggle="modal" data-target="#report">Contact &amp; Report</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#donate">Donate</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

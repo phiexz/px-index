@@ -160,6 +160,11 @@ a {
 a:hover {
   color:#333;
 }
+.donation{
+    margin-left:20%;
+    margin-right:20%;
+    margin-top:15px;
+}
 
 @media screen and (min-width: 768px){
 /********** ICON **********/
