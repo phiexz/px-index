@@ -233,7 +233,7 @@ a:hover {
 /* ARCHIVE */
     #list a[href$=".7z"]:before,
     #list a[href$=".7zip"]:before {
-          background: url('../images/icons/mp4.png') left center no-repeat;
+          background: url('../images/icons/7z.png') left center no-repeat;
     }
     #list a[href$=".dmg"]:before {
           background: url('../images/icons/dmg.png') left center no-repeat;
