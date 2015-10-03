@@ -72,6 +72,13 @@ $(document).ready(function(){
         }
     });
     
+    //Random page header colorDepth
+    var color = ['success','info','warning','danger']
+    var rand = color[Math.floor(Math.random() * color.length)];
+    rand = 'alert-' + rand;
+    
+    $( "div#randomPageHeader" ).addClass(rand);
+    
     //SubmitReport
     $("input#reportSubmit").click(function(){
       if (validateForm()){

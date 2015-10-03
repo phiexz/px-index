@@ -65,7 +65,7 @@
         </nav>
         <div class="wrapper">
             <div class="page-header">
-              <div class="alert alert-success text-center" role="alert"><h2>Welcome to PX Download Page<br> <small>Version: <span class="badge"><?php echo VER ?></span></small></h2></div>
+              <div id="randomPageHeader" class="alert text-center" role="alert"><h2>Welcome to PX Download Page<br> <small>Version: <span class="badge"><?php echo VER ?></span></small></h2></div>
             </div>
         <?php if(empty($ReportEmail)){ ?>
             <div class="alert alert-danger" role="alert">
