@@ -65,7 +65,7 @@ $(document).ready(function(){
     $('table#list td:nth-child(1)').each(function() {
         var lastChar = $(this).text().substr($(this).text().length - 1);
         if (lastChar == "/"){
-            $(this).text($(this).text().substr(0, $(this).text().length - 1));
+            this.innerHTML = '<a href="'+$(this).text()+'">'+$(this).text().slice(0,-1)+'</a>';
         }
     });
     
