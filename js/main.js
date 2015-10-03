@@ -48,7 +48,10 @@ $(document).ready(function(){
     //Filesize
     if ($(window).width() >= 768) {
       $('table#list td:nth-child(2)').each(function() {
-        if ($(this).text() != "-"){
+        if ($(this).text() == "-"){
+            $(this).text('');
+        }
+        else{
           var cellText = parseFloat($(this).text());
           $(this).text(bytesToSize(cellText));
         }
