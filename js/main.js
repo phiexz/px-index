@@ -21,6 +21,22 @@ $(document).ready(function(){
     var currentDir = urlPath[urlPath.length-2];
     window.document.title = "PX Download - " + currentDir.toUpperCase();
     
+    //Generating Breadcrumbs
+    var loc = window.location.pathname;
+    var segments = loc.split('/');
+    var breadcrumbs = '';
+    var currentPath = '/';
+    for (var i=0; i<segments.length; i++) {
+      if (segments[i] !== '') {
+        currentPath += segments[i] + '/';
+        breadcrumbs += '<a href="' +  currentPath + '">' + window.unescape(segments[i]) + '<\/a>';
+      } else if (segments.length -1 !== i) {
+        currentPath += '';
+        breadcrumbs += '<a href="' + currentPath + '"><span class="glyphicon glyphicon-home"></span><\/a>';
+      }
+    }
+    document.getElementById('breadcrumbs').innerHTML = breadcrumbs;
+    
     //SubmitReport
     $("input#reportSubmit").click(function(){
       if (validateForm()){

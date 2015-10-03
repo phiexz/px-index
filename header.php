@@ -71,3 +71,14 @@
               Report Email has not been set >_<
             </div>
         <?php } ?>
+        
+        <!-- breadcrumb -->
+        <div class="box box-breadcrumbs">
+            <div class="box-header">
+              <div class="box-header-content">
+                <div id="breadcrumbs" class="breadcrumbs">
+                  <a href="#"></a>
+                </div>
+              </div>
+            </div>
+        </div>

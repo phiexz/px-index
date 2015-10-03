@@ -82,6 +82,78 @@ body {
   margin-right:auto;
 }
 
+.box {
+  border: 1px solid #d9d6d6;
+  width: 100%;
+  margin-left:auto;
+  margin-right:auto;
+  background-color: #f7f7f7;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.35);
+  max-width: 1200px;
+}
+
+.box .box-header {
+  font-weight: 500;
+  font-style: normal;
+  background: #f7f7f7;
+  background: -webkit-linear-gradient(#fff,#f7f7f7); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#fff,#f7f7f7); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#fff,#f7f7f7); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#fff,#f7f7f7); /* Standard syntax (must be last) */
+  text-transform: uppercase;
+  height: 45px;
+  font-size: 16px;
+  border-bottom: 1px solid #d9d6d6;
+}
+
+.box .box-header .box-header-content {
+  padding: 12px 20px;
+  font-weight: 700;
+  position: relative;
+}
+
+.box .box-content {
+  width: 97%;
+  margin: 20px auto;
+  background: #fff;
+}
+
+.box.box-breadcrumbs .box-header {
+  height: auto;
+}
+
+.box.box-breadcrumbs .box-header-content {
+  padding: 0;
+}
+
+.breadcrumbs a {
+  position: relative;
+  display: inline-block;
+  padding: 8px 18px 8px 10px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #a3a9ab;
+  text-shadow: 0 1px 0 #FFF;
+  -webkit-transition: 300ms color;
+  transition: 300ms color;
+}
+
+.breadcrumbs a:after {
+  display: block;
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  background: url(../img/breadcrumb.png) no-repeat center right;
+}
+
+.breadcrumbs a:hover {
+  color: #50b1ff;
+  text-decoration: none;
+  background: none;
+}
 
 
 
