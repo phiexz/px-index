@@ -58,6 +58,14 @@ $(document).ready(function(){
     //Change column width
     document.getElementsByTagName("colgroup")[0].outerHTML = '<colgroup><col width="65%"/><col width="15%"/><col width="20%"/></colgroup>'
     
+    //Remove slash from last directory name
+    $('table#list td:nth-child(1)').each(function() {
+        var lastChar = $(this).text().substr($(this).text().length - 1);
+        if (lastChar == "/"){
+            $(this).text($(this).text().substr(0, $(this).text().length - 1));
+        }
+    });
+    
     //SubmitReport
     $("input#reportSubmit").click(function(){
       if (validateForm()){
