@@ -1,7 +1,7 @@
         </div>
         <?php
-            require_once("contact.php");
-            require_once("donate.php");
+            require_once("lib/contact.php");
+            require_once("lib/donate.php");
         ?>
         
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

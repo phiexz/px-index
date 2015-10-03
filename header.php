@@ -1,5 +1,5 @@
 <?php
-    require_once("configuration.php");
+    require_once("lib/configuration.php");
 ?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
