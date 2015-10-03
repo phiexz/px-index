@@ -177,6 +177,12 @@ tr:first-child:hover {
     background-color: white;
 }
 
+tr 
+th:nth-child(3n+3),
+td:nth-child(3n+3) {
+    text-align: center;
+}
+
 td a{
     color: rgba(0,0,0,0.87); 
 }
