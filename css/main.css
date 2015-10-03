@@ -88,22 +88,16 @@ body {
 .box {
   border: 1px solid #d9d6d6;
   width: 100%;
-  margin-left:auto;
-  margin-right:auto;
+  margin:15px auto 15px auto;
   background-color: #f7f7f7;
-  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.35);
   max-width: 1200px;
+  opacity: .85;
 }
 
 .box .box-header {
   font-weight: 500;
   font-style: normal;
-  background: #f7f7f7;
-  background: -webkit-linear-gradient(#fff,#f7f7f7); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(#fff,#f7f7f7); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(#fff,#f7f7f7); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(#fff,#f7f7f7); /* Standard syntax (must be last) */
-  text-transform: uppercase;
+  background: #fafafa;
   height: 45px;
   font-size: 16px;
   border-bottom: 1px solid #d9d6d6;
@@ -156,6 +150,49 @@ body {
   color: #50b1ff;
   text-decoration: none;
   background: none;
+}
+
+table {
+  border: 1px solid #d9d6d6;
+  width: 100%;
+  margin:15px auto 15px auto;
+  max-width: 1200px;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.35);
+}
+
+th,td {
+  padding:0.1em 1em;
+}
+
+td {
+  line-height: 30px;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+  background-color: #fff;
+}
+
+tr:hover td {
+    background-color: #f0f0f0;
+}
+tr:first-child:hover {
+    background-color: white;
+}
+
+td a{
+    color: rgba(0,0,0,0.87); 
+}
+
+th {
+    line-height: 46px;
+    opacity: .4;
+    text-align:left;
+    font-weight:600;
+    background: #fafafa;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    border-radius: 2px 2px 0 0;
+}
+
+th a{
+   color: rgba(0,0,0,0.87); 
 }
 
 
