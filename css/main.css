@@ -55,7 +55,15 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-
+body {
+    background-color: #f0f0f0;
+}
+.navbar {
+    background-color: #fafafa;
+    background: @col-back-panel;
+    box-shadow: 0 0 8px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
 
 
 
