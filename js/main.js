@@ -16,6 +16,11 @@ $(document).ready(function(){
     $("[data-toggle=tooltip").tooltip();
     $("[data-toggle=popover").popover();
     
+    //Setting HTML Title
+    var urlPath = window.location.pathname.split( '/' );
+    var currentDir = urlPath[urlPath.length-2];
+    window.document.title = "PX Download - " + currentDir.toUpperCase();
+    
     //SubmitReport
     $("input#reportSubmit").click(function(){
       if (validateForm()){
