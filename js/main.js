@@ -58,6 +58,9 @@ $(document).ready(function(){
       });
     }
     
+    //Add class to table#list
+    $( "table#list" ).addClass( "table" );
+    
     //Change column width
     document.getElementsByTagName("colgroup")[0].outerHTML = '<colgroup><col width="65%"/><col width="15%"/><col width="20%"/></colgroup>'
     

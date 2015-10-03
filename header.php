@@ -83,4 +83,5 @@
             </div>
         </div>
         <!-- File list -->
+        <div class="table-responsive">
             <h1>Index of:

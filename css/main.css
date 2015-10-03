@@ -152,6 +152,12 @@ body {
   background: none;
 }
 
+.table-responsive{
+    max-width: 1000px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
 table {
   border: 1px solid #d9d6d6;
   width: 100%;

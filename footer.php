@@ -1,4 +1,4 @@
-        </div>
+        </div></div>
         <?php
             require_once("lib/contact.php");
             require_once("lib/donate.php");
