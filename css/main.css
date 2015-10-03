@@ -55,6 +55,9 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+h1 {
+  display: none;
+}
 body {
     background-color: #f0f0f0;
     font-family: Roboto,Helvetica,Arial,sans-serif;
