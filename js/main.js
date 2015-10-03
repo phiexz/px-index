@@ -55,6 +55,9 @@ $(document).ready(function(){
       });
     }
     
+    //Change column width
+    document.getElementsByTagName("colgroup")[0].outerHTML = '<colgroup><col width="65%"/><col width="15%"/><col width="20%"/></colgroup>'
+    
     //SubmitReport
     $("input#reportSubmit").click(function(){
       if (validateForm()){
