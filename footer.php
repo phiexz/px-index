@@ -3,7 +3,7 @@
         <!-- bootstrap -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-        <script src="js/main.js"></script>
+        <script src="<?php echo CDN?>/js/main.js?v=<?php echo VER?>"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
