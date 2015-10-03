@@ -85,6 +85,10 @@ body {
   margin-right:auto;
 }
 
+.page-header{
+    margin-bottom: -10px;
+}
+
 .box {
   border: 1px solid #d9d6d6;
   width: 100%;
