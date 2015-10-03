@@ -1,6 +1,5 @@
 <?php
     require_once("configuration.php");
-    require_once("function.php");
 ?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -64,3 +63,11 @@
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
         </nav>
+        <div class="wrapper">
+        <?php if(empty($ReportEmail)){ ?>
+            <div class="alert alert-danger" role="alert">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              <span class="sr-only">Error:</span>
+              Report Email has not been set >_<
+            </div>
+        <?php } ?>

@@ -3,7 +3,6 @@
     
     function SendMail(){
   //add the recipient's address here
-  $myemail = 'dhiika@phiexz.com';
   
   if (isset($_POST['reportName'])) {
     $name = strip_tags($_POST['reportName']);
@@ -48,5 +47,9 @@ http://dl.phiexz.com
     mail($to1,$subject1,$message1);
     mail($to2,$subject2,$message2);
   }
+    }
+    
+    if ($_GET['func']=="report"){
+        SendMail();
     }
 ?>
