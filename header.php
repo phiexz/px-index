@@ -16,6 +16,7 @@
         <!-- bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         
+        <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="<?php echo CDN?>/css/normalize.min.css">
         <link rel="stylesheet" href="<?php echo CDN?>/css/main.css?v=<?php echo VER?>">
 

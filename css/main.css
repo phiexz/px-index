@@ -57,12 +57,17 @@ textarea {
    ========================================================================== */
 body {
     background-color: #f0f0f0;
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    color: rgba(0,0,0,0.87);
 }
 .navbar {
     background-color: #fafafa;
     background: @col-back-panel;
     box-shadow: 0 0 8px 0 rgba(0,0,0,0.2);
     z-index: 1;
+    font-size: 16px;
 }
 
 
