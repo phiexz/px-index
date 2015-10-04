@@ -81,6 +81,35 @@ $(document).ready(function(){
     
         //Table hover
         $( "tr" ).addClass(rand);
+        
+        //clickable & click+drag table
+        var isMouseDown = false,
+        isHighlighted;
+        $(".table tr")
+          .mousedown(function () {
+            isMouseDown = true;
+            //cek kalo 2nd row nya kosong (folder)
+            if(this.cells[1].innerHTML!="")
+                $(this).toggleClass("highlighted");
+            //isHighlighted = $(this).hasClass("highlighted");
+            console.log(isHighlighted);
+            return false; // prevent text selection
+          })
+          .mouseover(function () {
+            if (isMouseDown) {
+                //cek kalo 2nd row nya kosong (folder)
+                if(this.cells[1].innerHTML!="")
+                    $(this).toggleClass("highlighted");
+            }
+          })
+          .bind("selectstart", function () {
+            return false;
+          })
+
+        $(document)
+          .mouseup(function () {
+            isMouseDown = false;
+        });
     
     //SubmitReport
     $("input#reportSubmit").click(function(){

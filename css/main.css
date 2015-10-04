@@ -187,22 +187,27 @@ tr:first-child:hover {
 }
 
 tr:hover td {
+    opacity: .5;
     background-color: #f0f0f0; /* fallback */
 }
 
-.alert-success:hover td {
+table tr.highlighted td{
+  background-color:#f0f0f0; /* fallback */
+}
+
+.alert-success:hover td, tr.alert-success.highlighted td {
     background-color: #dff0d8;
 }
 
-.alert-info:hover td {
+.alert-info:hover td, tr.alert-info.highlighted td {
     background-color: #d9edf7;
 }
 
-.alert-warning:hover td {
+.alert-warning:hover td, tr.alert-warning.highlighted td {
     background-color: #fcf8e3;
 }
 
-.alert-danger:hover td {
+.alert-danger:hover td, tr.alert-danger.highlighted td {
     background-color: #f2dede;
 }
 
