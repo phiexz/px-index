@@ -2,6 +2,7 @@
         <?php
             require_once("lib/contact.php");
             require_once("lib/donate.php");
+            require_once("lib/generateURL.php");
         ?>
         
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

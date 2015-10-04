@@ -59,6 +59,7 @@
                 </li>
                 <li data-container="body" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="Report broken / ilegal files here!"><a href="#" data-toggle="modal" data-target="#report">Contact &amp; Report</a></li>
                 <li data-container="body" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="Donation to keep server alive!"><a href="#" data-toggle="modal" data-target="#donate">Donate</a></li>
+                <li data-container="body" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="Generate selected files url"><a href="#" data-toggle="modal" data-target="#generateURL"><span class="glyphicon glyphicon-download-alt"></span> Generate URL</a></li>
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
