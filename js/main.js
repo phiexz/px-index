@@ -50,6 +50,23 @@ function checkExtension(fileName){
     return (listExtensions.indexOf(ext) > -1);
 }
 
+function FitToContent(id, maxHeight)
+{
+   var text = id && id.style ? id : document.getElementById(id);
+   if ( !text )
+      return;
+
+   var adjustedHeight = text.clientHeight;
+   if ( !maxHeight || maxHeight > adjustedHeight )
+   {
+      adjustedHeight = Math.max(text.scrollHeight, adjustedHeight);
+      if ( maxHeight )
+         adjustedHeight = Math.min(maxHeight, adjustedHeight);
+      if ( adjustedHeight > text.clientHeight )
+         text.style.height = adjustedHeight + "px";
+   }
+}
+
 $(document).ready(function(){
     //Tooltip bootstrap
     $("[data-toggle=tooltip").tooltip();
@@ -160,9 +177,25 @@ $(document).ready(function(){
     //Lightbox image viewer
     //check file extension
     $('table#list td:nth-child(1)').each(function() {
+        //image
         if(checkExtension($(this).text())){
             $(this).find('a').attr("data-toggle", "lightbox");
             $(this).find('a').attr("data-gallery", "px-index");
+        }
+        //text
+        if($(this).text().split('.').pop().toLowerCase() == "txt"){
+            var textFileName = $(this).text();
+            
+            $(this).find('a').attr("data-toggle", "modal");
+            $(this).find('a').attr("data-target", "#modalText");
+            
+            
+            //change href to #, we should load it via jQuery.load instead
+            $(this).find('a').attr("href", "#");
+            $('#modalText').on('shown.bs.modal', function (e) {
+                //alert("open");
+                $("#textAjax").load(textFileName);
+            })
         }
     });    
     //Show modal
