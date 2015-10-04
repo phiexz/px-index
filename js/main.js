@@ -91,8 +91,6 @@ $(document).ready(function(){
             //cek kalo 2nd row nya kosong (folder)
             if(this.cells[1].innerHTML!="")
                 $(this).toggleClass("highlighted");
-            //isHighlighted = $(this).hasClass("highlighted");
-            console.log(isHighlighted);
             return false; // prevent text selection
           })
           .mouseover(function () {
