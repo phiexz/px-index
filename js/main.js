@@ -43,6 +43,13 @@ function generateURL(what) {
     }
 }
 
+function checkExtension(fileName){
+    var ext = fileName.split('.').pop().toLowerCase();
+    var listExtensions = ["jpg", "jpeg", "jpe", "jif", "jfif", "jfi", "png", "gif", "svg", "svgz", "xbm", "bmp"];
+
+    return (listExtensions.indexOf(ext) > -1);
+}
+
 $(document).ready(function(){
     //Tooltip bootstrap
     $("[data-toggle=tooltip").tooltip();
@@ -149,6 +156,22 @@ $(document).ready(function(){
             $("#generateURL_false").css("display", "inline");
         }
     })
+    
+    //Lightbox image viewer
+    //check file extension
+    $('table#list td:nth-child(1)').each(function() {
+        if(checkExtension($(this).text())){
+            $(this).find('a').attr("data-toggle", "lightbox");
+            $(this).find('a').attr("data-gallery", "px-index");
+        }
+    });    
+    //Show modal
+    $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+        event.preventDefault();
+        $(this).ekkoLightbox({
+            always_show_close:false
+        });
+    });
     
     //SubmitReport
     $("input#reportSubmit").click(function(){
