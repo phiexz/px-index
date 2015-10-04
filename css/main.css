@@ -63,6 +63,7 @@ body {
     font-family: Roboto,Helvetica,Arial,sans-serif;
     font-size: 13px;
     font-weight: normal;
+    color: #000; /* Fallback */
     color: rgba(0,0,0,0.87);
 }
 .navbar {
@@ -181,11 +182,28 @@ td {
   background-color: #fff;
 }
 
-tr:hover td {
-    background-color: #f0f0f0;
-}
 tr:first-child:hover {
     background-color: white;
+}
+
+tr:hover td {
+    background-color: #f0f0f0; /* fallback */
+}
+
+.alert-success:hover td {
+    background-color: #dff0d8;
+}
+
+.alert-info:hover td {
+    background-color: #d9edf7;
+}
+
+.alert-warning:hover td {
+    background-color: #fcf8e3;
+}
+
+.alert-danger:hover td {
+    background-color: #f2dede;
 }
 
 tr 
@@ -194,7 +212,7 @@ td:nth-child(3n+3) {
     text-align: center;
 }
 
-td a{
+td, td a{
     color: rgba(0,0,0,0.87); 
 }
 

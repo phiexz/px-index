@@ -72,12 +72,15 @@ $(document).ready(function(){
         }
     });
     
-    //Random page header colorDepth
+    //Random page header & table hover backgroundColor
     var color = ['success','info','warning','danger']
     var rand = color[Math.floor(Math.random() * color.length)];
     rand = 'alert-' + rand;
+        //Page Header
+        $( "div#randomPageHeader" ).addClass(rand);
     
-    $( "div#randomPageHeader" ).addClass(rand);
+        //Table hover
+        $( "tr" ).addClass(rand);
     
     //SubmitReport
     $("input#reportSubmit").click(function(){
