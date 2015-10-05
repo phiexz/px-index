@@ -1,13 +1,22 @@
 function validateForm() {
-    var x = document.forms["report"]["reportEmail"].value;
-    var atpos = x.indexOf("@");
-    var dotpos = x.lastIndexOf(".");
-    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
-        alert("Not a valid e-mail address");
-        return false;
+    if((document.forms["report"]["reportName"].value) && 
+       (document.forms["report"]["reportEmail"].value) &&
+       (document.forms["report"]["reportSubject"].value) &&
+       (document.forms["report"]["reportMessage"].value)){
+        var x = document.forms["report"]["reportEmail"].value;
+        var atpos = x.indexOf("@");
+        var dotpos = x.lastIndexOf(".");
+        if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+            alert("Not a valid e-mail address");
+            return false;
+        }
+        else{
+          return true;
+        }
     }
     else{
-      return true;
+        alert("Some field empty");
+        return false;
     }
 }
 

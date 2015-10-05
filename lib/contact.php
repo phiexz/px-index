@@ -30,7 +30,7 @@
           </div>
           <div class="form-group">
             <label for="reportMessage">Message</label>
-            <textarea class="form-control" rows="3" name="reportMessage"></textarea>
+            <textarea class="form-control" rows="3" id="reportMessage" name="reportMessage"></textarea>
           </div>
         </form>
       </div>
