@@ -124,34 +124,34 @@ $(document).ready(function(){
         
         if (lastChar == "/"){
             if($(this).text() == "Parent directory/")
-                this.innerHTML = '<object type="image/svg+xml" height="24" data="'+ directory +'/img/a.svg#back"></object><a href="../">'+$(this).text().slice(0,-1)+'</a>';
+                this.innerHTML = '<img class="icon-sprite" src="'+ directory +'/img/icon-sprite.svg#back" alt=""></img><a href="../">'+$(this).text().slice(0,-1)+'</a>';
             else
-                this.innerHTML = '<object type="image/svg+xml" height="24" data="'+ directory +'/img/a.svg#folder"></object><a href="'+$(this).text()+'">'+$(this).text().slice(0,-1)+'</a>';
+                this.innerHTML = '<img class="icon-sprite" src="'+ directory +'/img/icon-sprite.svg#folder" alt=""></img><a href="'+$(this).text()+'">'+$(this).text().slice(0,-1)+'</a>';
         }
         else if(imgExt.indexOf(ext) > -1)
-            this.innerHTML = '<object type="image/svg+xml" height="24" data="'+ directory +'/img/a.svg#image"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+            this.innerHTML = '<img class="icon-sprite" src="'+ directory +'/img/icon-sprite.svg#image" alt=""></img><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
         else if(audioExt.indexOf(ext) > -1)
-            this.innerHTML = '<object type="image/svg+xml" height="24" data="'+ directory +'/img/a.svg#audio"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+            this.innerHTML = '<img class="icon-sprite" src="'+ directory +'/img/icon-sprite.svg#audio" alt=""></img><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
         else if(videoExt.indexOf(ext) > -1)
-            this.innerHTML = '<object type="image/svg+xml" height="24" data="'+ directory +'/img/a.svg#video"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+            this.innerHTML = '<img class="icon-sprite" src="'+ directory +'/img/icon-sprite.svg#video" alt=""></img><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
         else if(subtitleExt.indexOf(ext) > -1)
-            this.innerHTML = '<object type="image/svg+xml" height="24" data="'+ directory +'/img/a.svg#subtitle"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+            this.innerHTML = '<img class="icon-sprite" src="'+ directory +'/img/icon-sprite.svg#subtitle" alt=""></img><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
         else if(archiveExt.indexOf(ext) > -1)
-            this.innerHTML = '<object type="image/svg+xml" height="24" data="'+ directory +'/img/a.svg#archive"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+            this.innerHTML = '<img class="icon-sprite" src="'+ directory +'/img/icon-sprite.svg#archive" alt=""></img><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
         else if(isoExt.indexOf(ext) > -1)
-            this.innerHTML = '<object type="image/svg+xml" height="24" data="'+ directory +'/img/a.svg#iso"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+            this.innerHTML = '<img class="icon-sprite" src="'+ directory +'/img/icon-sprite.svg#iso" alt=""></img><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
         else if(officeExt.indexOf(ext) > -1)
-            this.innerHTML = '<object type="image/svg+xml" height="24" data="'+ directory +'/img/a.svg#office"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+            this.innerHTML = '<img class="icon-sprite" src="'+ directory +'/img/icon-sprite.svg#office" alt=""></img><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
         else if(textExt.indexOf(ext) > -1)
-            this.innerHTML = '<object type="image/svg+xml" height="24" data="'+ directory +'/img/a.svg#text"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+            this.innerHTML = '<img class="icon-sprite" src="'+ directory +'/img/icon-sprite.svg#text" alt=""></img><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
         else if(lockExt.indexOf(ext) > -1)
-            this.innerHTML = '<object type="image/svg+xml" height="24" data="'+ directory +'/img/a.svg#lock"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+            this.innerHTML = '<img class="icon-sprite" src="'+ directory +'/img/icon-sprite.svg#lock" alt=""></img><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
         else if(sourceExt.indexOf(ext) > -1)
-            this.innerHTML = '<object type="image/svg+xml" height="24" data="'+ directory +'/img/a.svg#source"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+            this.innerHTML = '<img class="icon-sprite" src="'+ directory +'/img/icon-sprite.svg#source" alt=""></img><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
         else if(appExt.indexOf(ext) > -1)
-            this.innerHTML = '<object type="image/svg+xml" height="24" data="'+ directory +'/img/a.svg#app"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+            this.innerHTML = '<img class="icon-sprite" src="'+ directory +'/img/icon-sprite.svg#app" alt=""></img><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
         else{
-            this.innerHTML = '<object type="image/svg+xml" height="24" data="'+ directory +'/img/a.svg#file"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+            this.innerHTML = '<img class="icon-sprite" src="'+ directory +'/img/icon-sprite.svg#file" alt=""></img><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
         }
     });
     

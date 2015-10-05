@@ -240,10 +240,12 @@ th a{
     width:100%
 }
 
-object{
+img.icon-sprite{
     margin: auto 7px auto 3px;
     vertical-align: middle;
     display: inline;
+    width: 24px;
+    height: 24px;
 }
 
 
