@@ -119,7 +119,7 @@ $(document).ready(function(){
     //Remove slash from last directory name & set icons
     $('table#list td:nth-child(1)').each(function() {
         //do shorten
-        this.getElementsByTagName("a")[0].innerHTML = shorten(this.getElementsByTagName("a")[0].innerHTML, 75);
+        this.getElementsByTagName("a")[0].innerHTML = shorten(this.getElementsByTagName("a")[0].innerHTML, MaxFileName);
         
         var lastChar = $(this).text().substr($(this).text().length - 1);
         var ext = $(this).text().split('.').pop().toLowerCase();

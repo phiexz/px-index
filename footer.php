@@ -10,6 +10,7 @@
         <script type="text/javascript">
             var CDN = "<?php echo CDN ?>";
             var VER = "<?php echo VER ?>";
+            var MaxFileName = "<?php echo MaxFileName ?>"
             var directory = "<?php echo directory ?>";
         </script>
         <!-- Main Script -->
