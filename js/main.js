@@ -158,6 +158,12 @@ $(document).ready(function(){
         }
     });
     
+    //Add class to date column, so it'll hidden for xtra small device
+    $("table#list th:nth-child(3)").addClass("hidden-xs");
+    $('table#list td:nth-child(3)').each(function() {
+        $(this).addClass("hidden-xs");
+    });
+    
     //Random page header & table hover backgroundColor
     var color = ['success','info','warning','danger']
     var rand = color[Math.floor(Math.random() * color.length)];
