@@ -61,6 +61,19 @@
                 <li data-container="body" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="Donation to keep server alive!"><a href="#" data-toggle="modal" data-target="#donate"><span class="glyphicon glyphicon-heart"></span>  Donate</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
+                
+                  <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><strong><span class="glyphicon glyphicon-search"></span></strong></a>
+                      <ul class="dropdown-menu">
+                        <li>
+                            <form class="navbar-form navbar-left" role="search">
+                                <div class="form-group">
+                                  <input id="searchBox" type="text" class="form-control" placeholder="Search">
+                                </div>
+                            </form>
+                        </li>
+                      </ul>
+                  </li>
                   <li data-container="body" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="Report broken / ilegal files here!"><a href="#" data-toggle="modal" data-target="#report"><strong><span class="glyphicon glyphicon-envelope"></span></strong></a></li>
                   <li data-container="body" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="Generate/Download Links"><a href="#" data-toggle="modal" data-target="#generateURL"><strong><span class="glyphicon glyphicon-download-alt"></span></strong></a></li>
                   <li class="dropdown">
