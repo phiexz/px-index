@@ -136,11 +136,11 @@ $(document).ready(function(){
         var appExt     = ["bat", "exe", "com"];
         
         if (lastChar == "/"){
+            this.getElementsByTagName("a")[0].innerHTML = this.getElementsByTagName("a")[0].innerHTML.slice(0,-1)
             if($(this).text() == "Parent directory/")
-                this.innerHTML = '<img class="icon-sprite" src="'+ CDN + directory +'/img/icon-sprite.svg?v='+ VER +'#back" alt=""></img><a href="../">'+$(this).text().slice(0,-1)+'</a>';
+                prependIcon(this, "back");
             else
-                this.innerHTML = '<img class="icon-sprite" src="'+ CDN + directory +'/img/icon-sprite.svg?v='+ VER +'#folder" alt=""></img><a href="'+$(this).text()+'">'+$(this).text().slice(0,-1)+'</a>';
-            
+                prependIcon(this, "folder");
             //do shorten
             this.getElementsByTagName("a")[0].innerHTML = shorten(this.getElementsByTagName("a")[0].innerHTML, MaxFileName, false);
         }
