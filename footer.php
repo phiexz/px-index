@@ -1,11 +1,5 @@
         </div></div>
-        <?php
-            require_once("lib/contact.php");
-            require_once("lib/donate.php");
-            require_once("lib/generateURL.php");
-            require_once("lib/modalText.php");
-        ?>
-        
+
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
         <!-- bootstrap -->
@@ -23,5 +17,11 @@
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','UA-30998400-3','auto');ga('send','pageview');
         </script>
+        <?php
+            require_once("lib/contact.php");
+            require_once("lib/donate.php");
+            require_once("lib/generateURL.php");
+            require_once("lib/modalText.php");
+        ?>
     </body>
 </html>
