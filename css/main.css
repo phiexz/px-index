@@ -217,6 +217,12 @@ td:nth-child(3n+3) {
     text-align: center;
 }
 
+tr 
+th:nth-child(2n+2),
+td:nth-child(2n+2) {
+    text-align: right;
+}
+
 td, td a{
     color: rgba(0,0,0,0.87);
     vertical-align: middle;
