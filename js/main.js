@@ -115,9 +115,8 @@ $(document).ready(function(){
         var archiveExt = ["7z", "7zip", "rar", "tgz", "gz", "lz", "xz", "zip"];
         var isoExt = ["dmg", "iso", "bin", "cdi", "image", "img"];
         var officeExt = ["doc", "docx", "rtf", "ppt", "pptx", "xls", "xlsx"];
-        var textExt = ["txt"];
+        var textExt = ["txt", "c", "cpp", "css", "less", "sass", "h", "hpp", "html", "java", "js", "php", "py", "rb", "sql", "xml", "sh", "bash"];
         var lockExt = ["px", "gpg"];
-        var sourceExt = ["c", "cpp", "css", "less", "sass", "h", "hpp", "html", "java", "js", "php", "py", "rb", "sql", "xml", "sh", "bash"];
         var appExt = ["bat", "exe", "com"];
         
         
@@ -146,8 +145,6 @@ $(document).ready(function(){
             this.innerHTML = '<img class="icon-sprite" src="'+ directory +'/img/icon-sprite.svg#text" alt=""></img><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
         else if(lockExt.indexOf(ext) > -1)
             this.innerHTML = '<img class="icon-sprite" src="'+ directory +'/img/icon-sprite.svg#lock" alt=""></img><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
-        else if(sourceExt.indexOf(ext) > -1)
-            this.innerHTML = '<img class="icon-sprite" src="'+ directory +'/img/icon-sprite.svg#source" alt=""></img><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
         else if(appExt.indexOf(ext) > -1)
             this.innerHTML = '<img class="icon-sprite" src="'+ directory +'/img/icon-sprite.svg#app" alt=""></img><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
         else{
