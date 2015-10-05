@@ -132,34 +132,34 @@ $(document).ready(function(){
         
         if (lastChar == "/"){
             if($(this).text() == "Parent directory/")
-                this.innerHTML = '<object type="image/svg+xml" height="24" data="/px-index/img/a.svg#back"></object><a href="../">'+$(this).text().slice(0,-1)+'</a>';
+                this.innerHTML = '<object type="image/svg+xml" height="24" data="'+ directory +'/img/a.svg#back"></object><a href="../">'+$(this).text().slice(0,-1)+'</a>';
             else
-                this.innerHTML = '<object type="image/svg+xml" height="24" data="/px-index/img/a.svg#folder"></object><a href="'+$(this).text()+'">'+$(this).text().slice(0,-1)+'</a>';
+                this.innerHTML = '<object type="image/svg+xml" height="24" data="'+ directory +'/img/a.svg#folder"></object><a href="'+$(this).text()+'">'+$(this).text().slice(0,-1)+'</a>';
         }
         else if(imgExt.indexOf(ext) > -1)
-            this.innerHTML = '<object type="image/svg+xml" height="24" data="/px-index/img/a.svg#image"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+            this.innerHTML = '<object type="image/svg+xml" height="24" data="'+ directory +'/img/a.svg#image"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
         else if(audioExt.indexOf(ext) > -1)
-            this.innerHTML = '<object type="image/svg+xml" height="24" data="/px-index/img/a.svg#audio"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+            this.innerHTML = '<object type="image/svg+xml" height="24" data="'+ directory +'/img/a.svg#audio"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
         else if(videoExt.indexOf(ext) > -1)
-            this.innerHTML = '<object type="image/svg+xml" height="24" data="/px-index/img/a.svg#video"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+            this.innerHTML = '<object type="image/svg+xml" height="24" data="'+ directory +'/img/a.svg#video"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
         else if(subtitleExt.indexOf(ext) > -1)
-            this.innerHTML = '<object type="image/svg+xml" height="24" data="/px-index/img/a.svg#subtitle"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+            this.innerHTML = '<object type="image/svg+xml" height="24" data="'+ directory +'/img/a.svg#subtitle"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
         else if(archiveExt.indexOf(ext) > -1)
-            this.innerHTML = '<object type="image/svg+xml" height="24" data="/px-index/img/a.svg#archive"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+            this.innerHTML = '<object type="image/svg+xml" height="24" data="'+ directory +'/img/a.svg#archive"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
         else if(isoExt.indexOf(ext) > -1)
-            this.innerHTML = '<object type="image/svg+xml" height="24" data="/px-index/img/a.svg#iso"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+            this.innerHTML = '<object type="image/svg+xml" height="24" data="'+ directory +'/img/a.svg#iso"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
         else if(officeExt.indexOf(ext) > -1)
-            this.innerHTML = '<object type="image/svg+xml" height="24" data="/px-index/img/a.svg#office"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+            this.innerHTML = '<object type="image/svg+xml" height="24" data="'+ directory +'/img/a.svg#office"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
         else if(textExt.indexOf(ext) > -1)
-            this.innerHTML = '<object type="image/svg+xml" height="24" data="/px-index/img/a.svg#text"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+            this.innerHTML = '<object type="image/svg+xml" height="24" data="'+ directory +'/img/a.svg#text"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
         else if(lockExt.indexOf(ext) > -1)
-            this.innerHTML = '<object type="image/svg+xml" height="24" data="/px-index/img/a.svg#lock"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+            this.innerHTML = '<object type="image/svg+xml" height="24" data="'+ directory +'/img/a.svg#lock"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
         else if(sourceExt.indexOf(ext) > -1)
-            this.innerHTML = '<object type="image/svg+xml" height="24" data="/px-index/img/a.svg#source"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+            this.innerHTML = '<object type="image/svg+xml" height="24" data="'+ directory +'/img/a.svg#source"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
         else if(appExt.indexOf(ext) > -1)
-            this.innerHTML = '<object type="image/svg+xml" height="24" data="/px-index/img/a.svg#app"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+            this.innerHTML = '<object type="image/svg+xml" height="24" data="'+ directory +'/img/a.svg#app"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
         else{
-            this.innerHTML = '<object type="image/svg+xml" height="24" data="/px-index/img/a.svg#file"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+            this.innerHTML = '<object type="image/svg+xml" height="24" data="'+ directory +'/img/a.svg#file"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
         }
     });
     
@@ -257,7 +257,7 @@ $(document).ready(function(){
       if (validateForm()){
           $.ajax({
               type: "POST",
-              url: "/px-index/function.php?func=report", //process to mail
+              url: "'+ directory +'/function.php?func=report", //process to mail
               data: $('form.report').serialize(),
               success: function(msg){
                 alert("Report sent! Thank you :)");
