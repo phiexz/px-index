@@ -63,6 +63,14 @@ function prependIcon(obj, ext){
      $(obj).prepend('<img class="icon-sprite" src="'+ CDN + directory +'/img/icon-sprite.svg?v='+ VER +'#'+ ext +'" alt=""></img>');
 }
 
+function shorten(text, maxLength) {
+    var ret = text;
+    if (ret.length > maxLength) {
+        ret = ret.substr(0,maxLength-3) + "...";
+    }
+    return ret;
+}
+
 $(document).ready(function(){
     //Tooltip bootstrap
     $("[data-toggle=tooltip").tooltip();
@@ -110,6 +118,9 @@ $(document).ready(function(){
     
     //Remove slash from last directory name & set icons
     $('table#list td:nth-child(1)').each(function() {
+        //do shorten
+        this.getElementsByTagName("a")[0].innerHTML = shorten(this.getElementsByTagName("a")[0].innerHTML, 75);
+        
         var lastChar = $(this).text().substr($(this).text().length - 1);
         var ext = $(this).text().split('.').pop().toLowerCase();
         var imageExt   = ["jpg", "jpeg", "jpe", "jif", "jfif", "jfi", "png", "gif", "svg", "svgz", "xbm", "bmp", "psd"];
