@@ -7,7 +7,11 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/3.3.0/ekko-lightbox.min.js"></script>
         
         <!-- Parsing Configuration php to javascript -->
-        <script type="text/javascript">var directory = "<?php echo directory ?>";</script>
+        <script type="text/javascript">
+            var CDN = "<?php echo CDN ?>";
+            var VER = "<?php echo VER ?>";
+            var directory = "<?php echo directory ?>";
+        </script>
         <!-- Main Script -->
         <script src="<?php echo CDN?><?php echo directory?>/js/main.js?v=<?php echo VER?>"></script>
 
