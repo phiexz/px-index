@@ -4,6 +4,6 @@
   //Location for px-index ex: /px-index or ../px-index
   define('directory', '');
   //Max File name
-  define('MaxFileName', 75);
+  define('MaxFileName', 65);
   $ReportEmail='';
 ?>

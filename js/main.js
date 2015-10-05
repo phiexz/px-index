@@ -63,10 +63,13 @@ function prependIcon(obj, ext){
      $(obj).prepend('<img class="icon-sprite" src="'+ CDN + directory +'/img/icon-sprite.svg?v='+ VER +'#'+ ext +'" alt=""></img>');
 }
 
-function shorten(text, maxLength) {
+function shorten(text, maxLength, file) {
     var ret = text;
     if (ret.length > maxLength) {
-        ret = ret.substr(0,maxLength-3) + "...";
+        if(file)
+            ret = ret.substr(0,maxLength-3) + "~." + ret.split('.').pop();
+        else
+            ret = ret.substr(0,maxLength-1) + "~";
     }
     return ret;
 }
@@ -118,9 +121,7 @@ $(document).ready(function(){
     
     //Remove slash from last directory name & set icons
     $('table#list td:nth-child(1)').each(function() {
-        //do shorten
-        this.getElementsByTagName("a")[0].innerHTML = shorten(this.getElementsByTagName("a")[0].innerHTML, MaxFileName);
-        
+
         var lastChar = $(this).text().substr($(this).text().length - 1);
         var ext = $(this).text().split('.').pop().toLowerCase();
         var imageExt   = ["jpg", "jpeg", "jpe", "jif", "jfif", "jfi", "png", "gif", "svg", "svgz", "xbm", "bmp", "psd"];
@@ -139,6 +140,9 @@ $(document).ready(function(){
                 this.innerHTML = '<img class="icon-sprite" src="'+ CDN + directory +'/img/icon-sprite.svg?v='+ VER +'#back" alt=""></img><a href="../">'+$(this).text().slice(0,-1)+'</a>';
             else
                 this.innerHTML = '<img class="icon-sprite" src="'+ CDN + directory +'/img/icon-sprite.svg?v='+ VER +'#folder" alt=""></img><a href="'+$(this).text()+'">'+$(this).text().slice(0,-1)+'</a>';
+            
+            //do shorten
+            this.getElementsByTagName("a")[0].innerHTML = shorten(this.getElementsByTagName("a")[0].innerHTML, MaxFileName, false);
         }
         else{
             //add id: listfiles ke <a>, buat cek select item di bawah
@@ -166,6 +170,9 @@ $(document).ready(function(){
                 prependIcon(this, "app");
             else
                 prependIcon(this, "file");
+            
+            //do shorten
+            this.getElementsByTagName("a")[0].innerHTML = shorten(this.getElementsByTagName("a")[0].innerHTML, MaxFileName, true);
         }
     });
     
