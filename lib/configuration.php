@@ -1,6 +1,7 @@
 <?php
   define('CDN', '');
   define('VER', '3.0.1');
-  define('directory', '../px-index');
+  //Location for px-index ex: /px-index or ../px-index
+  define('directory', '');
   $ReportEmail='';
 ?>
