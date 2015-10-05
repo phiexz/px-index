@@ -47,7 +47,7 @@
                 <li class="active"><a href="/" data-container="body" data-toggle="tooltip" data-placement="bottom" title="Back to Home"><span class="glyphicon glyphicon-home"></span></a></li>
                 <li class="disabled"><a href="#" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="Feature under development!">Upload Files</a></li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">More Links <b class="caret"></b></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Links <b class="caret"></b></a>
                   <ul class="dropdown-menu">
                     <li><a href="http://android.phiexz.com" target="_blank"><span class="glyphicon glyphicon-fire"></span> Android Development</a></li>
                     <li><a href="http://mirror.phiexz.com" target="_blank"><span class="glyphicon glyphicon-hdd"></span> Mirror Android</a></li>
@@ -58,9 +58,17 @@
                     <li><a href="http://downloader.phiexz.com:99" target="_blank"><span class="glyphicon glyphicon-globe"></span> PX Downloader</a></li>
                   </ul>
                 </li>
-                <li data-container="body" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="Report broken / ilegal files here!"><a href="#" data-toggle="modal" data-target="#report">Contact &amp; Report</a></li>
-                <li data-container="body" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="Donation to keep server alive!"><a href="#" data-toggle="modal" data-target="#donate">Donate</a></li>
-                <li data-container="body" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="Generate selected files url"><a href="#" data-toggle="modal" data-target="#generateURL"><span class="glyphicon glyphicon-download-alt"></span> Generate URL</a></li>
+                <li data-container="body" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="Donation to keep server alive!"><a href="#" data-toggle="modal" data-target="#donate"><span class="glyphicon glyphicon-heart"></span>  Donate</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                  <li data-container="body" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="Report broken / ilegal files here!"><a href="#" data-toggle="modal" data-target="#report"><strong><span class="glyphicon glyphicon-envelope"></span></strong></a></li>
+                  <li data-container="body" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="Generate/Download Links"><a href="#" data-toggle="modal" data-target="#generateURL"><strong><span class="glyphicon glyphicon-download-alt"></span></strong></a></li>
+                  <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><strong><span class="glyphicon glyphicon-cog"></span></strong> <b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        
+                      </ul>
+                  </li>
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
