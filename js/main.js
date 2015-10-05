@@ -118,6 +118,8 @@ $(document).ready(function(){
         if (lastChar == "/"){
             this.innerHTML = '<a href="'+$(this).text()+'">'+$(this).text().slice(0,-1)+'</a>';
         }
+        else
+            this.innerHTML = '<a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
     });
     
     //Random page header & table hover backgroundColor
@@ -134,11 +136,14 @@ $(document).ready(function(){
         var isMouseDown = false,
         isHighlighted;
         $(".table tr")
-          .mousedown(function () {
+          .mousedown(function (e) {
             isMouseDown = true;
             //cek kalo 2nd row nya kosong (folder)
-            if(this.cells[1].innerHTML!="")
-                $(this).toggleClass("highlighted");
+            if(this.cells[1].innerHTML!=""){
+                 if (e.target.id != "listFiles"){ //cek kalo yg di klik bukan link
+                     $(this).toggleClass("highlighted");
+                 }
+            }
             return false; // prevent text selection
           })
           .mouseover(function () {
