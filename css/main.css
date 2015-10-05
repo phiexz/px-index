@@ -218,7 +218,8 @@ td:nth-child(3n+3) {
 }
 
 td, td a{
-    color: rgba(0,0,0,0.87); 
+    color: rgba(0,0,0,0.87);
+    vertical-align: middle;
 }
 
 th {
@@ -239,9 +240,11 @@ th a{
     width:100%
 }
 
-
-
-
+object{
+    margin: auto 7px auto 3px;
+    vertical-align: middle;
+    display: inline;
+}
 
 
 

@@ -112,14 +112,55 @@ $(document).ready(function(){
     //Change column width
     document.getElementsByTagName("colgroup")[0].outerHTML = '<colgroup><col width="65%"/><col width="15%"/><col width="20%"/></colgroup>'
     
-    //Remove slash from last directory name
+    //Remove slash from last directory name & set icons
     $('table#list td:nth-child(1)').each(function() {
         var lastChar = $(this).text().substr($(this).text().length - 1);
+        var ext = $(this).text().split('.').pop().toLowerCase();
+        var imgExt = ["jpg", "jpeg", "jpe", "jif", "jfif", "jfi", "png", "gif", "svg", "svgz", "xbm", "bmp", "psd"];
+        var audioExt = ["aac", "mp3", "wma", "wav", "ogg", "flac"];
+        var videoExt = ["avi", "flv", "mkv", "mp4", "wmv"];
+        var subtitleExt = ["sub", "lrc", "srt", "ass", "ssa"];
+        var archiveExt = ["7z", "7zip", "rar", "tgz", "gz", "lz", "xz", "zip"];
+        var isoExt = ["dmg", "iso", "bin", "cdi", "image", "img"];
+        var officeExt = ["doc", "docx", "rtf", "ppt", "pptx", "xls", "xlsx"];
+        var textExt = ["txt"];
+        var lockExt = ["px", "gpg"];
+        var sourceExt = ["c", "cpp", "css", "less", "sass", "h", "hpp", "html", "java", "js", "php", "py", "rb", "sql", "xml", "sh", "bash"];
+        var appExt = ["bat", "exe", "com"];
+        
+        
+        
         if (lastChar == "/"){
-            this.innerHTML = '<a href="'+$(this).text()+'">'+$(this).text().slice(0,-1)+'</a>';
+            if($(this).text() == "Parent directory/")
+                this.innerHTML = '<object type="image/svg+xml" height="24" data="/px-index/img/a.svg#back"></object><a href="../">'+$(this).text().slice(0,-1)+'</a>';
+            else
+                this.innerHTML = '<object type="image/svg+xml" height="24" data="/px-index/img/a.svg#folder"></object><a href="'+$(this).text()+'">'+$(this).text().slice(0,-1)+'</a>';
         }
-        else
-            this.innerHTML = '<a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+        else if(imgExt.indexOf(ext) > -1)
+            this.innerHTML = '<object type="image/svg+xml" height="24" data="/px-index/img/a.svg#image"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+        else if(audioExt.indexOf(ext) > -1)
+            this.innerHTML = '<object type="image/svg+xml" height="24" data="/px-index/img/a.svg#audio"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+        else if(videoExt.indexOf(ext) > -1)
+            this.innerHTML = '<object type="image/svg+xml" height="24" data="/px-index/img/a.svg#video"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+        else if(subtitleExt.indexOf(ext) > -1)
+            this.innerHTML = '<object type="image/svg+xml" height="24" data="/px-index/img/a.svg#subtitle"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+        else if(archiveExt.indexOf(ext) > -1)
+            this.innerHTML = '<object type="image/svg+xml" height="24" data="/px-index/img/a.svg#archive"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+        else if(isoExt.indexOf(ext) > -1)
+            this.innerHTML = '<object type="image/svg+xml" height="24" data="/px-index/img/a.svg#iso"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+        else if(officeExt.indexOf(ext) > -1)
+            this.innerHTML = '<object type="image/svg+xml" height="24" data="/px-index/img/a.svg#office"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+        else if(textExt.indexOf(ext) > -1)
+            this.innerHTML = '<object type="image/svg+xml" height="24" data="/px-index/img/a.svg#text"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+        else if(lockExt.indexOf(ext) > -1)
+            this.innerHTML = '<object type="image/svg+xml" height="24" data="/px-index/img/a.svg#lock"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+        else if(sourceExt.indexOf(ext) > -1)
+            this.innerHTML = '<object type="image/svg+xml" height="24" data="/px-index/img/a.svg#source"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+        else if(appExt.indexOf(ext) > -1)
+            this.innerHTML = '<object type="image/svg+xml" height="24" data="/px-index/img/a.svg#app"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+        else{
+            this.innerHTML = '<object type="image/svg+xml" height="24" data="/px-index/img/a.svg#file"></object><a id="listFiles" href="'+$(this).text()+'">'+$(this).text()+'</a>';
+        }
     });
     
     //Random page header & table hover backgroundColor
