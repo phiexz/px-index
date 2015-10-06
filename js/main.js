@@ -276,11 +276,11 @@ $(document).ready(function(){
     
     //Searchbox
     $("#searchBox").keyup(function() {
-        var value = this.value;
+        var value = this.value.toLowerCase();
 
         $("table").find("tr").each(function(index) {
             if (!index) return;
-            var id = $(this).find("td").first().text();
+            var id = $(this).find("td").first().text().toLowerCase();
             $(this).toggle(id.indexOf(value) !== -1);
         });
     });
