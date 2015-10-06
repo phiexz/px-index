@@ -17,6 +17,7 @@
             </div>
         </div>
         <div class="modal-footer">
+          <button type="button" onClick='$("textarea#generatedURL").focus().select();' class="btn btn-default">Select All</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
