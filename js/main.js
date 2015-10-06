@@ -46,7 +46,10 @@ function generateURL(what) {
         //generating nSelected files
         $( "span#nSelected" ).text(nSelected);
         //Change textarea rows
-        $( "textarea#generatedURL" ).attr("rows",nSelected);
+        if (nSelected > 25)
+            $( "textarea#generatedURL" ).attr("rows", 25);
+        else
+            $( "textarea#generatedURL" ).attr("rows", nSelected);
         //generating url list
         $( "textarea#generatedURL" ).text(generatedURL.slice(0,-1));
     }
