@@ -77,20 +77,47 @@ function shorten(text, maxLength, file) {
     return ret;
 }
 
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+    }
+    return "";
+}
+
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
 function resizeSite(type, size){
     fontSize = parseInt($('table#list').css('font-size'));
     
     if(type=="font"){
-        if (size=="increase")
+        if (size=="increase"){
             $('table#list').css('font-size', fontSize+2);
-        else if(size=="decrease")
+            setCookie("fontSize", fontSize+2, 365);
+        }
+        else if(size=="decrease"){
             $('table#list').css('font-size', fontSize-2);
-        else
+            setCookie("fontSize", fontSize-2, 365);
+        }
+        else if(size=="default"){
             $('table#list').css('font-size', defaultFontSize);
+            setCookie("fontSize", defaultFontSize, 365);
+        }
+        else
+            $('table#list').css('font-size', parseInt(size));
     }
     else if(type=="icon"){
-        $('img.icon-sprite').css('width', size + "px");
-        $('img.icon-sprite').css('height', size  + "px");
+        $('img.icon-sprite').css('width', parseInt(size));
+        $('img.icon-sprite').css('height', parseInt(size));
+        setCookie("iconSize", size, 365);
     }
     
 }
@@ -308,6 +335,27 @@ $(document).ready(function(){
     
     //Increase & Decrease Site
     defaultFontSize = parseInt($('table#list').css('font-size'));
+    defaultIconSize = parseInt($('img.icon-sprite').css('width'));
+
+    var fontSize,iconSize;
+    
+    //getting cookie
+    //fontsize
+    if (getCookie("fontSize") != ""){
+        fontSize = parseInt(getCookie("fontSize"));
+        resizeSite("font", fontSize);
+    }
+    else
+        fontSize = defaultFontSize;
+    //icon size
+    if (getCookie("iconSize") != ""){
+        iconSize = parseInt(getCookie("iconSize"));
+        resizeSite("icon", iconSize);
+        $("label#icon-" + iconSize).addClass("active")
+    }
+    else
+        iconSize = defaultIconSize;
+    
     
     
     //SubmitReport

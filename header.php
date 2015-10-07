@@ -97,16 +97,16 @@
                                 <span style="padding-left: 10px;">Icon Size : </span>
                                 <div class="text-center" style="margin:5px auto">
                                     <div class="btn-group" data-toggle="buttons">
-                                      <label class="btn btn-default">
+                                      <label id="icon-16" class="btn btn-default">
                                         <input type="radio" name="resizeIcon" autocomplete="off" onchange='resizeSite("icon", "16")'> 16
                                       </label>
-                                      <label class="btn btn-default">
+                                      <label id="icon-24" class="btn btn-default">
                                         <input type="radio" name="resizeIcon" autocomplete="off" onchange='resizeSite("icon", "24")'> 24
                                       </label>
-                                      <label class="btn btn-default">
+                                      <label id="icon-32" class="btn btn-default">
                                         <input type="radio" name="resizeIcon" autocomplete="off" onchange='resizeSite("icon", "32")'> 32
                                       </label>
-                                      <label class="btn btn-default">
+                                      <label id="icon-48" class="btn btn-default">
                                         <input type="radio" name="resizeIcon" autocomplete="off" onchange='resizeSite("icon", "48")'> 48
                                       </label>
                                     </div>
