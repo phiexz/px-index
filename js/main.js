@@ -77,6 +77,19 @@ function shorten(text, maxLength, file) {
     return ret;
 }
 
+function resizeSite(type){
+    fontSize = parseInt($('table#list').css('font-size'));
+    if (type=="increase"){
+        $('table#list').css('font-size', fontSize+2);
+    }
+    else if(type=="decrease"){
+        $('table#list').css('font-size', fontSize-2);
+    }
+    else{
+        $('table#list').css('font-size', defaultFontSize);
+    }
+}
+
 $(document).ready(function(){
     //Tooltip bootstrap
     $("[data-toggle=tooltip").tooltip();
@@ -284,6 +297,9 @@ $(document).ready(function(){
             $(this).toggle(id.indexOf(value) !== -1);
         });
     });
+    
+    //Increase & Decrease Site
+    defaultFontSize = parseInt($('table#list').css('font-size'));
     
     
     //SubmitReport

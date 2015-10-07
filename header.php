@@ -85,9 +85,9 @@
                             <li>
                                 <div class="text-center" style="margin:5px auto">
                                 <div class="btn-group" role="group" aria-label="...">
-                                  <button type="button" class="btn btn-default">-</button>
-                                  <button type="button" class="btn btn-default">Default</button>
-                                  <button type="button" class="btn btn-default">+</button>
+                                  <button type="button" class="btn btn-default" onclick='resizeSite("decrease")'>-</button>
+                                  <button type="button" class="btn btn-default" onclick='resizeSite("default")'>Default</button>
+                                  <button type="button" class="btn btn-default" onclick='resizeSite("increase")'>+</button>
                                 </div>
                                 </div>
                             </li>
