@@ -76,10 +76,8 @@
                   </li>
                   <li data-container="body" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="Report broken / ilegal files here!"><a href="#" data-toggle="modal" data-target="#report"><strong><span class="glyphicon glyphicon-envelope"></span></strong></a></li>
                   <li data-container="body" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="Generate/Download Links"><a href="#" data-toggle="modal" data-target="#generateURL"><strong><span class="glyphicon glyphicon-download-alt"></span></strong></a></li>
-                  <li>
-                          <button type="button" class="btn btn-info dropdown-toggle navbar-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <strong><span class="glyphicon glyphicon-cog"></span></strong> <span class="caret"></span>
-                          </button>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><strong><span class="glyphicon glyphicon-cog"></span></strong> <span class="caret"></span></a>
                           <ul class="dropdown-menu" style="min-width:220px;">
                             <div id="siteSetting" class="text-center"><b>Site Setting</b></div>
                             <li>
