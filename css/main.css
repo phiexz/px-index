@@ -262,38 +262,14 @@ img.icon-sprite{
 .btn-dark.focus {
   color: #fff;
   background-color: #999;
-  border-color: #ccc;
+  border-color: #000;
 }
 .btn-dark:hover {
   color: #fff;
   background-color: #888;
-  border-color: #ccc;
-}
-.btn-dark:active,
-.btn-dark.active,
-.open > .dropdown-toggle.btn-dark {
-  color: #fff;
-  background-color: #000;
   border-color: #000;
 }
-.btn-dark:active:hover,
-.btn-dark.active:hover,
-.open > .dropdown-toggle.btn-dark:hover,
-.btn-dark:active:focus,
-.btn-dark.active:focus,
-.open > .dropdown-toggle.btn-dark:focus,
-.btn-dark:active.focus,
-.btn-dark.active.focus,
-.open > .dropdown-toggle.btn-dark.focus {
-  color: #fff;
-  background-color: #999;
-  border-color: #ccc;
-}
-.btn-dark:active,
-.btn-dark.active,
-.open > .dropdown-toggle.btn-dark {
-  background-image: none;
-}
+
 
 
 

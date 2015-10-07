@@ -99,7 +99,7 @@
                                   <label class="btn btn-default active">
                                     <input type="radio" name="options" id="option1" autocomplete="off"> Light
                                   </label>
-                                  <label class="btn btn-dark">
+                                  <label class="btn btn-default btn-dark">
                                     <input type="radio" name="options" id="option2" autocomplete="off"> Dark
                                   </label>
                                 </div>
