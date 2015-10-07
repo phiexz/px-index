@@ -1,0 +1,11 @@
+PX - INDEX V3
+
+nginx fancy index for my download page...
+TODO: 
+- Change theme
+- Ajax File Listing
+- Upload FIle
+- Server Status
+
+Limitation:
+- txt files cant be download (url changed to: #)
