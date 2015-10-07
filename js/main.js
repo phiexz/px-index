@@ -204,7 +204,7 @@ $(document).ready(function(){
     });
     
     //Random page header & table hover backgroundColor
-    var color = ['success','info','warning','danger']
+    var color = ['success','info','danger']
     var rand = color[Math.floor(Math.random() * color.length)];
     rand = 'alert-' + rand;
         //Page Header
