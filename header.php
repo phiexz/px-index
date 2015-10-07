@@ -61,8 +61,15 @@
                 <li data-container="body" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="Donation to keep server alive!"><a href="#" data-toggle="modal" data-target="#donate"><span class="glyphicon glyphicon-heart"></span>  Donate</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
-                
-                  <li class="dropdown">
+                  <li id="searchBox" class="hidden-sm hidden-xs" style="display:none;">
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input id="searchBox" type="text" class="form-control" placeholder="Search" />
+                        </div>
+                    </form>
+                  </li>
+                  <li id="searchButton" class="visible-md visible-lg"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><strong><span class="glyphicon glyphicon-search"></span></strong></a></li>
+                  <li id="searchBox" class="dropdown hidden-lg hidden-md">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><strong><span class="glyphicon glyphicon-search"></span></strong></a>
                       <ul class="dropdown-menu">
                         <li>

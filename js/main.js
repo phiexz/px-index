@@ -323,7 +323,10 @@ $(document).ready(function(){
     });
     
     //Searchbox
-    $("#searchBox").keyup(function() {
+    $("#searchButton").click(function(){
+        $("li#searchBox.hidden-sm.hidden-xs").toggle(500);
+    });
+    $("input#searchBox").keyup(function() {
         var value = this.value.toLowerCase();
 
         $("table").find("tr").each(function(index) {
