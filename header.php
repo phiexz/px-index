@@ -76,11 +76,36 @@
                   </li>
                   <li data-container="body" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="Report broken / ilegal files here!"><a href="#" data-toggle="modal" data-target="#report"><strong><span class="glyphicon glyphicon-envelope"></span></strong></a></li>
                   <li data-container="body" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="Generate/Download Links"><a href="#" data-toggle="modal" data-target="#generateURL"><strong><span class="glyphicon glyphicon-download-alt"></span></strong></a></li>
-                  <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><strong><span class="glyphicon glyphicon-cog"></span></strong> <b class="caret"></b></a>
-                      <ul class="dropdown-menu">
-                        
-                      </ul>
+                  <li>
+                          <button type="button" class="btn btn-info dropdown-toggle navbar-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <strong><span class="glyphicon glyphicon-cog"></span></strong> <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu">
+                            <span style="padding-left: 10px;">Site Size : </span>
+                            <li>
+                                <div class="text-center" style="margin:5px auto">
+                                <div class="btn-group" role="group" aria-label="...">
+                                  <button type="button" class="btn btn-default">-</button>
+                                  <button type="button" class="btn btn-default">Default</button>
+                                  <button type="button" class="btn btn-default">+</button>
+                                </div>
+                                </div>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <span style="padding-left: 10px;">Site Theme : </span>
+                                <div class="text-center" style="margin:5px auto">
+                                <div class="btn-group" data-toggle="buttons">
+                                  <label class="btn btn-default active">
+                                    <input type="radio" name="options" id="option1" autocomplete="off"> Light
+                                  </label>
+                                  <label class="btn btn-dark">
+                                    <input type="radio" name="options" id="option2" autocomplete="off"> Dark
+                                  </label>
+                                </div>
+                                </div>
+                            </li>
+                          </ul>
                   </li>
               </ul>
             </div><!-- /.navbar-collapse -->
