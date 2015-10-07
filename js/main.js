@@ -185,7 +185,7 @@ $(document).ready(function(){
         
         if (lastChar == "/"){
             this.getElementsByTagName("a")[0].innerHTML = this.getElementsByTagName("a")[0].innerHTML.slice(0,-1)
-            if($(this).text() == "Parent directory/")
+            if($(this).text() == "Parent directory")
                 prependIcon(this, "back");
             else
                 prependIcon(this, "folder");
