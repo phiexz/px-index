@@ -117,10 +117,10 @@
                                 <span style="padding-left: 10px;">Site Theme : </span>
                                 <div class="text-center" style="margin:5px auto">
                                 <div class="btn-group" data-toggle="buttons">
-                                  <label class="btn btn-default">
+                                  <label class="btn btn-default" disabled>
                                     <input type="radio" name="options" id="option1" autocomplete="off"> Light
                                   </label>
-                                  <label class="btn btn-default">
+                                  <label class="btn btn-default" disabled>
                                     <input type="radio" name="options" id="option2" autocomplete="off"> Dark
                                   </label>
                                 </div>
