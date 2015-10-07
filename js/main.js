@@ -77,17 +77,22 @@ function shorten(text, maxLength, file) {
     return ret;
 }
 
-function resizeSite(type){
+function resizeSite(type, size){
     fontSize = parseInt($('table#list').css('font-size'));
-    if (type=="increase"){
-        $('table#list').css('font-size', fontSize+2);
+    
+    if(type=="font"){
+        if (size=="increase")
+            $('table#list').css('font-size', fontSize+2);
+        else if(size=="decrease")
+            $('table#list').css('font-size', fontSize-2);
+        else
+            $('table#list').css('font-size', defaultFontSize);
     }
-    else if(type=="decrease"){
-        $('table#list').css('font-size', fontSize-2);
+    else if(type=="icon"){
+        $('img.icon-sprite').css('width', size + "px");
+        $('img.icon-sprite').css('height', size  + "px");
     }
-    else{
-        $('table#list').css('font-size', defaultFontSize);
-    }
+    
 }
 
 $(document).ready(function(){
@@ -207,6 +212,9 @@ $(document).ready(function(){
     
         //Table hover
         $( "tr" ).addClass(rand);
+        
+        //Site setting header
+        $( "div#siteSetting" ).addClass(rand);
         
         //clickable & click+drag table
         var isMouseDown = false,

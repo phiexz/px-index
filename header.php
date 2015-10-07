@@ -80,15 +80,36 @@
                           <button type="button" class="btn btn-info dropdown-toggle navbar-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <strong><span class="glyphicon glyphicon-cog"></span></strong> <span class="caret"></span>
                           </button>
-                          <ul class="dropdown-menu">
-                            <span style="padding-left: 10px;">Site Size : </span>
+                          <ul class="dropdown-menu" style="min-width:220px;">
+                            <div id="siteSetting" class="text-center"><b>Site Setting</b></div>
                             <li>
+                                <span style="padding-left: 10px;">Font Size : </span>
                                 <div class="text-center" style="margin:5px auto">
-                                <div class="btn-group" role="group" aria-label="...">
-                                  <button type="button" class="btn btn-default" onclick='resizeSite("decrease")'>-</button>
-                                  <button type="button" class="btn btn-default" onclick='resizeSite("default")'>Default</button>
-                                  <button type="button" class="btn btn-default" onclick='resizeSite("increase")'>+</button>
+                                    <div class="btn-group" role="group" aria-label="textSize">
+                                      <button type="button" class="btn btn-default" onclick='resizeSite("font", "decrease")'>-</button>
+                                      <button type="button" class="btn btn-default" onclick='resizeSite("font", "default")'>Default</button>
+                                      <button type="button" class="btn btn-default" onclick='resizeSite("font", "increase")'>+</button>
+                                    </div>
                                 </div>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <span style="padding-left: 10px;">Icon Size : </span>
+                                <div class="text-center" style="margin:5px auto">
+                                    <div class="btn-group" data-toggle="buttons">
+                                      <label class="btn btn-default">
+                                        <input type="radio" name="resizeIcon" autocomplete="off" onchange='resizeSite("icon", "16")'> 16
+                                      </label>
+                                      <label class="btn btn-default">
+                                        <input type="radio" name="resizeIcon" autocomplete="off" onchange='resizeSite("icon", "24")'> 24
+                                      </label>
+                                      <label class="btn btn-default">
+                                        <input type="radio" name="resizeIcon" autocomplete="off" onchange='resizeSite("icon", "32")'> 32
+                                      </label>
+                                      <label class="btn btn-default">
+                                        <input type="radio" name="resizeIcon" autocomplete="off" onchange='resizeSite("icon", "48")'> 48
+                                      </label>
+                                    </div>
                                 </div>
                             </li>
                             <li role="separator" class="divider"></li>
