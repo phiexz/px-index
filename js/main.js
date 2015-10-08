@@ -366,7 +366,7 @@ $(document).ready(function(){
       if (validateForm()){
           $.ajax({
               type: "POST",
-              url: "'+ directory +'/function.php?func=report", //process to mail
+              url: directory + "/lib/function.php?func=report", //process to mail
               data: $('form.report').serialize(),
               success: function(msg){
                 alert("Report sent! Thank you :)");

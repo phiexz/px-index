@@ -5,5 +5,6 @@
   define('directory', '');
   //Max File name
   define('MaxFileName', 65);
-  $ReportEmail='';
+  //mail for contact us
+  define('ReportEmail', '');
 ?>

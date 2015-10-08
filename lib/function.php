@@ -11,7 +11,7 @@
     $subject = strip_tags($_POST['reportSubject']);
     $message = strip_tags($_POST['reportMessage']);
     
-    $to1      = $myemail;
+    $to1      = ReportEmail;
     $subject1 = 'PX Download - '.$subject;
     $message1 = 'From: '.$name.'
 Email: '.$email.'
