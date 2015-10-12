@@ -62,10 +62,6 @@ function checkExtension(fileName){
     return (listExtensions.indexOf(ext) > -1);
 }
 
-function prependIcon(obj, ext){
-     $(obj).prepend('<img class="icon-sprite" src="'+ CDN + directory +'/img/icon-sprite.svg?v='+ VER +'#'+ ext +'" alt=""></img>');
-}
-
 function shorten(text, maxLength, file) {
     var ret = text;
     if (ret.length > maxLength) {
@@ -115,11 +111,9 @@ function resizeSite(type, size){
             $('table#list').css('font-size', parseInt(size));
     }
     else if(type=="icon"){
-        $('img.icon-sprite').css('width', parseInt(size));
-        $('img.icon-sprite').css('height', parseInt(size));
+        $('head').append('<style>#list a[href*="#"]:before, #list a[href*="."]:before, #list a[href*="/"]:before{ font-size:'+size+'px }</style>');
         setCookie("iconSize", size, 365);
     }
-    
 }
 
 $(document).ready(function(){
@@ -167,57 +161,18 @@ $(document).ready(function(){
     //Change column width
     document.getElementsByTagName("colgroup")[0].outerHTML = '<colgroup><col width="65%"/><col width="15%"/><col width="20%"/></colgroup>'
     
-    //Remove slash from last directory name & set icons
+    //Remove slash from last directory name
     $('table#list td:nth-child(1)').each(function() {
-
-        var lastChar = $(this).text().substr($(this).text().length - 1);
-        var ext = $(this).text().split('.').pop().toLowerCase();
-        var imageExt   = ["jpg", "jpeg", "jpe", "jif", "jfif", "jfi", "png", "gif", "svg", "svgz", "xbm", "bmp", "psd"];
-        var audioExt   = ["aac", "mp3", "wma", "wav", "ogg", "flac"];
-        var videoExt   = ["avi", "flv", "mkv", "mp4", "wmv"];
-        var subtitleExt= ["sub", "lrc", "srt", "ass", "ssa"];
-        var archiveExt = ["7z", "7zip", "rar", "tgz", "gz", "lz", "xz", "zip"];
-        var cdExt      = ["dmg", "iso", "bin", "cdi", "image", "img"];
-        var officeExt  = ["doc", "docx", "rtf", "ppt", "pptx", "xls", "xlsx"];
-        var textExt    = ["txt", "c", "cpp", "css", "less", "sass", "h", "hpp", "html", "java", "js", "php", "py", "rb", "sql", "xml", "sh", "bash"];
-        var lockExt    = ["px", "gpg"];
-        var appExt     = ["bat", "exe", "com"];
-        
+        var lastChar = $(this).text().substr($(this).text().length - 1);        
         if (lastChar == "/"){
             this.getElementsByTagName("a")[0].innerHTML = this.getElementsByTagName("a")[0].innerHTML.slice(0,-1)
-            if($(this).text() == "Parent directory")
-                prependIcon(this, "back");
-            else
-                prependIcon(this, "folder");
+            
             //do shorten
             this.getElementsByTagName("a")[0].innerHTML = shorten(this.getElementsByTagName("a")[0].innerHTML, MaxFileName, false);
         }
         else{
             //add id: listfiles ke <a>, buat cek select item di bawah
             $(this.getElementsByTagName("a")[0]).attr("id","listFiles");
-
-            if (imageExt.indexOf(ext) > -1)
-                prependIcon(this, "image");
-            else if(audioExt.indexOf(ext) > -1)
-                prependIcon(this, "audio");
-            else if(videoExt.indexOf(ext) > -1)
-                prependIcon(this, "video");
-            else if(subtitleExt.indexOf(ext) > -1)
-                prependIcon(this, "subtitle");
-            else if(archiveExt.indexOf(ext) > -1)
-                prependIcon(this, "archive");
-            else if(cdExt.indexOf(ext) > -1)
-                prependIcon(this, "cd");
-            else if(officeExt.indexOf(ext) > -1)
-                prependIcon(this, "office");
-            else if(textExt.indexOf(ext) > -1)
-                prependIcon(this, "text");
-            else if(lockExt.indexOf(ext) > -1)
-                prependIcon(this, "lock");
-            else if(appExt.indexOf(ext) > -1)
-                prependIcon(this, "app");
-            else
-                prependIcon(this, "file");
             
             //do shorten
             this.getElementsByTagName("a")[0].innerHTML = shorten(this.getElementsByTagName("a")[0].innerHTML, MaxFileName, true);
@@ -338,7 +293,7 @@ $(document).ready(function(){
     
     //Increase & Decrease Site
     defaultFontSize = parseInt($('table#list').css('font-size'));
-    defaultIconSize = parseInt($('img.icon-sprite').css('width'));
+    defaultIconSize = parseInt($('#list a:before').css('font-size'));
 
     var fontSize,iconSize;
     
@@ -354,12 +309,8 @@ $(document).ready(function(){
     if (getCookie("iconSize") != ""){
         iconSize = parseInt(getCookie("iconSize"));
         resizeSite("icon", iconSize);
-        $("label#icon-" + iconSize).addClass("active")
+        $("label#icon-" + iconSize).addClass("active");
     }
-    else
-        iconSize = defaultIconSize;
-    
-    
     
     //SubmitReport
     $("input#reportSubmit").click(function(){

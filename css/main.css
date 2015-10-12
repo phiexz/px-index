@@ -173,7 +173,7 @@ table {
 }
 
 .table > tbody > tr > td{
-    padding: 4px 8px;
+    padding: 0 8px;
     vertical-align: middle;
 }
 
@@ -245,14 +245,135 @@ th a{
     width:100%
 }
 
-img.icon-sprite{
-    margin: auto 7px auto 3px;
-    vertical-align: middle;
-    display: inline;
-    width: 24px;
-    height: 24px;
+
+/* ==========================================================================
+   Icon
+   ========================================================================== */
+
+#list a{
+    position: relative;
 }
 
+/*-- general --*/
+#list a[href*="#"]:before, #list a[href*="."]:before, #list a[href*="/"]:before {
+    content: "\f016";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+/*--adjust as necessary--*/
+    color: #5f5f5f;
+    font-size: 24px;
+    margin: auto 7px auto 4px;
+    padding: 0;
+    position: inline-block;
+    vertical-align: middle;
+}
+
+#list a[href*="#"]:after, #list a[href*="."]:after, #list a[href*="/"]:after {
+    content: "";
+}
+#list a[href$="/"]:before {
+    content: "\f07b";
+}
+#list a[href$="../"]:before {
+    content: "\f112";
+}
+
+
+/*-- audio --*/
+#list a[href$=".aac"]:before, #list a[href$=".flac"]:before,
+#list a[href$=".ogg"]:before, #list a[href$=".mp3"]:before,
+#list a[href$=".wav"]:before, #list a[href$=".wma"]:before {
+    content: "\f1c7";
+}
+
+/*-- video --*/
+#list a[href$=".3gp"]:before,#list a[href$=".avi"]:before,
+#list a[href$=".flv"]:before,#list a[href$=".mkv"]:before,
+#list a[href$=".mov"]:before,#list a[href$=".mpeg"]:before,
+#list a[href$=".mpg"]:before,#list a[href$=".rmvb"]:before,
+#list a[href$=".webm"]:before,#list a[href$=".wmv"]:before {
+    content: "\f1c8";
+}
+
+/*-- subtitle --*/
+#list a[href$=".ass"]:before,#list a[href$=".lrc"]:before,
+#list a[href$=".sbv"]:before,#list a[href$=".srt"]:before,
+#list a[href$=".ssa"]:before,#list a[href$=".sub"]:before {
+    content: "\f27b";
+}
+
+/*-- image --*/
+#list a[href$=".bmp"]:before,#list a[href$=".gif"]:before,
+#list a[href$=".ico"]:before,#list a[href$=".jpeg"]:before,
+#list a[href$=".jpg"]:before,#list a[href$=".png"]:before,
+#list a[href$=".svg"]:before,#list a[href$=".svgz"]:before {
+    content: "\f1c5";
+}
+
+/*-- archive --*/
+#list a[href$=".7z"]:before,#list a[href$=".7zip"]:before,
+#list a[href$=".cab"]:before,#list a[href$=".gz"]:before,
+#list a[href$=".lz"]:before,#list a[href$=".rar"]:before,
+#list a[href$=".tar"]:before,#list a[href$=".tgz"]:before,
+#list a[href$=".xz"]:before,#list a[href$=".zip"]:before {
+    content: "\f1c6";
+}
+
+/*-- office --*/
+#list a[href$=".pdf"]:before {
+    content: "\f1c1";
+}
+#list a[href$=".doc"]:before,#list a[href$=".docx"]:before,
+#list a[href$=".odt"]:before,#list a[href$=".ott"]:before {
+    content: "\f1c2";
+}
+#list a[href$=".ppt"]:before,#list a[href$=".pptx"]:before,
+#list a[href$=".pps"]:before,#list a[href$=".pptm"]:before,
+#list a[href$=".odp"]:before,#list a[href$=".odg"]:before{
+    content: "\f1c4";
+}
+#list a[href$=".xls"]:before,#list a[href$=".xlsx"]:before,
+#list a[href$=".ods"]:before,#list a[href$=".ots"]:before,
+#list a[href$=".csv"]:before {
+    content: "\f1c3";
+}
+/*-- coding --*/
+#list a[href$=".c"]:before,#list a[href$=".cpp"]:before,
+#list a[href$=".css"]:before,#list a[href$=".h"]:before,
+#list a[href$=".hpp"]:before,#list a[href$=".html"]:before,
+#list a[href$=".java"]:before,#list a[href$=".js"]:before,
+#list a[href$=".less"]:before,#list a[href$=".php"]:before,
+#list a[href$=".py"]:before,#list a[href$=".rb"]:before,
+#list a[href$=".sql"]:before,#list a[href$=".sh"]:before,
+#list a[href$=".xml"]:before {
+    content: "\f1c9";
+}
+/*-- text --*/
+#list a[href$="#"]:before, #list a[href$=".rtf"]:before,
+#list a[href$=".txt"]:before {
+    content: "\f0f6";
+}
+/*-- cd image --*/
+#list a[href$=".bin"]:before,#list a[href$=".cdi"]:before,
+#list a[href$=".dmg"]:before,#list a[href$=".image"]:before,
+#list a[href$=".img"]:before,#list a[href$=".iso"]:before {
+    content: "\f192";
+}
+/*-- encrypted --*/
+#list a[href$=".gpg"]:before, #list a[href$=".px"]:before {
+    content: "\f023";
+}
+/*-- Executable --*/
+#list a[href$=".bat"]:before,#list a[href$=".com"]:before,
+#list a[href$=".exe"]:before,#list a[href$=".lnk"]:before,
+#list a[href$=".msi"]:before,#list a[href$=".reg"]:before {
+    content: "\f17a";
+}
+#list a[href$=".app"]:before,#list a[href$=".osx"]:before {
+    content: "\f179";
+}
 
 
 
