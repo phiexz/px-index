@@ -8,7 +8,10 @@
     define('directory', '');
     
     // Max Lenght File name
-    define('MaxFileName', 65);
+    // We dont need it, since fancyindex already have this feature
+    // Use: fancyindex_name_length instead
+    define('MaxFileName', false);
+    define('MaxFileNameLength', 65);
     
     // Mail for contact us
     define('ReportEmail', '');

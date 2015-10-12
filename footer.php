@@ -11,7 +11,7 @@
         <script type="text/javascript">
             var CDN = "<?php echo CDN ?>";
             var VER = "<?php echo VER ?>";
-            var MaxFileName = "<?php echo MaxFileName ?>"
+            <?php if(MaxFileName) echo "var MaxFileName = ".MaxFileName.";\n var MaxFileNameLength = ".MaxFileNameLength.";\n"?>
             var directory = "<?php echo directory ?>";
             <?php if(RoundFileSize) echo "var RoundFileSize = ".RoundFileSize ?>
         </script>

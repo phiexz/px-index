@@ -167,14 +167,16 @@ $(document).ready(function(){
             this.getElementsByTagName("a")[0].innerHTML = this.getElementsByTagName("a")[0].innerHTML.slice(0,-1)
             
             //do shorten
-            this.getElementsByTagName("a")[0].innerHTML = shorten(this.getElementsByTagName("a")[0].innerHTML, MaxFileName, false);
+            if(typeof MaxFileName !== 'undefined')
+            this.getElementsByTagName("a")[0].innerHTML = shorten(this.getElementsByTagName("a")[0].innerHTML, MaxFileNameLength, false);
         }
         else{
             //add id: listfiles ke <a>, buat cek select item di bawah
             $(this.getElementsByTagName("a")[0]).attr("id","listFiles");
             
             //do shorten
-            this.getElementsByTagName("a")[0].innerHTML = shorten(this.getElementsByTagName("a")[0].innerHTML, MaxFileName, true);
+            if(typeof MaxFileName !== 'undefined')
+            this.getElementsByTagName("a")[0].innerHTML = shorten(this.getElementsByTagName("a")[0].innerHTML, MaxFileNameLength, true);
         }
     });
     
