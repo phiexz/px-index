@@ -143,7 +143,7 @@
         </nav>
         <div class="wrapper">
             <div class="page-header">
-              <div id="randomPageHeader" class="alert text-center" role="alert"><h2>Welcome to PX Download Page<br> <small>Version: <span class="badge"><?php echo VER ?></span></small></h2></div>
+              <?php if(UseHeaderWelcome) echo HeaderWelcome ?>
             </div>
         <?php if(!ReportEmail){ ?>
             <div class="alert alert-danger" role="alert">

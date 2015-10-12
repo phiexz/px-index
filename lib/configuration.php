@@ -6,6 +6,11 @@
     // Location for px-index file
     // ex: /px-index or ../px-index or else
     define('directory', '');
+
+    // Header Welcome
+    define('UseHeaderWelcome', true);
+    define ('HeaderWelcome', '<div id="randomPageHeader" class="alert text-center" role="alert"><h2>Welcome to PX Download Page<br>
+                              <small>Version: <span class="badge">'.VER.'</span></small></h2></div>');
     
     // Max Lenght File name
     // We dont need it, since fancyindex already have this feature
