@@ -13,6 +13,7 @@
             var VER = "<?php echo VER ?>";
             var MaxFileName = "<?php echo MaxFileName ?>"
             var directory = "<?php echo directory ?>";
+            <?php if(RoundFileSize) echo "var RoundFileSize = ".RoundFileSize ?>
         </script>
         <!-- Main Script -->
         <script src="<?php echo CDN?><?php echo directory?>/js/main.js?v=<?php echo VER?>"></script>

@@ -21,7 +21,7 @@ function validateForm() {
 }
 
 function bytesToSize(bytes) {
-    var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+    var sizes = ['B ', 'KB', 'MB', 'GB', 'TB'];
     if (bytes == 0) return 'n/a';
     var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
     if (i == 0) return bytes + ' ' + sizes[i]; 
@@ -143,17 +143,16 @@ $(document).ready(function(){
     document.getElementById('breadcrumbs').innerHTML = breadcrumbs;
     
     //Filesize
-    if ($(window).width() >= 768) {
-      $('table#list td:nth-child(2)').each(function() {
-        if ($(this).text() == "-"){
-            $(this).text('');
-        }
-        else{
-          var cellText = parseFloat($(this).text());
-          $(this).text(bytesToSize(cellText));
-        }
-      });
-    }
+    $('table#list td:nth-child(2)').each(function() {
+      if ($(this).text() == "-")
+          $(this).text('');
+      else{
+          if(typeof RoundFileSize !== 'undefined') {
+            var cellText = parseFloat($(this).text());
+            $(this).text(bytesToSize(cellText));
+          }
+      }
+    });
     
     //Add class to table#list
     $( "table#list" ).addClass( "table" );
