@@ -109,14 +109,14 @@
                                       <label id="icon-16" class="btn btn-default">
                                         <input type="radio" name="resizeIcon" autocomplete="off" onchange='resizeSite("icon", "16")'> 16
                                       </label>
+                                      <label id="icon-20" class="btn btn-default">
+                                        <input type="radio" name="resizeIcon" autocomplete="off" onchange='resizeSite("icon", "20")'> 20
+                                      </label>
                                       <label id="icon-24" class="btn btn-default">
                                         <input type="radio" name="resizeIcon" autocomplete="off" onchange='resizeSite("icon", "24")'> 24
                                       </label>
                                       <label id="icon-32" class="btn btn-default">
                                         <input type="radio" name="resizeIcon" autocomplete="off" onchange='resizeSite("icon", "32")'> 32
-                                      </label>
-                                      <label id="icon-48" class="btn btn-default">
-                                        <input type="radio" name="resizeIcon" autocomplete="off" onchange='resizeSite("icon", "48")'> 48
                                       </label>
                                     </div>
                                 </div>
