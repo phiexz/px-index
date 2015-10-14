@@ -128,6 +128,13 @@ function loadingAjax(type){
     }
 }
 
+function ajaxSetting(type){
+    if(type == "enable")
+        setCookie("disableAjax", "", -1);
+    else if(type == "disable")
+        setCookie("disableAjax", 1, 365);
+}
+
 /*** Function DOM ***/
 function setTittle(){
     var urlPath = window.location.pathname.split( '/' );
@@ -338,25 +345,32 @@ $(document).ready(function(){
         resizeSite("icon", iconSize);
         $("label#icon-" + iconSize).addClass("active");
     }
+    //Ajax Mode
+    if (getCookie("disableAjax") != "")
+        $("label#ajaxDisable").addClass("active");
+    else
+        $("label#ajaxEnable").addClass("active");
     
     //Ajax listFolders (kalo di klik)
     $(document).on("click", "a#listFolders",function(e){
-        e.preventDefault();
-        setCookie("openAsAjax", "true", 30/24/60/60); //set cookie for 30s
-        loadingAjax("start");
-        $('table#list').load($(this).attr("href"), function(){
-            loadingAjax("stop");
-            //Setting HTML Title
-            setTittle();
-            //Generating Breadcrumbs
-            generateBreadcrumbs();
-            //Table Hack
-            tableHack();
-            //destroy cookie
-            setCookie("openAsAjax", "true", -1);
-        });
-        //Set html5 pushstate
-        history.pushState("", "", $(this).attr("href").split('/').slice(0,-1)+"/");
+        if (getCookie("disableAjax") == ""){
+            e.preventDefault();
+            setCookie("openAsAjax", "true", 30/24/60/60); //set cookie for 30s
+            loadingAjax("start");
+            $('table#list').load($(this).attr("href"), function(){
+                loadingAjax("stop");
+                //Setting HTML Title
+                setTittle();
+                //Generating Breadcrumbs
+                generateBreadcrumbs();
+                //Table Hack
+                tableHack();
+                //destroy cookie
+                setCookie("openAsAjax", "true", -1);
+            });
+            //Set html5 pushstate
+            history.pushState("", "", $(this).attr("href").split('/').slice(0,-1)+"/");
+        }
     });
     
     //SubmitReport

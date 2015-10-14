@@ -124,6 +124,20 @@
                             </li>
                             <li role="separator" class="divider"></li>
                             <li>
+                                <span style="padding-left: 10px;">Ajax Mode : </span>
+                                <div class="text-center" style="margin:5px auto">
+                                <div class="btn-group" data-toggle="buttons">
+                                  <label id="ajaxEnable" class="btn btn-default">
+                                    <input type="radio" name="ajaxMode" autocomplete="off" onchange='ajaxSetting("enable")'> Enable
+                                  </label>
+                                  <label id="ajaxDisable" class="btn btn-default">
+                                    <input type="radio" name="ajaxMode" autocomplete="off" onchange='ajaxSetting("disable")'> Disable
+                                  </label>
+                                </div>
+                                </div>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
                                 <span style="padding-left: 10px;">Site Theme : </span>
                                 <div class="text-center" style="margin:5px auto">
                                 <div class="btn-group" data-toggle="buttons">
