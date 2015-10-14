@@ -116,17 +116,14 @@ function resizeSite(type, size){
     }
 }
 
-$(document).ready(function(){
-    //Tooltip bootstrap
-    $("[data-toggle=tooltip").tooltip();
-    $("[data-toggle=popover").popover();
-    
-    //Setting HTML Title
+/*** Function DOM ***/
+function setTittle(){
     var urlPath = window.location.pathname.split( '/' );
     var currentDir = urlPath[urlPath.length-2];
     window.document.title = "PX Download - " + currentDir.toUpperCase();
-    
-    //Generating Breadcrumbs
+}
+
+function generateBreadcrumbs(){
     var loc = window.location.pathname;
     var segments = loc.split('/');
     var breadcrumbs = '';
@@ -141,94 +138,132 @@ $(document).ready(function(){
       }
     }
     document.getElementById('breadcrumbs').innerHTML = breadcrumbs;
-    
-    //Filesize
-    $('table#list td:nth-child(2)').each(function() {
-      if ($(this).text() == "-")
-          $(this).text('');
-      else{
-          if(typeof RoundFileSize !== 'undefined') {
-            var cellText = parseFloat($(this).text());
-            $(this).text(bytesToSize(cellText));
-          }
-      }
-    });
-    
-    //Add class to table#list
+}
+
+function tableHack(){
+/*** Add class to table#list ***/
     $( "table#list" ).addClass( "table" );
     
-    //Change column width
+/*** Change column width ***/
     document.getElementsByTagName("colgroup")[0].outerHTML = '<colgroup><col width="65%"/><col width="15%"/><col width="20%"/></colgroup>'
     
-    //Remove slash from last directory name
+/*** Random backgroundColor ***/
+    var color = ['success','info','danger']
+    var rand = color[Math.floor(Math.random() * color.length)];
+    rand = 'alert-' + rand;
+    $( "div#randomPageHeader" ).addClass(rand); //Page Header
+    $( "tr" ).addClass(rand); //Table hover
+    $( "div#siteSetting" ).addClass(rand); //Site setting header
+    
+/*** Table Hack ***/
+    //clickable & click+drag table
+    var isMouseDown = false,
+    isHighlighted;
+    $(".table tr")
+      .mousedown(function (e) {
+        isMouseDown = true;
+        //cek kalo 2nd row nya kosong (folder)
+        if(this.cells[1].innerHTML!=""){
+             if (e.target.id != "listFiles"){ //cek kalo yg di klik bukan link
+                 $(this).toggleClass("highlighted");
+             }
+        }
+        return false; // prevent text selection
+      })
+      .mouseover(function () {
+        if (isMouseDown) {
+            //cek kalo 2nd row nya kosong (folder)
+            if(this.cells[1].innerHTML!="")
+                $(this).toggleClass("highlighted");
+        }
+      })
+      .bind("selectstart", function () {
+        return false;
+      })
+
+    $(document)
+      .mouseup(function () {
+        isMouseDown = false;
+    });
+    
+/*** Column 1 Hack ***/
     $('table#list td:nth-child(1)').each(function() {
         var lastChar = $(this).text().substr($(this).text().length - 1);        
         if (lastChar == "/"){
+            //Remove slash from last directory name
             this.getElementsByTagName("a")[0].innerHTML = this.getElementsByTagName("a")[0].innerHTML.slice(0,-1)
             
-            //do shorten
+            //do shorten (trim long folder name)
             if(typeof MaxFileName !== 'undefined')
-            this.getElementsByTagName("a")[0].innerHTML = shorten(this.getElementsByTagName("a")[0].innerHTML, MaxFileNameLength, false);
+                this.getElementsByTagName("a")[0].innerHTML = shorten(this.getElementsByTagName("a")[0].innerHTML, MaxFileNameLength, false);
         }
         else{
             //add id: listfiles ke <a>, buat cek select item di bawah
             $(this.getElementsByTagName("a")[0]).attr("id","listFiles");
             
-            //do shorten
+            //Lightbox image viewer
+            if(checkExtension($(this).text())){
+                $(this).find('a').attr("data-toggle", "lightbox");
+                $(this).find('a').attr("data-gallery", "px-index");
+            }
+            
+            //Text viewer
+            else if($(this).text().split('.').pop().toLowerCase() == "txt"){
+                var textFileName = $(this).text();
+                
+                $(this).find('a').attr("data-toggle", "modal");
+                $(this).find('a').attr("data-target", "#modalText");
+                
+                
+                //change href to #, we should load it via jQuery.load instead
+                $(this).find('a').attr("href", "#");
+                $('#modalText').on('shown.bs.modal', function (e) {
+                    //alert("open");
+                    $("#textAjax").load(textFileName);
+                })
+            }
+            
+            //do shorten (trim long file name)
             if(typeof MaxFileName !== 'undefined')
-            this.getElementsByTagName("a")[0].innerHTML = shorten(this.getElementsByTagName("a")[0].innerHTML, MaxFileNameLength, true);
+                this.getElementsByTagName("a")[0].innerHTML = shorten(this.getElementsByTagName("a")[0].innerHTML, MaxFileNameLength, true);
         }
     });
     
+/*** Column 2 Hack ***/
+    $('table#list td:nth-child(2)').each(function() {
+        if ($(this).text() == "-")
+            $(this).text('');
+        else{
+            if(typeof RoundFileSize !== 'undefined') {
+              var cellText = parseFloat($(this).text());
+              //Filesize to Human Readable
+              $(this).text(bytesToSize(cellText));
+            }
+        }
+    });
+    
+/*** Column 3 Hack ***/
     //Add class to date column, so it'll hidden for xtra small device
     $("table#list th:nth-child(3)").addClass("hidden-xs");
     $('table#list td:nth-child(3)').each(function() {
+        //Add class to date column, so it'll hidden for xtra small device
         $(this).addClass("hidden-xs");
     });
-    
-    //Random page header & table hover backgroundColor
-    var color = ['success','info','danger']
-    var rand = color[Math.floor(Math.random() * color.length)];
-    rand = 'alert-' + rand;
-        //Page Header
-        $( "div#randomPageHeader" ).addClass(rand);
-    
-        //Table hover
-        $( "tr" ).addClass(rand);
-        
-        //Site setting header
-        $( "div#siteSetting" ).addClass(rand);
-        
-        //clickable & click+drag table
-        var isMouseDown = false,
-        isHighlighted;
-        $(".table tr")
-          .mousedown(function (e) {
-            isMouseDown = true;
-            //cek kalo 2nd row nya kosong (folder)
-            if(this.cells[1].innerHTML!=""){
-                 if (e.target.id != "listFiles"){ //cek kalo yg di klik bukan link
-                     $(this).toggleClass("highlighted");
-                 }
-            }
-            return false; // prevent text selection
-          })
-          .mouseover(function () {
-            if (isMouseDown) {
-                //cek kalo 2nd row nya kosong (folder)
-                if(this.cells[1].innerHTML!="")
-                    $(this).toggleClass("highlighted");
-            }
-          })
-          .bind("selectstart", function () {
-            return false;
-          })
+}
 
-        $(document)
-          .mouseup(function () {
-            isMouseDown = false;
-        });
-        
+$(document).ready(function(){
+    //Tooltip bootstrap
+    $("[data-toggle=tooltip").tooltip();
+    $("[data-toggle=popover").popover();
+    
+    //Setting HTML Title
+    setTittle();
+    //Generating Breadcrumbs
+    generateBreadcrumbs();
+    
+    //Table Hack
+    tableHack();
+
     //Generate URL
     $('#generateURL').on('shown.bs.modal', function (e) {
         if(checkSelected()){
@@ -246,31 +281,7 @@ $(document).ready(function(){
         }
     })
     
-    //Lightbox image viewer
-    //check file extension
-    $('table#list td:nth-child(1)').each(function() {
-        //image
-        if(checkExtension($(this).text())){
-            $(this).find('a').attr("data-toggle", "lightbox");
-            $(this).find('a').attr("data-gallery", "px-index");
-        }
-        //text
-        if($(this).text().split('.').pop().toLowerCase() == "txt"){
-            var textFileName = $(this).text();
-            
-            $(this).find('a').attr("data-toggle", "modal");
-            $(this).find('a').attr("data-target", "#modalText");
-            
-            
-            //change href to #, we should load it via jQuery.load instead
-            $(this).find('a').attr("href", "#");
-            $('#modalText').on('shown.bs.modal', function (e) {
-                //alert("open");
-                $("#textAjax").load(textFileName);
-            })
-        }
-    });    
-    //Show modal
+    //Lightbox Show modal
     $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
         event.preventDefault();
         $(this).ekkoLightbox({
