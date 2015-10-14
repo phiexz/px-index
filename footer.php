@@ -1,5 +1,14 @@
-        <?php require_once("lib/configuration.php"); ?>
-        </div></div>
+        <?php
+            if(isset($_COOKIE["openAsAjax"])){
+                //destroy cookie
+                setcookie("openAsAjax", "", time() - 3600);
+            }
+            else{
+                require_once("lib/configuration.php");
+        ?>
+        </div>
+        <div class="loadingAjax"><i class="fa fa-spinner fa-pulse fa-3x"></i></div>
+        </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
@@ -32,6 +41,7 @@
             require_once("lib/donate.php");
             require_once("lib/generateURL.php");
             require_once("lib/modalText.php");
+            }
         ?>
     </body>
 </html>

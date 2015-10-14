@@ -116,6 +116,18 @@ function resizeSite(type, size){
     }
 }
 
+function loadingAjax(type){
+    if (type == "start"){
+        $('div.table-responsive').slideUp();
+        //we dont really need it, cz site load very fast
+        //$('div.loadingAjax').css("display", "block");
+    }
+    else if (type == "stop"){
+        //$('div.loadingAjax').css("display", "none");
+        $('div.table-responsive').slideDown();
+    }
+}
+
 /*** Function DOM ***/
 function setTittle(){
     var urlPath = window.location.pathname.split( '/' );
@@ -191,10 +203,13 @@ function tableHack(){
         var lastChar = $(this).text().substr($(this).text().length - 1);        
         if (lastChar == "/"){
             //Remove slash from last directory name
-            this.getElementsByTagName("a")[0].innerHTML = this.getElementsByTagName("a")[0].innerHTML.slice(0,-1)
+            this.getElementsByTagName("a")[0].innerHTML = this.getElementsByTagName("a")[0].innerHTML.slice(0,-1);
+            
+            //add id: listfolders to <a>, for ajax calling
+            $(this.getElementsByTagName("a")[0]).attr("id","listFolders");
             
             //do shorten (trim long folder name)
-            if(typeof MaxFileName !== 'undefined')
+            if (typeof MaxFileName !== 'undefined')
                 this.getElementsByTagName("a")[0].innerHTML = shorten(this.getElementsByTagName("a")[0].innerHTML, MaxFileNameLength, false);
         }
         else{
@@ -323,6 +338,26 @@ $(document).ready(function(){
         resizeSite("icon", iconSize);
         $("label#icon-" + iconSize).addClass("active");
     }
+    
+    //Ajax listFolders (kalo di klik)
+    $(document).on("click", "a#listFolders",function(e){
+        e.preventDefault();
+        setCookie("openAsAjax", "true", 30/24/60/60); //set cookie for 30s
+        loadingAjax("start");
+        $('table#list').load($(this).attr("href"), function(){
+            loadingAjax("stop");
+            //Setting HTML Title
+            setTittle();
+            //Generating Breadcrumbs
+            generateBreadcrumbs();
+            //Table Hack
+            tableHack();
+            //destroy cookie
+            setCookie("openAsAjax", "true", -1);
+        });
+        //Set html5 pushstate
+        history.pushState("", "", $(this).attr("href").split('/').slice(0,-1)+"/");
+    });
     
     //SubmitReport
     $("input#reportSubmit").click(function(){

@@ -245,6 +245,11 @@ th a{
     width:100%
 }
 
+.loadingAjax {
+    display: none;
+    text-align:center;
+}
+
 
 /* ==========================================================================
    Icon
