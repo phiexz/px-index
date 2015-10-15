@@ -136,20 +136,22 @@
                                 </div>
                                 </div>
                             </li>
-                            <li role="separator" class="divider"></li>
-                            <li>
-                                <span style="padding-left: 10px;">Site Theme : </span>
-                                <div class="text-center" style="margin:5px auto">
-                                <div class="btn-group" data-toggle="buttons">
-                                  <label class="btn btn-default" disabled>
-                                    <input type="radio" name="options" id="option1" autocomplete="off"> Light
-                                  </label>
-                                  <label class="btn btn-default" disabled>
-                                    <input type="radio" name="options" id="option2" autocomplete="off"> Dark
-                                  </label>
-                                </div>
-                                </div>
-                            </li>
+                            <?php if(darkLightTheme){ ?>
+                                <li role="separator" class="divider"></li>
+                                <li>
+                                    <span style="padding-left: 10px;">Site Theme : </span>
+                                    <div class="text-center" style="margin:5px auto">
+                                    <div class="btn-group" data-toggle="buttons">
+                                      <label id="lightTheme"class="btn btn-default">
+                                        <input type="radio" name="darkLightTheme" autocomplete="off" onchange='darkLightThemeSetting("light")'> Light
+                                      </label>
+                                      <label id="darkTheme" class="btn btn-default">
+                                        <input type="radio" name="darkLightTheme" autocomplete="off" onchange='darkLightThemeSetting("dark")'> Dark
+                                      </label>
+                                    </div>
+                                    </div>
+                                </li>
+                            <?php } ?>
                           </ul>
                   </li>
               </ul>

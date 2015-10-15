@@ -22,6 +22,7 @@
             var VER = "<?php echo VER ?>";
             <?php if(MaxFileName) echo "var MaxFileName = ".MaxFileName.";\n var MaxFileNameLength = ".MaxFileNameLength.";\n"?>
             var directory = "<?php echo directory ?>";
+            <?php if(darkLightTheme) echo "var darkLightTheme = ".darkLightTheme.";\n" ?>
             <?php if(RoundFileSize) echo "var RoundFileSize = ".RoundFileSize ?>
         </script>
         <!-- Main Script -->

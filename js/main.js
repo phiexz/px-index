@@ -135,6 +135,17 @@ function ajaxSetting(type){
         setCookie("disableAjax", 1, 365);
 }
 
+function darkLightThemeSetting(theme){
+    if (theme == "dark"){
+        setCookie("darkTheme", 1, 365);
+        location.reload(true);
+    }
+    else{
+        setCookie("darkTheme", "", -1);
+        location.reload(true);
+    }
+}
+
 /*** Function DOM ***/
 function setTittle(){
     var urlPath = window.location.pathname.split( '/' );
@@ -350,6 +361,20 @@ $(document).ready(function(){
         $("label#ajaxDisable").addClass("active");
     else
         $("label#ajaxEnable").addClass("active");
+    //Dark Light Theme
+    if(typeof darkLightTheme !== 'undefined') {
+        if (getCookie("darkTheme") != ""){
+            $("label#darkTheme").addClass("active");
+            $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', 'https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/slate/bootstrap.min.css') );
+            $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', CDN+directory+"/css/main.css?v="+VER) );
+            $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', CDN+directory+"/css/dark.css?v="+VER) );
+            //alert(CDN+directory+"/css/dark.css?v="+VER);
+        }
+        else{
+            $("label#lightTheme").addClass("active");
+            $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', CDN+directory+"/css/main.css?v="+VER) );
+        }
+    }
     
     //Ajax listFolders (kalo di klik)
     $(document).on("click", "a#listFolders",function(e){

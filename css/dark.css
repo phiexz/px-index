@@ -1,0 +1,29 @@
+body {
+    background-color: #272b30;
+    color: #c8c8c8;
+}
+
+.box {
+  opacity: .70;
+}
+table {
+  border: none;
+}
+td {
+    border-bottom: 1px solid grey;
+    background-color: #353a41;
+    color: #c8c8c8;
+}
+tr.highlighted td, tr.highlighted td a, tr td a:hover, tr.highlighted td a:hover{
+    color: #000;
+}
+td, td a{
+    color: #c8c8c8;
+}
+table tr.highlighted td{
+  color:#000;
+}
+
+#list a[href*="#"]:before, #list a[href*="."]:before, #list a[href*="/"]:before {
+    color: #c8c8c8;
+}
