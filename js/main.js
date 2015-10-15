@@ -350,12 +350,6 @@ $(document).ready(function(){
     }
     else
         fontSize = defaultFontSize;
-    //icon size
-    if (getCookie("iconSize") != ""){
-        iconSize = parseInt(getCookie("iconSize"));
-        resizeSite("icon", iconSize);
-        $("label#icon-" + iconSize).addClass("active");
-    }
     //Ajax Mode
     if (getCookie("disableAjax") != "")
         $("label#ajaxDisable").addClass("active");
@@ -374,6 +368,12 @@ $(document).ready(function(){
             $("label#lightTheme").addClass("active");
             $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', CDN+directory+"/css/main.css?v="+VER) );
         }
+    }
+    //icon size
+    if (getCookie("iconSize") != ""){
+        iconSize = parseInt(getCookie("iconSize"));
+        resizeSite("icon", iconSize);
+        $("label#icon-" + iconSize).addClass("active");
     }
     
     //Ajax listFolders (kalo di klik)
