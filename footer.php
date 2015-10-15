@@ -23,7 +23,7 @@
             <?php if(MaxFileName) echo "var MaxFileName = ".MaxFileName.";\n var MaxFileNameLength = ".MaxFileNameLength.";\n"?>
             var directory = "<?php echo directory ?>";
             <?php if(darkLightTheme) echo "var darkLightTheme = ".darkLightTheme.";\n" ?>
-            <?php if(RoundFileSize) echo "var RoundFileSize = ".RoundFileSize ?>
+            <?php if(RoundFileSize) echo "var RoundFileSize = ".RoundFileSize.";\n" ?>
         </script>
         <!-- Main Script -->
         <script src="<?php echo CDN?><?php echo directory?>/js/main.js?v=<?php echo VER?>"></script>
