@@ -1,7 +1,7 @@
 <?php
     // Berpengaruh ke url
     define('CDN', '');
-    define('VER', '3.0.1');
+    define('VER', '3.1.1');
     
     // Location for px-index file
     // ex: /px-index or ../px-index or else
