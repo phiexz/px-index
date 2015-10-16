@@ -338,9 +338,10 @@ th a{
 /*-- video --*/
 #list a[href$=".3gp"]:before,#list a[href$=".avi"]:before,
 #list a[href$=".flv"]:before,#list a[href$=".mkv"]:before,
-#list a[href$=".mov"]:before,#list a[href$=".mpeg"]:before,
-#list a[href$=".mpg"]:before,#list a[href$=".rmvb"]:before,
-#list a[href$=".webm"]:before,#list a[href$=".wmv"]:before {
+#list a[href$=".mov"]:before,#list a[href$=".mp4"]:before,
+#list a[href$=".mpeg"]:before,#list a[href$=".mpg"]:before,
+#list a[href$=".rmvb"]:before,#list a[href$=".webm"]:before,
+#list a[href$=".wmv"]:before {
     content: "\f1c8";
 }
 
