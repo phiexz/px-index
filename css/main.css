@@ -292,6 +292,13 @@ th a{
     background-color: #555;
 } 
 
+#copyURLSuccess, #copyURLFailed {
+    display:none;
+    position: absolute;
+    right:20px;
+    bottom:30px;
+}
+
 
 /* ==========================================================================
    Icon

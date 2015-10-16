@@ -290,8 +290,19 @@ $(document).ready(function(){
     $("[data-toggle=popover").popover();
     //Ajax dont cache it
     $.ajaxSetup({ cache: false });
+
     //Setup Clipboard.js
-    new Clipboard('#copyURL');
+    var clipboard = new Clipboard('#copyURL');
+    //Clipboard.js: Feedback on success
+    clipboard.on('success', function(e) {
+        $("#copyURLSuccess").alert();
+        $("#copyURLSuccess").fadeTo(1000, 500).slideUp();
+    });
+    //Clipboard.js: Feedback on failed
+    clipboard.on('error', function(e) {
+        $("#copyURLFailed").alert();
+        $("#copyURLFailed").fadeTo(1000, 500).slideUp();
+    });
     
     //Setting HTML Title
     setTittle();

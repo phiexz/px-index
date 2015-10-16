@@ -17,6 +17,14 @@
             </div>
         </div>
         <div class="modal-footer">
+            <div class="alert alert-success" id="copyURLSuccess">
+                <strong>Copied! </strong>
+                All url links copied to clipboadrd
+            </div>
+            <div class="alert alert-danger" id="copyURLFailed">
+                <strong>Oh no!</strong>
+                Something is error, please manual copy url links
+            </div>
           <button id="copyURL" class="btn btn-primary" data-clipboard-target="#generatedURL">Copy Link</button>
           <button id="selectURL" type="button" onClick='$("textarea#generatedURL").focus().select();' class="btn btn-default">Select All</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
