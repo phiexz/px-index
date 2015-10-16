@@ -288,6 +288,8 @@ $(document).ready(function(){
     //Tooltip bootstrap
     $("[data-toggle=tooltip").tooltip();
     $("[data-toggle=popover").popover();
+    //Ajax dont cache it
+    $.ajaxSetup({ cache: false });
     
     //Setting HTML Title
     setTittle();
@@ -335,6 +337,84 @@ $(document).ready(function(){
             $(this).toggle(id.indexOf(value) !== -1);
         });
     });
+    
+    //Server Storage Status
+    //Check if enabled in config
+    if(typeof ServerStorageStatus !== 'undefined') {
+        function json(type){
+            for (i = 0; i < ServerStorageStatus_id.length; i++) {
+                (function(i){ // protects i in an immediately called function
+                    if (type=="call"){
+                        $.getJSON(ServerStorageStatus_url[i], function(serverStats) {
+                            // Inject Value
+                            // span storage status
+                            $('#progressText'+ServerStorageStatus_id[i]).text(serverStats.disk_p+"% of "+serverStats.disk_t+"GB ("+serverStats.disk_f+"GB Free)");
+                            // span server label
+                            $('#progressLabel'+ServerStorageStatus_id[i]).text(ServerStorageStatus_label[i]);
+                            // aria-valuenow
+                            $('#progressBar'+ServerStorageStatus_id[i]).attr("aria-valuenow", serverStats.disk_p);
+                            // progressbar width (progress)
+                            $('#progressBar'+ServerStorageStatus_id[i]).css("width",serverStats.disk_p+"%");
+                            
+                            // Multicolor progressbar
+                            var progressBarColor;
+                            if (serverStats.disk_p<=40)
+                                progressBarColor="progress-bar-success";
+                            else if (serverStats.disk_p>=80)
+                                progressBarColor="progress-bar-danger";
+                            else
+                                progressBarColor="progress-bar-warning";
+                            //inject color class
+                            $('#progressBar'+ServerStorageStatus_id[i]).addClass(progressBarColor+" progress-bar-striped");
+                        });
+                    }
+                    else if(type=="destroy"){
+                        // Inject Value
+                        // span storage status
+                        $('#progressText'+ServerStorageStatus_id[i]).text("");
+                        // span server label
+                        $('#progressLabel'+ServerStorageStatus_id[i]).text("");
+                        // aria-valuenow
+                        $('#progressBar'+ServerStorageStatus_id[i]).attr("aria-valuenow", 0);
+                        // progressbar width (progress)
+                        $('#progressBar'+ServerStorageStatus_id[i]).css("width","0%");
+                    }
+                    
+                })(i);
+            };
+            $("div.progressServerStorageStatus").css("display","block");
+            $("#loadingStorageStatus").css("display","none");
+        }
+        var isStorageStatusOpen = false;
+        $("#ServerStorageStatusStats").click(function(){
+            $("div.ServerStorageStatus").slideToggle(500);
+            if(!isStorageStatusOpen){
+                $("div.progressServerStorageStatus").css("display","none");
+                $("#loadingStorageStatus").css("display","block");
+                setTimeout(function(){ json("call"); }, 3000);
+            }
+            else
+                json("destroy");
+            
+            isStorageStatusOpen=!isStorageStatusOpen;
+            //console.log("isStorageStatusOpen now : "+isStorageStatusOpen)
+        });
+
+        //Auto Refresh Server Storage Status Json
+        if(typeof ServerStorageStatusAutoRefreshMinutes !== 'undefined') {
+            setInterval(function(){
+                if(isStorageStatusOpen){
+                    //console.log("refresh storage status");
+                    json("destroy");
+                    $("div.progressServerStorageStatus").css("display","none");
+                    $("#loadingStorageStatus").css("display","block");
+                    setTimeout(function(){ json("call"); }, 1000);
+                }
+            }, 1000*60*ServerStorageStatusAutoRefreshMinutes);
+        }
+        
+    }
+    
     
     //Increase & Decrease Site
     defaultFontSize = parseInt($('table#list').css('font-size'));

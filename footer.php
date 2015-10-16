@@ -24,6 +24,38 @@
             var directory = "<?php echo directory ?>";
             <?php if(darkLightTheme) echo "var darkLightTheme = ".darkLightTheme.";\n" ?>
             <?php if(RoundFileSize) echo "var RoundFileSize = ".RoundFileSize.";\n" ?>
+            <?php if(ServerStorageStatus){
+                //Server storage status
+                echo "var ServerStorageStatus = ".ServerStorageStatus.";\n";
+                //check if autorefresh enabled
+                if(ServerStorageStatusAutoRefresh) echo "var ServerStorageStatusAutoRefreshMinutes = ".ServerStorageStatusAutoRefreshMinutes.";\n";
+                //Server storage status id & url (array)
+                //id
+                echo 'var ServerStorageStatus_id = [';
+                foreach($ServerStorageStatus_array as $a => $b){
+                    echo '"'.$b[0].'"';
+                    if(count($ServerStorageStatus_array)>($a+1))
+                        echo ',';
+                }
+                echo "];\n";
+                //label
+                echo 'var ServerStorageStatus_label = [';
+                foreach($ServerStorageStatus_array as $a => $b){
+                    echo '"'.$b[1].'"';
+                    if(count($ServerStorageStatus_array)>($a+1))
+                        echo ',';
+                }
+                echo "];\n";
+                //url
+                echo 'var ServerStorageStatus_url = [';
+                foreach($ServerStorageStatus_array as $a => $b){
+                    echo '"'.$b[2].'"';
+                    if(count($ServerStorageStatus_array)>($a+1))
+                        echo ',';
+                }
+                echo "];\n";
+            }
+            ?>
         </script>
         <!-- Main Script -->
         <script src="<?php echo CDN?><?php echo directory?>/js/main.js?v=<?php echo VER?>"></script>

@@ -160,7 +160,26 @@
         </nav>
         <div class="wrapper">
             <div class="page-header">
-              <?php if(UseHeaderWelcome) echo HeaderWelcome ?>
+              <?php 
+                if(UseHeaderWelcome){
+                  echo '<div id="randomPageHeader" class="alert text-center" role="alert">'.HeaderWelcome;
+                  if(ServerStorageStatus){
+                      echo '<a id="ServerStorageStatusStats" class="btn btn-xs btn-ServerStats"><span class="glyphicon glyphicon-stats"></span> | Storage Status</a>';
+                      echo '<div class="ServerStorageStatus well">';
+                      echo '    <div id="loadingStorageStatus" class="loadingAjax"><i class="fa fa-spinner fa-pulse fa-3x"></i></div>';
+                      foreach($ServerStorageStatus_array as $a => $b){
+                        echo '  <div class="progress progressServerStorageStatus">
+                                    <div id="progressBar'.$b[0].'" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                                      <span id="progressLabel'.$b[0].'" class="progressLabel"></span>
+                                    </div>
+                                    <span id="progressText'.$b[0].'"></span>
+                                </div>';
+                      }
+                      echo '</div>';
+                  }
+                  echo '</div>';
+                }
+              ?>
             </div>
         <?php if(!ReportEmail){ ?>
             <div class="alert alert-danger" role="alert">

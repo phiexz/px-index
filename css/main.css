@@ -250,6 +250,48 @@ th a{
     text-align:center;
 }
 
+.btn-ServerStats {
+    color: #fff;
+    background-color: #555;
+    margin-bottom: 10px;
+}
+.btn-ServerStats:hover{
+    background-color: #fff;
+    color: #555;
+}
+
+.ServerStorageStatus {
+    display: none;
+    margin:0 auto 0 auto;
+    max-width: 992px;
+    opacity: 0.75;
+}
+
+.progressServerStorageStatus {
+    position: relative;
+    height: 25px;
+    line-height:25px;
+    margin-bottom: 10px;
+}
+
+.progressServerStorageStatus > span {
+    position:absolute;
+    right:0;
+    left:0;
+    vertical-align: middle;
+    font-weight: 600;
+    color: #000;
+}
+
+.progressLabel {
+    position: absolute;
+    right: 0px;
+    font-weight: 800; 
+    padding: 3px 5px 2px 5px; 
+    color: #fff;
+    background-color: #555;
+} 
+
 
 /* ==========================================================================
    Icon
