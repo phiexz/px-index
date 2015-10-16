@@ -19,7 +19,7 @@
         <div class="modal-footer">
           <button id="copyURL" class="btn btn-primary" data-clipboard-target="#generatedURL">Copy Link</button>
           <button id="selectURL" type="button" onClick='$("textarea#generatedURL").focus().select();' class="btn btn-default">Select All</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
