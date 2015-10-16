@@ -290,6 +290,8 @@ $(document).ready(function(){
     $("[data-toggle=popover").popover();
     //Ajax dont cache it
     $.ajaxSetup({ cache: false });
+    //Setup Clipboard.js
+    new Clipboard('#copyURL');
     
     //Setting HTML Title
     setTittle();
