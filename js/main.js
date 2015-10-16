@@ -307,6 +307,8 @@ $(document).ready(function(){
             //console.log("selected = true");
             $("#generateURL_false").css("display", "none");
             $("#generateURL_true").css("display", "inline");
+            $("#copyURL").css("display","inline");
+            $("#selectURL").css("display","inline");
             $("#buttonCopyClipboard").attr("style", "display:inline;");
             
             generateURL();
@@ -314,6 +316,8 @@ $(document).ready(function(){
         else{
             //console.log("selected = false");
             $("#generateURL_true").css("display", "none");
+            $("#copyURL").css("display","none");
+            $("#selectURL").css("display","none");
             $("#generateURL_false").css("display", "inline");
         }
     })
