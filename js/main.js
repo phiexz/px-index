@@ -33,11 +33,22 @@ function checkSelected() {
 }
 
 function generateURL(what) {
-    var nSelected = 0, generatedURL = "";
+    var nSelected = 0, generatedURL = "", totalFileSize=0;
     $(".table tbody tr").each(function() {
         if($(this).hasClass('highlighted')){
             nSelected++;
+            fileSize = $(this).find('td')[1].innerHTML.split(" ");
             generatedURL = generatedURL + $(this).find('a')[0] + '\n';
+            if(fileSize[1] == "B")
+                totalFileSize = totalFileSize + (parseFloat(fileSize[0]));
+            else if(fileSize[1] == "KB")
+                totalFileSize = totalFileSize + (parseFloat(fileSize[0])*1024);
+            else if(fileSize[1] == "MB")
+                totalFileSize = totalFileSize + (parseFloat(fileSize[0])*1024*1024);
+            else if(fileSize[1] == "GB")
+                totalFileSize = totalFileSize + (parseFloat(fileSize[0])*1024*1024*1024);
+            else if(fileSize[1] == "TB")
+                totalFileSize = totalFileSize + (parseFloat(fileSize[0])*1024*1024*1024*1024);
         }
     });
     if (what=="return")
@@ -45,6 +56,8 @@ function generateURL(what) {
     else{
         //generating nSelected files
         $( "span#nSelected" ).text(nSelected);
+        //generating total size
+        $( "span#totalSize" ).text(bytesToSize(totalFileSize));
         //Change textarea rows
         if (nSelected > 25)
             $( "textarea#generatedURL" ).attr("rows", 25);

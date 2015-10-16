@@ -11,7 +11,7 @@
                 <div class="alert alert-danger" role="alert">You must at least select one file!!</div>
             </div>
             <div id="generateURL_true" class="generateURL">
-                <div class="alert alert-info" role="alert">Generated <span id="nSelected" class="label label-default">X</span> urls</div>
+                <div class="alert alert-info" role="alert">Generated <span id="nSelected" class="label label-default" style="font-size:15px;">X</span> urls. Size: <span id="totalSize" class="label label-default" style="font-size:15px;">X</span></div>
                 <textarea id="generatedURL" class="form-control" rows="1" readonly>Generated Link
                 </textarea>
             </div>
