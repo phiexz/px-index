@@ -255,18 +255,7 @@ function tableHack(){
 
             //Text viewer
             else if($(this).text().split('.').pop().toLowerCase() == "txt"){
-                var textFileName = $(this).text();
-
-                $(this).find('a').attr("data-toggle", "modal");
-                $(this).find('a').attr("data-target", "#modalText");
-
-
-                //change href to #, we should load it via jQuery.load instead
-                $(this).find('a').attr("href", "#");
-                $('#modalText').on('shown.bs.modal', function (e) {
-                    //alert("open");
-                    $("#textAjax").load(textFileName);
-                })
+                $(this).find('a').attr("id", "textExt");
             }
 
             //do shorten (trim long file name)
@@ -352,6 +341,16 @@ $(document).ready(function(){
         $(this).ekkoLightbox({
             always_show_close:false
         });
+    });
+
+    //Text Viewer
+    $(document).delegate('#textExt', 'click', function(event) {
+        event.preventDefault();
+        $('#modalText').modal({
+          show: true
+        });
+        $("#textAjax").load($(this).attr("href"));
+
     });
 
     //Searchbox
