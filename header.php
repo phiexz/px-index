@@ -13,14 +13,14 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+
         <!-- favicon -->
         <link rel="icon" href="<?php echo CDN?><?php echo directory?>/favicon.ico?v=<?php echo VER?>" type="image/x-icon" sizes="16x16">
 
         <!-- bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/3.3.0/ekko-lightbox.min.css">
-        
+
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="<?php echo CDN?><?php echo directory?>/css/normalize.min.css">
@@ -160,7 +160,7 @@
         </nav>
         <div class="wrapper">
             <div class="page-header">
-              <?php 
+              <?php
                 if(UseHeaderWelcome){
                   echo '<div id="randomPageHeader" class="alert text-center" role="alert">'.HeaderWelcome;
                   if(ServerStorageStatus){
@@ -188,7 +188,7 @@
               Report Email has not been set >_<
             </div>
         <?php } ?>
-        
+
         <!-- breadcrumb -->
         <div class="box box-breadcrumbs">
             <div class="box-header">

@@ -44,7 +44,7 @@ table tr.highlighted td{
 .progress-label {
     color: #555;
     background-color: #fff;
-} 
+}
 #list a[href*="#"]:before, #list a[href*="."]:before, #list a[href*="/"]:before {
     color: #c8c8c8;
 }

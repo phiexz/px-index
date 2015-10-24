@@ -1,5 +1,5 @@
 function validateForm() {
-    if((document.forms["report"]["reportName"].value) && 
+    if((document.forms["report"]["reportName"].value) &&
        (document.forms["report"]["reportEmail"].value) &&
        (document.forms["report"]["reportSubject"].value) &&
        (document.forms["report"]["reportMessage"].value)){
@@ -24,7 +24,7 @@ function bytesToSize(bytes) {
     var sizes = ['B ', 'KB', 'MB', 'GB', 'TB'];
     if (bytes == 0) return 'n/a';
     var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
-    if (i == 0) return bytes + ' ' + sizes[i]; 
+    if (i == 0) return bytes + ' ' + sizes[i];
     return (bytes / Math.pow(1024, i)).toFixed(2) + ' ' + sizes[i];
 };
 
@@ -106,7 +106,7 @@ function setCookie(cname, cvalue, exdays) {
 
 function resizeSite(type, size){
     fontSize = parseInt($('table#list').css('font-size'));
-    
+
     if(type=="font"){
         if (size=="increase"){
             $('table#list').css('font-size', fontSize+2);
@@ -186,10 +186,10 @@ function generateBreadcrumbs(){
 function tableHack(){
 /*** Add class to table#list ***/
     $( "table#list" ).addClass( "table" );
-    
+
 /*** Change column width ***/
     document.getElementsByTagName("colgroup")[0].outerHTML = '<colgroup><col width="65%"/><col width="15%"/><col width="20%"/></colgroup>'
-    
+
 /*** Random backgroundColor ***/
     var color = ['success','info','danger']
     var rand = color[Math.floor(Math.random() * color.length)];
@@ -197,7 +197,7 @@ function tableHack(){
     $( "div#randomPageHeader" ).addClass(rand); //Page Header
     $( "tr" ).addClass(rand); //Table hover
     $( "div#siteSetting" ).addClass(rand); //Site setting header
-    
+
 /*** Table Hack ***/
     //clickable & click+drag table
     var isMouseDown = false,
@@ -228,17 +228,17 @@ function tableHack(){
       .mouseup(function () {
         isMouseDown = false;
     });
-    
+
 /*** Column 1 Hack ***/
     $('table#list td:nth-child(1)').each(function() {
-        var lastChar = $(this).text().substr($(this).text().length - 1);        
+        var lastChar = $(this).text().substr($(this).text().length - 1);
         if (lastChar == "/"){
             //Remove slash from last directory name
             this.getElementsByTagName("a")[0].innerHTML = this.getElementsByTagName("a")[0].innerHTML.slice(0,-1);
-            
+
             //add id: listfolders to <a>, for ajax calling
             $(this.getElementsByTagName("a")[0]).attr("id","listFolders");
-            
+
             //do shorten (trim long folder name)
             if (typeof MaxFileName !== 'undefined')
                 this.getElementsByTagName("a")[0].innerHTML = shorten(this.getElementsByTagName("a")[0].innerHTML, MaxFileNameLength, false);
@@ -246,21 +246,21 @@ function tableHack(){
         else{
             //add id: listfiles ke <a>, buat cek select item di bawah
             $(this.getElementsByTagName("a")[0]).attr("id","listFiles");
-            
+
             //Lightbox image viewer
             if(checkExtension($(this).text())){
                 $(this).find('a').attr("data-toggle", "lightbox");
                 $(this).find('a').attr("data-gallery", "px-index");
             }
-            
+
             //Text viewer
             else if($(this).text().split('.').pop().toLowerCase() == "txt"){
                 var textFileName = $(this).text();
-                
+
                 $(this).find('a').attr("data-toggle", "modal");
                 $(this).find('a').attr("data-target", "#modalText");
-                
-                
+
+
                 //change href to #, we should load it via jQuery.load instead
                 $(this).find('a').attr("href", "#");
                 $('#modalText').on('shown.bs.modal', function (e) {
@@ -268,13 +268,13 @@ function tableHack(){
                     $("#textAjax").load(textFileName);
                 })
             }
-            
+
             //do shorten (trim long file name)
             if(typeof MaxFileName !== 'undefined')
                 this.getElementsByTagName("a")[0].innerHTML = shorten(this.getElementsByTagName("a")[0].innerHTML, MaxFileNameLength, true);
         }
     });
-    
+
 /*** Column 2 Hack ***/
     $('table#list td:nth-child(2)').each(function() {
         if ($(this).text() == "-")
@@ -287,7 +287,7 @@ function tableHack(){
             }
         }
     });
-    
+
 /*** Column 3 Hack ***/
     //Add class to date column, so it'll hidden for xtra small device
     $("table#list th:nth-child(3)").addClass("hidden-xs");
@@ -316,12 +316,12 @@ $(document).ready(function(){
         $("#copyURLFailed").alert();
         $("#copyURLFailed").fadeTo(1000, 500).slideUp();
     });
-    
+
     //Setting HTML Title
     setTittle();
     //Generating Breadcrumbs
     generateBreadcrumbs();
-    
+
     //Table Hack
     tableHack();
 
@@ -334,7 +334,7 @@ $(document).ready(function(){
             $("#copyURL").css("display","inline");
             $("#selectURL").css("display","inline");
             $("#buttonCopyClipboard").attr("style", "display:inline;");
-            
+
             generateURL();
         }
         else{
@@ -345,7 +345,7 @@ $(document).ready(function(){
             $("#generateURL_false").css("display", "inline");
         }
     })
-    
+
     //Lightbox Show modal
     $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
         event.preventDefault();
@@ -353,7 +353,7 @@ $(document).ready(function(){
             always_show_close:false
         });
     });
-    
+
     //Searchbox
     $("#searchButton").click(function(){
         $("li#searchBox.hidden-sm.hidden-xs").toggle(500);
@@ -367,7 +367,7 @@ $(document).ready(function(){
             $(this).toggle(id.indexOf(value) !== -1);
         });
     });
-    
+
     //Server Storage Status
     //Check if enabled in config
     if(typeof ServerStorageStatus !== 'undefined') {
@@ -385,7 +385,7 @@ $(document).ready(function(){
                             $('#progressBar'+ServerStorageStatus_id[i]).attr("aria-valuenow", serverStats.disk_p);
                             // progressbar width (progress)
                             $('#progressBar'+ServerStorageStatus_id[i]).css("width",serverStats.disk_p+"%");
-                            
+
                             // Multicolor progressbar
                             var progressBarColor;
                             if (serverStats.disk_p<=40)
@@ -409,7 +409,7 @@ $(document).ready(function(){
                         // progressbar width (progress)
                         $('#progressBar'+ServerStorageStatus_id[i]).css("width","0%");
                     }
-                    
+
                 })(i);
             };
             $("div.progressServerStorageStatus").css("display","block");
@@ -425,7 +425,7 @@ $(document).ready(function(){
             }
             else
                 json("destroy");
-            
+
             isStorageStatusOpen=!isStorageStatusOpen;
             //console.log("isStorageStatusOpen now : "+isStorageStatusOpen)
         });
@@ -442,16 +442,16 @@ $(document).ready(function(){
                 }
             }, 1000*60*ServerStorageStatusAutoRefreshMinutes);
         }
-        
+
     }
-    
-    
+
+
     //Increase & Decrease Site
     defaultFontSize = parseInt($('table#list').css('font-size'));
     defaultIconSize = parseInt($('#list a:before').css('font-size'));
 
     var fontSize,iconSize;
-    
+
     //getting cookie
     //fontsize
     if (getCookie("fontSize") != ""){
@@ -485,7 +485,7 @@ $(document).ready(function(){
         resizeSite("icon", iconSize);
         $("label#icon-" + iconSize).addClass("active");
     }
-    
+
     //Ajax listFolders (kalo di klik)
     $(document).on("click", "a#listFolders",function(e){
         if (getCookie("disableAjax") == ""){
@@ -507,7 +507,7 @@ $(document).ready(function(){
             history.pushState("", "", $(this).attr("href").split('/').slice(0,-1)+"/");
         }
     });
-    
+
     //SubmitReport
     $("input#reportSubmit").click(function(){
       if (validateForm()){

@@ -211,13 +211,13 @@ table tr.highlighted td{
     background-color: #f2dede;
 }
 
-tr 
+tr
 th:nth-child(3n+3),
 td:nth-child(3n+3) {
     text-align: center;
 }
 
-tr 
+tr
 th:nth-child(2n+2),
 td:nth-child(2n+2) {
     text-align: right;
@@ -238,7 +238,7 @@ th {
 }
 
 th a{
-   color: rgba(0,0,0,0.87); 
+   color: rgba(0,0,0,0.87);
 }
 
 #textAjax{
@@ -286,11 +286,11 @@ th a{
 .progressLabel {
     position: absolute;
     right: 0px;
-    font-weight: 800; 
-    padding: 3px 5px 2px 5px; 
+    font-weight: 800;
+    padding: 3px 5px 2px 5px;
     color: #fff;
     background-color: #555;
-} 
+}
 
 #copyURLSuccess, #copyURLFailed {
     display:none;
