@@ -486,7 +486,7 @@ $(document).ready(function(){
     }
 
     //Ajax listFolders (kalo di klik)
-    $(document).on("click", "a#listFolders",function(e){
+    var tableCall = function(e) {
         if (getCookie("disableAjax") == ""){
             e.preventDefault();
             setCookie("openAsAjax", "true", 30/24/60/60); //set cookie for 30s
@@ -505,7 +505,12 @@ $(document).ready(function(){
             //Set html5 pushstate
             history.pushState("", "", $(this).attr("href").split('/').slice(0,-1)+"/");
         }
-    });
+    };
+    //activate ajax on breadcrumbs... in progress
+    //$("div#breadcrumbs").on("click", "a", tableCall);
+    //activate ajax on table
+    $("table#list").on("click", "a#listFolders", tableCall);
+
 
     //SubmitReport
     $("input#reportSubmit").click(function(){
