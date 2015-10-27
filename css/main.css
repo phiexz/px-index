@@ -344,7 +344,7 @@ tr.highlighted:hover td {
 }
 
 /*-- general --*/
-#list a[href*="#"]:before, #list a[href*="."]:before, #list a[href*="/"]:before {
+#list > tbody > tr > td > a:before {
     content: "\f016";
     font-family: FontAwesome;
     font-style: normal;
@@ -359,7 +359,7 @@ tr.highlighted:hover td {
     vertical-align: middle;
 }
 
-#list a[href*="#"]:after, #list a[href*="."]:after, #list a[href*="/"]:after {
+#list > tbody > tr > td > a:after {
     content: "";
 }
 #list a[href$="/"]:before {
