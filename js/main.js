@@ -110,22 +110,22 @@ function resizeSite(type, size){
     if(type=="font"){
         if (size=="increase"){
             $('table#list').css('font-size', fontSize+2);
-            setCookie("fontSize", fontSize+2, 365);
+            localStorage.setItem("fontSize", fontSize+2);
         }
         else if(size=="decrease"){
             $('table#list').css('font-size', fontSize-2);
-            setCookie("fontSize", fontSize-2, 365);
+            localStorage.setItem("fontSize", fontSize-2);
         }
         else if(size=="default"){
             $('table#list').css('font-size', defaultFontSize);
-            setCookie("fontSize", defaultFontSize, 365);
+            localStorage.setItem("fontSize", defaultFontSize);
         }
         else
             $('table#list').css('font-size', parseInt(size));
     }
     else if(type=="icon"){
         $('head').append('<style>#list a[href*="#"]:before, #list a[href*="."]:before, #list a[href*="/"]:before{ font-size:'+size+'px }</style>');
-        setCookie("iconSize", size, 365);
+        localStorage.setItem("iconSize",size);
     }
 }
 
@@ -143,18 +143,18 @@ function loadingAjax(type){
 
 function ajaxSetting(type){
     if(type == "enable")
-        setCookie("disableAjax", "", -1);
+        localStorage.removeItem("disableAjax");
     else if(type == "disable")
-        setCookie("disableAjax", 1, 365);
+        localStorage.setItem("disableAjax", 1);
 }
 
 function darkLightThemeSetting(theme){
     if (theme == "dark"){
-        setCookie("darkTheme", 1, 365);
+        localStorage.setItem("darkTheme", 1);
         location.reload(true);
     }
     else{
-        setCookie("darkTheme", "", -1);
+        localStorage.removeItem("darkTheme");
         location.reload(true);
     }
 }
@@ -459,41 +459,44 @@ $(document).ready(function(){
 
     //getting cookie
     //fontsize
-    if (getCookie("fontSize") != ""){
-        fontSize = parseInt(getCookie("fontSize"));
-        resizeSite("font", fontSize);
-    }
-    else
+    if (localStorage.getItem("fontSize") === null)
         fontSize = defaultFontSize;
+    else{
+      fontSize = parseInt(localStorage.getItem("fontSize"));
+      resizeSite("font", fontSize);
+    }
+
     //Ajax Mode
-    if (getCookie("disableAjax") != "")
-        $("label#ajaxDisable").addClass("active");
-    else
+    if (localStorage.getItem("disableAjax") === null)
         $("label#ajaxEnable").addClass("active");
+    else
+        $("label#ajaxDisable").addClass("active");
     //Dark Light Theme
     if(typeof darkLightTheme !== 'undefined') {
-        if (getCookie("darkTheme") != ""){
+        if (localStorage.getItem("darkTheme") === null){
+            $("label#lightTheme").addClass("active");
+            $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', CDN+directory+"/css/main.css?v="+VER) );
+            //alert(CDN+directory+"/css/dark.css?v="+VER);
+        }
+        else{
             $("label#darkTheme").addClass("active");
             $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', 'https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/slate/bootstrap.min.css') );
             $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', CDN+directory+"/css/main.css?v="+VER) );
             $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', CDN+directory+"/css/dark.css?v="+VER) );
-            //alert(CDN+directory+"/css/dark.css?v="+VER);
-        }
-        else{
-            $("label#lightTheme").addClass("active");
-            $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', CDN+directory+"/css/main.css?v="+VER) );
         }
     }
     //icon size
-    if (getCookie("iconSize") != ""){
-        iconSize = parseInt(getCookie("iconSize"));
+    if (localStorage.getItem("iconSize") === null)
+        $("label#icon-24").addClass("active");
+    else{
+        iconSize = parseInt(localStorage.getItem("iconSize"));
         resizeSite("icon", iconSize);
         $("label#icon-" + iconSize).addClass("active");
     }
 
     //Ajax listFolders (kalo di klik)
     var tableCall = function(e) {
-        if (getCookie("disableAjax") == ""){
+        if (localStorage.getItem("disableAjax") === null){
             e.preventDefault();
             setCookie("openAsAjax", "true", 30/24/60/60); //set cookie for 30s
             loadingAjax("start");
