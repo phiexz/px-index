@@ -362,10 +362,14 @@ tr.highlighted:hover td {
 #list > tbody > tr > td > a:after {
     content: "";
 }
-#list a[href$="/"]:before {
+#list a[href$="/"]:before, #list a[href$="/?C=N&O=D"]:before,
+#list a[href$="/?C=S&O=A"]:before, #list a[href$="/?C=S&O=D"]:before,
+#list a[href$="/?C=M&O=A"]:before, #list a[href$="/?C=M&O=D"]:before {
     content: "\f07b";
 }
-#list a[href$="../"]:before {
+#list a[href$="../"]:before, #list a[href$="../?C=N&O=D"]:before,
+#list a[href$="../?C=S&O=A"]:before, #list a[href$="../?C=S&O=D"]:before,
+#list a[href$="../?C=M&O=A"]:before, #list a[href$="../?C=M&O=D"]:before {
     content: "\f112";
 }
 
