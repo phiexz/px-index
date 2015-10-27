@@ -122,6 +122,10 @@ body {
     margin-top: -20px;
 }
 
+#randomPageHeader{
+    padding: 15px 0;
+}
+
 .box {
   border: 1px solid #d9d6d6;
   width: 100%;
@@ -226,22 +230,6 @@ table tr.highlighted td{
   background-color:#f0f0f0; /* fallback */
 }
 
-.alert-success:hover td, tr.alert-success.highlighted td {
-    background-color: #dff0d8;
-}
-
-.alert-info:hover td, tr.alert-info.highlighted td {
-    background-color: #d9edf7;
-}
-
-.alert-warning:hover td, tr.alert-warning.highlighted td {
-    background-color: #fcf8e3;
-}
-
-.alert-danger:hover td, tr.alert-danger.highlighted td {
-    background-color: #f2dede;
-}
-
 tr
 th:nth-child(3n+3),
 td:nth-child(3n+3) {
@@ -270,6 +258,22 @@ th {
 
 th a{
    color: rgba(0,0,0,0.87);
+}
+
+tr.bg-success:hover td, tr.bg-success.highlighted td {
+    background-color: #dff0d8;
+}
+
+tr.bg-info:hover td, tr.bg-info.highlighted td {
+    background-color: #d9edf7;
+}
+
+tr.bg-danger:hover td, tr.bg-danger.highlighted td {
+    background-color: #f2dede;
+}
+
+tr.highlighted:hover td {
+    background-color: #fcf8e3;
 }
 
 #textAjax{

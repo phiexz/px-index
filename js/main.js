@@ -193,10 +193,9 @@ function tableHack(){
 /*** Random backgroundColor ***/
     var color = ['success','info','danger']
     var rand = color[Math.floor(Math.random() * color.length)];
-    rand = 'alert-' + rand;
-    $( "div#randomPageHeader" ).addClass(rand); //Page Header
-    $( "tr" ).addClass(rand); //Table hover
-    $( "li#siteSetting" ).addClass(rand); //Site setting header
+    $( "div#randomPageHeader" ).addClass("bg-"+rand+" text-"+rand); //Page Header
+    $( "tr" ).addClass("bg-"+rand+" text-"+rand); //Table hover
+    $( "li#siteSetting" ).addClass("bg-"+rand+" text-"+rand); //Site setting header
 
 /*** Table Hack ***/
     //clickable & click+drag table

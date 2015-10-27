@@ -163,7 +163,7 @@
             <div class="page-header">
               <?php
                 if(UseHeaderWelcome){
-                  echo '<div id="randomPageHeader" class="alert text-center" role="alert">'.HeaderWelcome;
+                  echo '<div id="randomPageHeader" class="text-center">'.HeaderWelcome;
                   if(ServerStorageStatus){
                       echo '<a id="ServerStorageStatusStats" class="btn btn-xs btn-ServerStats"><span class="glyphicon glyphicon-stats"></span> | Storage Status</a>';
                       echo '<div class="ServerStorageStatus well">';

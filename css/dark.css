@@ -12,6 +12,11 @@ body {
   background-color: #5e5e5e;
 }
 
+.text-success, .text-info, .text-danger,
+.text-success:hover, .text-info:hover, .text-danger:hover {
+    color: #fff;
+}
+
 .box {
   opacity: .70;
 }
@@ -26,16 +31,13 @@ td {
 tr.highlighted td, tr.highlighted td a, tr td a:hover, tr.highlighted td a:hover{
     color: #000;
 }
-td, td a{
+td, td a {
     color: #c8c8c8;
 }
 table tr.highlighted td{
   color:#000;
 }
-.alert a{
-    text-decoration: none;
-    color: #555;
-}
+
 .btn-ServerStats {
     color: #555;
     background-color: #fff;
