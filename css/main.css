@@ -86,6 +86,37 @@ body {
   margin-right:auto;
 }
 
+#sidebar {
+    z-index: 1000;
+    position: fixed;
+    right: 250px;
+    width: 0;
+    height: 100%;
+    margin-right: -250px;
+    overflow-y: auto;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#sidebar.toggled {
+    width: 250px;
+}
+
+.sidebar-wrapper > ul {
+    list-style: none;
+    padding: 0;
+}
+.sidebar-wrapper .divider {
+  height: 1px;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+
 .page-header{
     margin-bottom: -10px;
     margin-top: -20px;

@@ -196,7 +196,7 @@ function tableHack(){
     rand = 'alert-' + rand;
     $( "div#randomPageHeader" ).addClass(rand); //Page Header
     $( "tr" ).addClass(rand); //Table hover
-    $( "div#siteSetting" ).addClass(rand); //Site setting header
+    $( "li#siteSetting" ).addClass(rand); //Site setting header
 
 /*** Table Hack ***/
     //clickable & click+drag table
@@ -365,6 +365,12 @@ $(document).ready(function(){
             var id = $(this).find("td").first().text().toLowerCase();
             $(this).toggle(id.indexOf(value) !== -1);
         });
+    });
+
+    //Setting Tonggle
+    $("li#setting").click(function(e) {
+        e.preventDefault();
+        $("#sidebar").toggleClass("toggled");
     });
 
     //Server Storage Status

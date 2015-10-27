@@ -88,77 +88,78 @@
                   </li>
                   <li data-container="body" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="Report broken / ilegal files here!"><a href="#" data-toggle="modal" data-target="#report"><strong><span class="glyphicon glyphicon-envelope"></span></strong></a></li>
                   <li data-container="body" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="Generate/Download Links"><a href="#" data-toggle="modal" data-target="#generateURL"><strong><span class="glyphicon glyphicon-download-alt"></span></strong></a></li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><strong><span class="glyphicon glyphicon-cog"></span></strong> <span class="caret"></span></a>
-                          <ul class="dropdown-menu" style="min-width:220px;">
-                            <div id="siteSetting" class="text-center"><b>Site Setting</b></div>
-                            <li>
-                                <span style="padding-left: 10px;">Font Size : </span>
-                                <div class="text-center" style="margin:5px auto">
-                                    <div class="btn-group" role="group" aria-label="textSize">
-                                      <button type="button" class="btn btn-default" onclick='resizeSite("font", "decrease")'>-</button>
-                                      <button type="button" class="btn btn-default" onclick='resizeSite("font", "default")'>Default</button>
-                                      <button type="button" class="btn btn-default" onclick='resizeSite("font", "increase")'>+</button>
-                                    </div>
-                                </div>
-                            </li>
-                            <li role="separator" class="divider"></li>
-                            <li>
-                                <span style="padding-left: 10px;">Icon Size : </span>
-                                <div class="text-center" style="margin:5px auto">
-                                    <div class="btn-group" data-toggle="buttons">
-                                      <label id="icon-16" class="btn btn-default">
-                                        <input type="radio" name="resizeIcon" autocomplete="off" onchange='resizeSite("icon", "16")'> 16
-                                      </label>
-                                      <label id="icon-20" class="btn btn-default">
-                                        <input type="radio" name="resizeIcon" autocomplete="off" onchange='resizeSite("icon", "20")'> 20
-                                      </label>
-                                      <label id="icon-24" class="btn btn-default">
-                                        <input type="radio" name="resizeIcon" autocomplete="off" onchange='resizeSite("icon", "24")'> 24
-                                      </label>
-                                      <label id="icon-32" class="btn btn-default">
-                                        <input type="radio" name="resizeIcon" autocomplete="off" onchange='resizeSite("icon", "32")'> 32
-                                      </label>
-                                    </div>
-                                </div>
-                            </li>
-                            <li role="separator" class="divider"></li>
-                            <li>
-                                <span style="padding-left: 10px;">Ajax Mode : </span>
-                                <div class="text-center" style="margin:5px auto">
-                                <div class="btn-group" data-toggle="buttons">
-                                  <label id="ajaxEnable" class="btn btn-default">
-                                    <input type="radio" name="ajaxMode" autocomplete="off" onchange='ajaxSetting("enable")'> Enable
-                                  </label>
-                                  <label id="ajaxDisable" class="btn btn-default">
-                                    <input type="radio" name="ajaxMode" autocomplete="off" onchange='ajaxSetting("disable")'> Disable
-                                  </label>
-                                </div>
-                                </div>
-                            </li>
-                            <?php if(darkLightTheme){ ?>
-                                <li role="separator" class="divider"></li>
-                                <li>
-                                    <span style="padding-left: 10px;">Site Theme : </span>
-                                    <div class="text-center" style="margin:5px auto">
-                                    <div class="btn-group" data-toggle="buttons">
-                                      <label id="lightTheme"class="btn btn-default">
-                                        <input type="radio" name="darkLightTheme" autocomplete="off" onchange='darkLightThemeSetting("light")'> Light
-                                      </label>
-                                      <label id="darkTheme" class="btn btn-default">
-                                        <input type="radio" name="darkLightTheme" autocomplete="off" onchange='darkLightThemeSetting("dark")'> Dark
-                                      </label>
-                                    </div>
-                                    </div>
-                                </li>
-                            <?php } ?>
-                          </ul>
-                  </li>
+                  <li id="setting"><a href="#"><strong><span class="glyphicon glyphicon-cog"></span></strong></a></li>
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
         </nav>
         <div class="wrapper">
+            <!-- Sidebar -->
+            <div id="sidebar" class="sidebar-wrapper">
+                <ul class="" style="min-width:250px;">
+                    <li id="siteSetting" class="text-center" style="font-size:14px; padding:5px;"><b>Site Setting</b></li>
+                    <li>
+                        <span style="padding-left: 10px;">Font Size : </span>
+                        <div class="text-center" style="margin:5px auto">
+                            <div class="btn-group" role="group" aria-label="textSize">
+                                <button type="button" class="btn btn-default" onclick='resizeSite("font", "decrease")'>-</button>
+                                <button type="button" class="btn btn-default" onclick='resizeSite("font", "default")'>Default</button>
+                                <button type="button" class="btn btn-default" onclick='resizeSite("font", "increase")'>+</button>
+                            </div>
+                        </div>
+                    </li>
+                  <li role="separator" class="divider"></li>
+                  <li>
+                      <span style="padding-left: 10px;">Icon Size : </span>
+                      <div class="text-center" style="margin:5px auto">
+                          <div class="btn-group" data-toggle="buttons">
+                              <label id="icon-16" class="btn btn-default">
+                                  <input type="radio" name="resizeIcon" autocomplete="off" onchange='resizeSite("icon", "16")'> 16
+                              </label>
+                              <label id="icon-20" class="btn btn-default">
+                                  <input type="radio" name="resizeIcon" autocomplete="off" onchange='resizeSite("icon", "20")'> 20
+                              </label>
+                              <label id="icon-24" class="btn btn-default">
+                                  <input type="radio" name="resizeIcon" autocomplete="off" onchange='resizeSite("icon", "24")'> 24
+                              </label>
+                              <label id="icon-32" class="btn btn-default">
+                                  <input type="radio" name="resizeIcon" autocomplete="off" onchange='resizeSite("icon", "32")'> 32
+                              </label>
+                          </div>
+                      </div>
+                  </li>
+                  <li role="separator" class="divider"></li>
+                  <li>
+                      <span style="padding-left: 10px;">Ajax Mode : </span>
+                      <div class="text-center" style="margin:5px auto">
+                          <div class="btn-group" data-toggle="buttons">
+                            <label id="ajaxEnable" class="btn btn-default">
+                                <input type="radio" name="ajaxMode" autocomplete="off" onchange='ajaxSetting("enable")'> Enable
+                            </label>
+                            <label id="ajaxDisable" class="btn btn-default">
+                                <input type="radio" name="ajaxMode" autocomplete="off" onchange='ajaxSetting("disable")'> Disable
+                            </label>
+                          </div>
+                      </div>
+                  </li>
+                  <?php if(darkLightTheme){ ?>
+                      <li role="separator" class="divider"></li>
+                      <li>
+                          <span style="padding-left: 10px;">Site Theme : </span>
+                          <div class="text-center" style="margin:5px auto">
+                          <div class="btn-group" data-toggle="buttons">
+                              <label id="lightTheme"class="btn btn-default">
+                                  <input type="radio" name="darkLightTheme" autocomplete="off" onchange='darkLightThemeSetting("light")'> Light
+                                </label>
+                            <label id="darkTheme" class="btn btn-default">
+                                <input type="radio" name="darkLightTheme" autocomplete="off" onchange='darkLightThemeSetting("dark")'> Dark
+                            </label>
+                          </div>
+                          </div>
+                      </li>
+                  <?php } ?>
+                </ul>
+            </div>
             <div class="page-header">
               <?php
                 if(UseHeaderWelcome){
