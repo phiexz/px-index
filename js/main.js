@@ -520,7 +520,7 @@ $(document).ready(function(){
         }
     };
     //activate ajax on breadcrumbs... in progress
-    //$("div#breadcrumbs").on("click", "a", tableCall);
+    $("div#breadcrumbs").on("click", "a", tableCall);
     //activate ajax on table
     $("table#list").on("click", "a#listFolders", tableCall);
 
