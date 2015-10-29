@@ -1,3 +1,8 @@
+/*** Global Variable ***/
+//Random color & backgroundColor
+var everRandom = false;
+var rand;
+
 function validateForm() {
     if((document.forms["report"]["reportName"].value) &&
        (document.forms["report"]["reportEmail"].value) &&
@@ -203,12 +208,17 @@ function tableHack(){
     document.getElementsByTagName("colgroup")[0].outerHTML = '<colgroup><col width="65%"/><col width="15%"/><col width="20%"/></colgroup>'
 
 /*** Random backgroundColor ***/
-    var color = ['success','info','danger']
-    var rand = color[Math.floor(Math.random() * color.length)];
-    $( "div#randomPageHeader" ).addClass("bg-"+rand+" text-"+rand); //Page Header
+    if (!everRandom){
+        var color = ['success','info','danger']
+        rand = color[Math.floor(Math.random() * color.length)];
+        $( "div#randomPageHeader" ).addClass("bg-"+rand+" text-"+rand); //Page Header
+        $( "li#siteSetting, li#siteFeature" ).addClass("bg-"+rand+" text-"+rand); //Site setting header
+        $( "#btnSelectAll" ).addClass("btn-"+rand); //Button Select All
+
+        everRandom = true;
+    }
+    //tr class should always added every called
     $( "tr" ).addClass("bg-"+rand+" text-"+rand); //Table hover
-    $( "li#siteSetting, li#siteFeature" ).addClass("bg-"+rand+" text-"+rand); //Site setting header
-    $( "#btnSelectAll" ).addClass("btn-"+rand); //Button Select All
 
 /*** Table Hack ***/
     //clickable & click+drag table
