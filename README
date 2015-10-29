@@ -11,8 +11,9 @@ FEATURE:
 - Server Storage Status
 - Icon using font-awesome
 - Generate Url
+- Copy Urls to clipboard
 - Filter file name
 
 Bug & Limitation:
-- txt files cant be download (url changed to: #)
-- Ajax file listing, sometime error
+- txt files cant be download (url changed to: #) (fixed)
+- Ajax file listing, sometime error (fixed)
