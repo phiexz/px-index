@@ -59,10 +59,7 @@ function generateURL(what) {
         //generating total size
         $( "span#totalSize" ).text(bytesToSize(totalFileSize));
         //Change textarea rows
-        if (nSelected > 25)
-            $( "textarea#generatedURL" ).attr("rows", 25);
-        else
-            $( "textarea#generatedURL" ).attr("rows", nSelected);
+        $( "textarea#generatedURL" ).attr("rows", nSelected);
         //generating url list
         $( "textarea#generatedURL" ).text(generatedURL.slice(0,-1));
     }
@@ -319,6 +316,7 @@ $(document).ready(function(){
             //console.log("selected = true");
             $("#generateURL_false").css("display", "none");
             $("#generateURL_true").css("display", "inline");
+            $('textarea#generatedURL').css('max-height', $(window).height() * 0.5);
             $("#copyURL").css("display","inline");
             $("#selectURL").css("display","inline");
             $("#buttonCopyClipboard").attr("style", "display:inline;");
