@@ -497,19 +497,26 @@ $(document).ready(function(){
             e.preventDefault();
             setCookie("openAsAjax", "true", 30/24/60/60); //set cookie for 30s
             loadingAjax("start");
-            $('table#list').load($(this).attr("href"), function(){
-                loadingAjax("stop");
-                //Setting HTML Title
-                setTittle();
-                //Generating Breadcrumbs
-                generateBreadcrumbs();
-                //Table Hack
-                tableHack();
+            var href = $(this).attr("href");
+            $('table#list').load($(this).attr("href"), function(response, status, xhr){
                 //destroy cookie
                 setCookie("openAsAjax", "true", -1);
+                if ( status == "error" ) {
+                    alert("Error !\n" + xhr.status + " " + xhr.statusText);
+                    location.reload();
+                }
+                else{
+                  loadingAjax("stop");
+                  //Set html5 pushstate (harus diatas setTittle & generateBreadcrumbs)
+                  history.pushState("", "", href);
+                  //Setting HTML Title
+                  setTittle();
+                  //Generating Breadcrumbs
+                  generateBreadcrumbs();
+                  //Table Hack
+                  tableHack();
+                }
             });
-            //Set html5 pushstate
-            history.pushState("", "", $(this).attr("href").split('/').slice(0,-1)+"/");
         }
     };
     //activate ajax on breadcrumbs... in progress
