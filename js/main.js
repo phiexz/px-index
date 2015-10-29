@@ -101,6 +101,21 @@ function setCookie(cname, cvalue, exdays) {
     document.cookie = cname + "=" + cvalue + "; " + expires+"; path=/";
 }
 
+function fileSelection(type){
+    if (type=="select"){
+        $("table#list tbody tr").each(function() {
+            if($(this).find('a').attr("id") != "listFolders")
+                $(this).addClass("highlighted");
+        });
+    }
+    else if (type=="deselect"){
+      $("table#list tbody tr").each(function() {
+            $(this).removeClass("highlighted");
+      });
+    }
+
+}
+
 function resizeSite(type, size){
     fontSize = parseInt($('table#list').css('font-size'));
 
@@ -192,7 +207,8 @@ function tableHack(){
     var rand = color[Math.floor(Math.random() * color.length)];
     $( "div#randomPageHeader" ).addClass("bg-"+rand+" text-"+rand); //Page Header
     $( "tr" ).addClass("bg-"+rand+" text-"+rand); //Table hover
-    $( "li#siteSetting" ).addClass("bg-"+rand+" text-"+rand); //Site setting header
+    $( "li#siteSetting, li#siteFeature" ).addClass("bg-"+rand+" text-"+rand); //Site setting header
+    $( "#btnSelectAll" ).addClass("btn-"+rand); //Button Select All
 
 /*** Table Hack ***/
     //clickable & click+drag table

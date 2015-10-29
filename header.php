@@ -97,7 +97,17 @@
             <!-- Sidebar -->
             <div id="sidebar" class="sidebar-wrapper">
                 <ul class="" style="min-width:250px;">
-                    <li id="siteSetting" class="text-center" style="font-size:14px; padding:5px;"><b>Site Setting</b></li>
+                    <li id="siteFeature" class="text-center" style="font-size:14px; padding:5px;"><b>Site Feature</b></li>
+                    <li>
+                        <span style="padding-left: 10px;">File Selection : </span>
+                        <div class="text-center" style="margin:5px auto">
+                            <div class="btn-group" role="group" aria-label="textSize">
+                                <button id="btnSelectAll" type="button" class="btn" onclick='fileSelection("select")'>Select All</button>
+                                <button type="button" class="btn btn-default" onclick='fileSelection("deselect")'>Deselect</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="siteSetting" class="text-center" style="font-size:14px; padding:5px; margin-top:15px;"><b>Site Setting</b></li>
                     <li>
                         <span style="padding-left: 10px;">Font Size : </span>
                         <div class="text-center" style="margin:5px auto">
