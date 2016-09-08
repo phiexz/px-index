@@ -1,17 +1,62 @@
-        </div></div>
+        <?php
+            if(isset($_COOKIE["openAsAjax"])){
+                //destroy cookie
+                setcookie("openAsAjax", "", time() - 3600);
+            }
+            else{
+                require_once("lib/configuration.php");
+        ?>
+        </div>
+        <div class="loadingAjax"><i class="fa fa-spinner fa-pulse fa-3x"></i></div>
+        </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.2/clipboard.min.js"></script>
         <!-- bootstrap -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/3.3.0/ekko-lightbox.min.js"></script>
-        
+
         <!-- Parsing Configuration php to javascript -->
         <script type="text/javascript">
             var CDN = "<?php echo CDN ?>";
             var VER = "<?php echo VER ?>";
-            var MaxFileName = "<?php echo MaxFileName ?>"
+            <?php if(MaxFileName) echo "var MaxFileName = ".MaxFileName.";\n var MaxFileNameLength = ".MaxFileNameLength.";\n"?>
             var directory = "<?php echo directory ?>";
+            <?php if(darkLightTheme) echo "var darkLightTheme = ".darkLightTheme.";\n" ?>
+            <?php if(RoundFileSize) echo "var RoundFileSize = ".RoundFileSize.";\n" ?>
+            <?php if(ServerStorageStatus){
+                //Server storage status
+                echo "var ServerStorageStatus = ".ServerStorageStatus.";\n";
+                //check if autorefresh enabled
+                if(ServerStorageStatusAutoRefresh) echo "var ServerStorageStatusAutoRefreshMinutes = ".ServerStorageStatusAutoRefreshMinutes.";\n";
+                //Server storage status id & url (array)
+                //id
+                echo 'var ServerStorageStatus_id = [';
+                foreach($ServerStorageStatus_array as $a => $b){
+                    echo '"'.$b[0].'"';
+                    if(count($ServerStorageStatus_array)>($a+1))
+                        echo ',';
+                }
+                echo "];\n";
+                //label
+                echo 'var ServerStorageStatus_label = [';
+                foreach($ServerStorageStatus_array as $a => $b){
+                    echo '"'.$b[1].'"';
+                    if(count($ServerStorageStatus_array)>($a+1))
+                        echo ',';
+                }
+                echo "];\n";
+                //url
+                echo 'var ServerStorageStatus_url = [';
+                foreach($ServerStorageStatus_array as $a => $b){
+                    echo '"'.$b[2].'"';
+                    if(count($ServerStorageStatus_array)>($a+1))
+                        echo ',';
+                }
+                echo "];\n";
+            }
+            ?>
         </script>
         <!-- Main Script -->
         <script src="<?php echo CDN?><?php echo directory?>/js/main.js?v=<?php echo VER?>"></script>
@@ -30,6 +75,7 @@
             require_once("lib/donate.php");
             require_once("lib/generateURL.php");
             require_once("lib/modalText.php");
+            }
         ?>
     </body>
 </html>

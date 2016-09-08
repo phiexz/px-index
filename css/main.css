@@ -86,9 +86,44 @@ body {
   margin-right:auto;
 }
 
+#sidebar {
+    z-index: 1000;
+    position: fixed;
+    right: 250px;
+    width: 0;
+    height: 100%;
+    margin-right: -250px;
+    overflow-y: auto;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#sidebar.toggled {
+    width: 250px;
+}
+
+.sidebar-wrapper > ul {
+    list-style: none;
+    padding: 0;
+}
+.sidebar-wrapper .divider {
+  height: 1px;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+
 .page-header{
     margin-bottom: -10px;
     margin-top: -20px;
+}
+
+#randomPageHeader{
+    padding: 15px 0;
 }
 
 .box {
@@ -173,7 +208,7 @@ table {
 }
 
 .table > tbody > tr > td{
-    padding: 4px 8px;
+    padding: 0 8px;
     vertical-align: middle;
 }
 
@@ -195,29 +230,13 @@ table tr.highlighted td{
   background-color:#f0f0f0; /* fallback */
 }
 
-.alert-success:hover td, tr.alert-success.highlighted td {
-    background-color: #dff0d8;
-}
-
-.alert-info:hover td, tr.alert-info.highlighted td {
-    background-color: #d9edf7;
-}
-
-.alert-warning:hover td, tr.alert-warning.highlighted td {
-    background-color: #fcf8e3;
-}
-
-.alert-danger:hover td, tr.alert-danger.highlighted td {
-    background-color: #f2dede;
-}
-
-tr 
+tr
 th:nth-child(3n+3),
 td:nth-child(3n+3) {
     text-align: center;
 }
 
-tr 
+tr
 th:nth-child(2n+2),
 td:nth-child(2n+2) {
     text-align: right;
@@ -238,21 +257,217 @@ th {
 }
 
 th a{
-   color: rgba(0,0,0,0.87); 
+   color: rgba(0,0,0,0.87);
+}
+
+tr.bg-success:hover td, tr.bg-success.highlighted td {
+    background-color: #dff0d8;
+}
+
+tr.bg-info:hover td, tr.bg-info.highlighted td {
+    background-color: #d9edf7;
+}
+
+tr.bg-danger:hover td, tr.bg-danger.highlighted td {
+    background-color: #f2dede;
+}
+
+tr.highlighted:hover td {
+    background-color: #fcf8e3;
 }
 
 #textAjax{
     width:100%
 }
 
-img.icon-sprite{
-    margin: auto 7px auto 3px;
-    vertical-align: middle;
-    display: inline;
-    width: 24px;
-    height: 24px;
+.loadingAjax {
+    display: none;
+    text-align:center;
 }
 
+.btn-ServerStats {
+    color: #fff;
+    background-color: #555;
+    margin-bottom: 10px;
+}
+.btn-ServerStats:hover{
+    background-color: #fff;
+    color: #555;
+}
+
+.ServerStorageStatus {
+    display: none;
+    margin:0 auto 0 auto;
+    max-width: 992px;
+    opacity: 0.75;
+}
+
+.progressServerStorageStatus {
+    position: relative;
+    height: 25px;
+    line-height:25px;
+    margin-bottom: 10px;
+}
+
+.progressServerStorageStatus > span {
+    position:absolute;
+    right:0;
+    left:0;
+    vertical-align: middle;
+    font-weight: 600;
+    color: #000;
+}
+
+.progressLabel {
+    position: absolute;
+    right: 0px;
+    font-weight: 800;
+    padding: 3px 5px 2px 5px;
+    color: #fff;
+    background-color: #555;
+}
+
+#copyURLSuccess, #copyURLFailed {
+    display:none;
+    position: absolute;
+    right:20px;
+    bottom:30px;
+}
+
+
+/* ==========================================================================
+   Icon
+   ========================================================================== */
+
+#list a{
+    position: relative;
+}
+
+/*-- general --*/
+#list > tbody > tr > td > a:before {
+    content: "\f016";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+/*--adjust as necessary--*/
+    color: #5f5f5f;
+    font-size: 24px;
+    margin: auto 7px auto 4px;
+    padding: 0;
+    position: inline-block;
+    vertical-align: middle;
+}
+
+#list > tbody > tr > td > a:after {
+    content: "";
+}
+#list a[href$="/"]:before, #list a[href$="/?C=N&O=D"]:before,
+#list a[href$="/?C=S&O=A"]:before, #list a[href$="/?C=S&O=D"]:before,
+#list a[href$="/?C=M&O=A"]:before, #list a[href$="/?C=M&O=D"]:before {
+    content: "\f07b";
+}
+#list a[href$="../"]:before, #list a[href$="../?C=N&O=D"]:before,
+#list a[href$="../?C=S&O=A"]:before, #list a[href$="../?C=S&O=D"]:before,
+#list a[href$="../?C=M&O=A"]:before, #list a[href$="../?C=M&O=D"]:before {
+    content: "\f112";
+}
+
+
+/*-- audio --*/
+#list a[href$=".aac"]:before, #list a[href$=".flac"]:before,
+#list a[href$=".ogg"]:before, #list a[href$=".mp3"]:before,
+#list a[href$=".wav"]:before, #list a[href$=".wma"]:before {
+    content: "\f1c7";
+}
+
+/*-- video --*/
+#list a[href$=".3gp"]:before,#list a[href$=".avi"]:before,
+#list a[href$=".flv"]:before,#list a[href$=".mkv"]:before,
+#list a[href$=".mov"]:before,#list a[href$=".mp4"]:before,
+#list a[href$=".mpeg"]:before,#list a[href$=".mpg"]:before,
+#list a[href$=".rmvb"]:before,#list a[href$=".webm"]:before,
+#list a[href$=".wmv"]:before {
+    content: "\f1c8";
+}
+
+/*-- subtitle --*/
+#list a[href$=".ass"]:before,#list a[href$=".lrc"]:before,
+#list a[href$=".sbv"]:before,#list a[href$=".srt"]:before,
+#list a[href$=".ssa"]:before,#list a[href$=".sub"]:before {
+    content: "\f27b";
+}
+
+/*-- image --*/
+#list a[href$=".bmp"]:before,#list a[href$=".gif"]:before,
+#list a[href$=".ico"]:before,#list a[href$=".jpeg"]:before,
+#list a[href$=".jpg"]:before,#list a[href$=".png"]:before,
+#list a[href$=".svg"]:before,#list a[href$=".svgz"]:before {
+    content: "\f1c5";
+}
+
+/*-- archive --*/
+#list a[href$=".7z"]:before,#list a[href$=".7zip"]:before,
+#list a[href$=".cab"]:before,#list a[href$=".gz"]:before,
+#list a[href$=".lz"]:before,#list a[href$=".rar"]:before,
+#list a[href$=".tar"]:before,#list a[href$=".tgz"]:before,
+#list a[href$=".xz"]:before,#list a[href$=".zip"]:before {
+    content: "\f1c6";
+}
+
+/*-- office --*/
+#list a[href$=".pdf"]:before {
+    content: "\f1c1";
+}
+#list a[href$=".doc"]:before,#list a[href$=".docx"]:before,
+#list a[href$=".odt"]:before,#list a[href$=".ott"]:before {
+    content: "\f1c2";
+}
+#list a[href$=".ppt"]:before,#list a[href$=".pptx"]:before,
+#list a[href$=".pps"]:before,#list a[href$=".pptm"]:before,
+#list a[href$=".odp"]:before,#list a[href$=".odg"]:before{
+    content: "\f1c4";
+}
+#list a[href$=".xls"]:before,#list a[href$=".xlsx"]:before,
+#list a[href$=".ods"]:before,#list a[href$=".ots"]:before,
+#list a[href$=".csv"]:before {
+    content: "\f1c3";
+}
+/*-- coding --*/
+#list a[href$=".c"]:before,#list a[href$=".cpp"]:before,
+#list a[href$=".css"]:before,#list a[href$=".h"]:before,
+#list a[href$=".hpp"]:before,#list a[href$=".html"]:before,
+#list a[href$=".java"]:before,#list a[href$=".js"]:before,
+#list a[href$=".less"]:before,#list a[href$=".php"]:before,
+#list a[href$=".py"]:before,#list a[href$=".rb"]:before,
+#list a[href$=".sql"]:before,#list a[href$=".sh"]:before,
+#list a[href$=".xml"]:before {
+    content: "\f1c9";
+}
+/*-- text --*/
+#list a[href$="#"]:before, #list a[href$=".rtf"]:before,
+#list a[href$=".txt"]:before {
+    content: "\f0f6";
+}
+/*-- cd image --*/
+#list a[href$=".bin"]:before,#list a[href$=".cdi"]:before,
+#list a[href$=".dmg"]:before,#list a[href$=".image"]:before,
+#list a[href$=".img"]:before,#list a[href$=".iso"]:before {
+    content: "\f192";
+}
+/*-- encrypted --*/
+#list a[href$=".gpg"]:before, #list a[href$=".px"]:before {
+    content: "\f023";
+}
+/*-- Executable --*/
+#list a[href$=".bat"]:before,#list a[href$=".com"]:before,
+#list a[href$=".exe"]:before,#list a[href$=".lnk"]:before,
+#list a[href$=".msi"]:before,#list a[href$=".reg"]:before {
+    content: "\f17a";
+}
+#list a[href$=".app"]:before,#list a[href$=".osx"]:before {
+    content: "\f179";
+}
 
 
 

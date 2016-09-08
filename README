@@ -1,10 +1,19 @@
-PX - INDEX
+PX - INDEX V3
 
 nginx fancy index for my download page...
 TODO: 
-- Change theme
-- Ajax File Listing
 - Upload FIle
 
-Limitation:
-- txt files cant be download (url changed to: #)
+FEATURE:
+- Using Bootstrap v3
+- Dark/Light Theme
+- Ajax File Listing
+- Server Storage Status
+- Icon using font-awesome
+- Generate Url
+- Copy Urls to clipboard
+- Filter file name
+
+Bug & Limitation:
+- txt files cant be download (url changed to: #) (fixed)
+- Ajax file listing, sometime error (fixed)

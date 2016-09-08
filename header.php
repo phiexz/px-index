@@ -1,5 +1,6 @@
 <?php
-    require_once("lib/configuration.php");
+    if(!isset($_COOKIE["openAsAjax"])){
+        require_once("lib/configuration.php");
 ?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -13,10 +14,14 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <!-- favicon -->
+        <link rel="icon" href="<?php echo CDN?><?php echo directory?>/favicon.ico?v=<?php echo VER?>" type="image/x-icon" sizes="16x16">
+
         <!-- bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/3.3.0/ekko-lightbox.min.css">
-        
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="<?php echo CDN?><?php echo directory?>/css/normalize.min.css">
         <link rel="stylesheet" href="<?php echo CDN?><?php echo directory?>/css/main.css?v=<?php echo VER?>">
@@ -83,72 +88,118 @@
                   </li>
                   <li data-container="body" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="Report broken / ilegal files here!"><a href="#" data-toggle="modal" data-target="#report"><strong><span class="glyphicon glyphicon-envelope"></span></strong></a></li>
                   <li data-container="body" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="Generate/Download Links"><a href="#" data-toggle="modal" data-target="#generateURL"><strong><span class="glyphicon glyphicon-download-alt"></span></strong></a></li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><strong><span class="glyphicon glyphicon-cog"></span></strong> <span class="caret"></span></a>
-                          <ul class="dropdown-menu" style="min-width:220px;">
-                            <div id="siteSetting" class="text-center"><b>Site Setting</b></div>
-                            <li>
-                                <span style="padding-left: 10px;">Font Size : </span>
-                                <div class="text-center" style="margin:5px auto">
-                                    <div class="btn-group" role="group" aria-label="textSize">
-                                      <button type="button" class="btn btn-default" onclick='resizeSite("font", "decrease")'>-</button>
-                                      <button type="button" class="btn btn-default" onclick='resizeSite("font", "default")'>Default</button>
-                                      <button type="button" class="btn btn-default" onclick='resizeSite("font", "increase")'>+</button>
-                                    </div>
-                                </div>
-                            </li>
-                            <li role="separator" class="divider"></li>
-                            <li>
-                                <span style="padding-left: 10px;">Icon Size : </span>
-                                <div class="text-center" style="margin:5px auto">
-                                    <div class="btn-group" data-toggle="buttons">
-                                      <label id="icon-16" class="btn btn-default">
-                                        <input type="radio" name="resizeIcon" autocomplete="off" onchange='resizeSite("icon", "16")'> 16
-                                      </label>
-                                      <label id="icon-24" class="btn btn-default">
-                                        <input type="radio" name="resizeIcon" autocomplete="off" onchange='resizeSite("icon", "24")'> 24
-                                      </label>
-                                      <label id="icon-32" class="btn btn-default">
-                                        <input type="radio" name="resizeIcon" autocomplete="off" onchange='resizeSite("icon", "32")'> 32
-                                      </label>
-                                      <label id="icon-48" class="btn btn-default">
-                                        <input type="radio" name="resizeIcon" autocomplete="off" onchange='resizeSite("icon", "48")'> 48
-                                      </label>
-                                    </div>
-                                </div>
-                            </li>
-                            <li role="separator" class="divider"></li>
-                            <li>
-                                <span style="padding-left: 10px;">Site Theme : </span>
-                                <div class="text-center" style="margin:5px auto">
-                                <div class="btn-group" data-toggle="buttons">
-                                  <label class="btn btn-default" disabled>
-                                    <input type="radio" name="options" id="option1" autocomplete="off"> Light
-                                  </label>
-                                  <label class="btn btn-default" disabled>
-                                    <input type="radio" name="options" id="option2" autocomplete="off"> Dark
-                                  </label>
-                                </div>
-                                </div>
-                            </li>
-                          </ul>
-                  </li>
+                  <li id="setting"><a href="#"><strong><span class="glyphicon glyphicon-cog"></span></strong></a></li>
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
         </nav>
         <div class="wrapper">
-            <div class="page-header">
-              <div id="randomPageHeader" class="alert text-center" role="alert"><h2>Welcome to PX Download Page<br> <small>Version: <span class="badge"><?php echo VER ?></span></small></h2></div>
+            <!-- Sidebar -->
+            <div id="sidebar" class="sidebar-wrapper">
+                <ul class="" style="min-width:250px;">
+                    <li id="siteFeature" class="text-center" style="font-size:14px; padding:5px;"><b>Site Feature</b></li>
+                    <li>
+                        <span style="padding-left: 10px;">File Selection : </span>
+                        <div class="text-center" style="margin:5px auto">
+                            <div class="btn-group" role="group" aria-label="textSize">
+                                <button id="btnSelectAll" type="button" class="btn" onclick='fileSelection("select")'>Select All</button>
+                                <button type="button" class="btn btn-default" onclick='fileSelection("deselect")'>Deselect</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="siteSetting" class="text-center" style="font-size:14px; padding:5px; margin-top:15px;"><b>Site Setting</b></li>
+                    <li>
+                        <span style="padding-left: 10px;">Font Size : </span>
+                        <div class="text-center" style="margin:5px auto">
+                            <div class="btn-group" role="group" aria-label="textSize">
+                                <button type="button" class="btn btn-default" onclick='resizeSite("font", "decrease")'>-</button>
+                                <button type="button" class="btn btn-default" onclick='resizeSite("font", "default")'>Default</button>
+                                <button type="button" class="btn btn-default" onclick='resizeSite("font", "increase")'>+</button>
+                            </div>
+                        </div>
+                    </li>
+                  <li role="separator" class="divider"></li>
+                  <li>
+                      <span style="padding-left: 10px;">Icon Size : </span>
+                      <div class="text-center" style="margin:5px auto">
+                          <div class="btn-group" data-toggle="buttons">
+                              <label id="icon-16" class="btn btn-default">
+                                  <input type="radio" name="resizeIcon" autocomplete="off" onchange='resizeSite("icon", "16")'> 16
+                              </label>
+                              <label id="icon-20" class="btn btn-default">
+                                  <input type="radio" name="resizeIcon" autocomplete="off" onchange='resizeSite("icon", "20")'> 20
+                              </label>
+                              <label id="icon-24" class="btn btn-default">
+                                  <input type="radio" name="resizeIcon" autocomplete="off" onchange='resizeSite("icon", "24")'> 24
+                              </label>
+                              <label id="icon-32" class="btn btn-default">
+                                  <input type="radio" name="resizeIcon" autocomplete="off" onchange='resizeSite("icon", "32")'> 32
+                              </label>
+                          </div>
+                      </div>
+                  </li>
+                  <li role="separator" class="divider"></li>
+                  <li>
+                      <span style="padding-left: 10px;">Ajax Mode : </span>
+                      <div class="text-center" style="margin:5px auto">
+                          <div class="btn-group" data-toggle="buttons">
+                            <label id="ajaxEnable" class="btn btn-default">
+                                <input type="radio" name="ajaxMode" autocomplete="off" onchange='ajaxSetting("enable")'> Enable
+                            </label>
+                            <label id="ajaxDisable" class="btn btn-default">
+                                <input type="radio" name="ajaxMode" autocomplete="off" onchange='ajaxSetting("disable")'> Disable
+                            </label>
+                          </div>
+                      </div>
+                  </li>
+                  <?php if(darkLightTheme){ ?>
+                      <li role="separator" class="divider"></li>
+                      <li>
+                          <span style="padding-left: 10px;">Site Theme : </span>
+                          <div class="text-center" style="margin:5px auto">
+                          <div class="btn-group" data-toggle="buttons">
+                              <label id="lightTheme"class="btn btn-default">
+                                  <input type="radio" name="darkLightTheme" autocomplete="off" onchange='darkLightThemeSetting("light")'> Light
+                                </label>
+                            <label id="darkTheme" class="btn btn-default">
+                                <input type="radio" name="darkLightTheme" autocomplete="off" onchange='darkLightThemeSetting("dark")'> Dark
+                            </label>
+                          </div>
+                          </div>
+                      </li>
+                  <?php } ?>
+                </ul>
             </div>
-        <?php if(empty($ReportEmail)){ ?>
+            <div class="page-header">
+              <?php
+                if(UseHeaderWelcome){
+                  echo '<div id="randomPageHeader" class="text-center">'.HeaderWelcome;
+                  if(ServerStorageStatus){
+                      echo '<a id="ServerStorageStatusStats" class="btn btn-xs btn-ServerStats"><span class="glyphicon glyphicon-stats"></span> | Storage Status</a>';
+                      echo '<div class="ServerStorageStatus well">';
+                      echo '    <div id="loadingStorageStatus" class="loadingAjax"><i class="fa fa-spinner fa-pulse fa-3x"></i></div>';
+                      foreach($ServerStorageStatus_array as $a => $b){
+                        echo '  <div class="progress progressServerStorageStatus">
+                                    <div id="progressBar'.$b[0].'" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                                      <span id="progressLabel'.$b[0].'" class="progressLabel"></span>
+                                    </div>
+                                    <span id="progressText'.$b[0].'"></span>
+                                </div>';
+                      }
+                      echo '</div>';
+                  }
+                  echo '</div>';
+                }
+              ?>
+            </div>
+        <?php if(!ReportEmail){ ?>
             <div class="alert alert-danger" role="alert">
               <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
               <span class="sr-only">Error:</span>
               Report Email has not been set >_<
             </div>
         <?php } ?>
-        
+
         <!-- breadcrumb -->
         <div class="box box-breadcrumbs">
             <div class="box-header">
@@ -161,4 +212,5 @@
         </div>
         <!-- File list -->
         <div class="table-responsive">
+<?php } ?>
             <h1>Index of:

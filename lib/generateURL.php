@@ -11,14 +11,23 @@
                 <div class="alert alert-danger" role="alert">You must at least select one file!!</div>
             </div>
             <div id="generateURL_true" class="generateURL">
-                <div class="alert alert-info" role="alert">Generated <span id="nSelected" class="label label-default">X</span> urls</div>
+                <div class="alert alert-info" role="alert">Generated <span id="nSelected" class="label label-default" style="font-size:15px;">X</span> urls. Size: <span id="totalSize" class="label label-default" style="font-size:15px;">X</span></div>
                 <textarea id="generatedURL" class="form-control" rows="1" readonly>Generated Link
                 </textarea>
             </div>
         </div>
         <div class="modal-footer">
-          <button type="button" onClick='$("textarea#generatedURL").focus().select();' class="btn btn-default">Select All</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <div class="alert alert-success" id="copyURLSuccess">
+                <strong>Copied! </strong>
+                All url links copied to clipboadrd
+            </div>
+            <div class="alert alert-danger" id="copyURLFailed">
+                <strong>Oh no!</strong>
+                Something is error, please manual copy url links
+            </div>
+          <button id="copyURL" class="btn btn-primary" data-clipboard-target="#generatedURL">Copy Link</button>
+          <button id="selectURL" type="button" onClick='$("textarea#generatedURL").focus().select();' class="btn btn-default">Select All</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
