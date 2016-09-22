@@ -10,4 +10,16 @@
   // Google Analytics
   define('useGoogleAnalytics', false);
   define('googleAnalyticsID','');
+  
+  // Header Message
+  define('headerMessage', 'PX STORAGE SERVER');
+  
+  //// Server Status
+  // server status using json file generated from server.
+  // if you want to edit it, just edit "include/server-status.php"
+  // and "js/server-status.js"
+  define('serverStatus', false);
+  define('serverStatusRefresh',false);
+  define('serverStatusRefreshTime',5); //in minutes
+  define('serverStatusURL', '');
 ?>

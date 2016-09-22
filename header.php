@@ -15,6 +15,8 @@
     <link rel="stylesheet" type="text/css" href="<?php echo CDN;echo directory; ?>/css/style.css?v=<?php echo VER;?>">
   </head>
   <body>
-    <div class="ui container">
-      <div class="ui grid">
-        <div class="sixteen wide column">
+    <?php require_once('include/sidebar.php'); ?>
+    <?php require_once('include/header-menu.php'); ?>
+    <div class="pusher"> <!-- content pushed by sidebar -->
+      <?php require_once('include/header.php'); ?>
+      <div class="sixteen wide column"><h1>
