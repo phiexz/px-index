@@ -100,6 +100,18 @@ function setTittle(){
     window.document.title = currentDir.toUpperCase() + " | " + headerMessage;
 }
 
+function filterBoxEvent() {
+  $("#filterBox, #filterBox2").keyup(function() {
+    var value = this.value.toLowerCase();
+
+    $("table").find("tr").each(function(index) {
+      if (!index) return;
+      var id = $(this).find("td").first().text().toLowerCase();
+      $(this).toggle(id.indexOf(value) !== -1);
+    });
+  });
+}
+
 $(document).ready(function(){
   /// Setting HTML Title
   setTittle();
@@ -115,5 +127,8 @@ $(document).ready(function(){
   
   /// Generating Breadcrumb
   generateBreadcrumb();
+  
+  /// Filter/Search Box Event
+  filterBoxEvent();  
 
 });

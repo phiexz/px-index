@@ -9,7 +9,7 @@
       <a id="btn-report" class="item" data-tooltip="Report broken / ilegal files" data-position="bottom center" data-inverted=""><i class="large envelope icon"></i>Report</a>
       <a class="item" data-tooltip="Filter List by name" data-position="bottom center" data-inverted=""><i class="large filter icon"></i>
         <div class="ui transparent input">
-          <input type="text" placeholder="Filter List...">
+          <input id="filterBox" type="text" placeholder="Filter List...">
         </div>
       </a>
     </div>
@@ -32,7 +32,7 @@
   <a id="btn-report2" class="item"><i class="large envelope icon"></i>Report</a>
   <a class="item"><i class="large filter icon"></i>
     <div class="ui transparent input" style="max-width: 80%;">
-      <input type="text" placeholder="Filter List...">
+      <input id="filterBox2" type="text" placeholder="Filter List...">
     </div>
   </a>
 </div>
