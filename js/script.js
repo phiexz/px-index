@@ -18,6 +18,30 @@ function getColor(type,number){
   }
 }
 
+function generateBreadcrumb(){
+    var loc = window.location.pathname;
+    var segments = loc.split('/');
+    var breadcrumb = '';
+    var currentPath = '/';
+    
+    // hide breadcrumb if on homepage/root
+    if ( window.location.pathname == root ){
+      // Index (home) page
+      $('#breadcrumb-segment').css('display','none');
+    }
+    // construct breadcrumb
+    for (var i=0; i<segments.length; i++) {
+      if (segments[i] !== '') {
+        currentPath += segments[i] + '/';
+        breadcrumb += '<i class="right chevron icon divider"></i><a href="' +  currentPath + '" class="section">' + window.unescape(segments[i]) + '</a>';
+      } else if (segments.length -1 !== i) {
+        currentPath += '';
+        breadcrumb += '<a href="' + currentPath + '"><i class="home icon"></i></a>';
+      }
+    }
+    $('#breadcrumb').append(breadcrumb);
+}
+
 
 
 $(document).ready(function(){
@@ -72,7 +96,8 @@ $(document).ready(function(){
         reportSubject : 'empty',
         reportMessage : 'empty'
       }
-    })
-  ;
+    });
   
+  //Generating Breadcrumb
+    generateBreadcrumb();
 });

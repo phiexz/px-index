@@ -3,6 +3,10 @@
   define('CDN', '');
   define('VER', '4.0.1');
   
+  // Root directory for autoindex
+  // ex: "/" or "/files" or anything
+  define('root', '/');
+  
   // Location for px-index file
   // ex: /px-index or ../px-index or else
   define('directory', '/px-index');

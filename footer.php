@@ -7,7 +7,13 @@
 
     <!-- Parsing Configuration from php to javascript -->
     <script type="text/javascript">
-      <?php if(serverStatus){
+      <?php
+        //Root directory
+        echo 'var root = "'.root.'";';
+        echo "\n";
+        
+        //Server Status
+       if(serverStatus){
         //Server storage status
         echo "var serverStatus = ".serverStatus.";\n";
         //check if autorefresh enabled
