@@ -112,6 +112,63 @@ function filterBoxEvent() {
   });
 }
 
+function bytesToSize(bytes) {
+    var sizes = ['B ', 'KB', 'MB', 'GB', 'TB'];
+    if (bytes == 0) return '0B';
+    var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+    if (i == 0) return bytes + ' ' + sizes[i];
+    return (bytes / Math.pow(1024, i)).toFixed(2) + sizes[i];
+};
+
+
+function tableListDOM() {
+  //add semantic ui class to table
+  $('#list').addClass("ui unstackable selectable fixed single line striped compact table px-transparent");
+  //remove colgroup, and using semantic ui column size
+  $('#list > colgroup').remove();
+  //if mobile
+  if($(window).width() < 768){
+    $('#list > thead > tr > th:nth-child(1)').addClass("eight wide");
+    $('#list > thead > tr > th:nth-child(2)').addClass("four wide");
+    $('#list > thead > tr > th:nth-child(3)').addClass("four wide");
+  }
+  //not mobile
+  else{
+    $('#list > thead > tr > th:nth-child(1)').addClass("eleven wide");
+    $('#list > thead > tr > th:nth-child(2)').addClass("two wide");
+    $('#list > thead > tr > th:nth-child(3)').addClass("three wide");
+  }
+  
+    
+  /// Column 1 Hack ///
+  $('#list td:nth-child(1)').each(function() {
+    var lastChar = $(this).text().substr($(this).text().length - 1);
+    var removedLastChar = $(this).text().slice(0,-1);
+    if (lastChar == "/"){
+      //Remove slash from last directory name
+      $(this).children("a").text(removedLastChar);
+    }
+  });
+  /// Column 2 Hack ///
+  $('#list > thead > tr > th:nth-child(2) > a:nth-child(1)').text("Size");
+  $('#list td:nth-child(2)').each(function() {
+    if ($(this).text() == "-"){
+      //remove "-" from folder
+      $(this).text('');
+    }
+    else{
+      if(typeof roundFileSize !== 'undefined') {
+        var cellText = parseFloat($(this).text());
+        //Filesize to Human Readable
+        $(this).text(bytesToSize(cellText));
+      }
+    }
+  });
+  /// Column 3 Hack ///
+  //none in moment
+  
+}
+
 $(document).ready(function(){
   /// Setting HTML Title
   setTittle();
@@ -129,6 +186,9 @@ $(document).ready(function(){
   generateBreadcrumb();
   
   /// Filter/Search Box Event
-  filterBoxEvent();  
+  filterBoxEvent();
+
+  /// Table list DOM Hack
+  tableListDOM();
 
 });

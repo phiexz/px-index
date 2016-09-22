@@ -38,4 +38,13 @@ body.pushable>.pusher {
   cursor: pointer;
 }
 
+#list tr th:nth-child(2),
+#list tr td:nth-child(2) {
+    text-align: right;
+}
+#list tr th:nth-child(3),
+#list tr td:nth-child(3) {
+    text-align: center;
+}
+
 

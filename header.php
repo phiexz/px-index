@@ -20,5 +20,4 @@
     <div class="pusher"> <!-- content pushed by sidebar -->
       <?php require_once('include/header.php'); ?>
       <?php require_once('include/breadcrumb.php'); ?>
-      <div class="ui grid container">
-        <div class="sixteen wide column">
+      <div class="ui container" style="margin-top:10px;margin-bottom:30px;">

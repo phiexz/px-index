@@ -1,6 +1,5 @@
 <?php require_once('config.php'); ?>
-        </div><!-- column for table end -->
-      </div><!-- grid for table end -->
+      </div><!-- container for table end -->
     <div><!-- pusher end -->
     
     <!-- modals -->
@@ -21,18 +20,21 @@
         echo "\n";
         
         //Server Status
-       if(serverStatus){
-        //Server storage status
-        echo "var serverStatus = ".serverStatus.";\n";
-        //check if autorefresh enabled
-        if (serverStatusRefresh){
-          echo "var serverStatusRefresh = ".serverStatusRefresh.";\n";
-          echo "var serverStatusRefreshTime = ".serverStatusRefreshTime.";\n";
+        if(serverStatus){
+          //Server storage status
+          echo "var serverStatus = ".serverStatus.";\n";
+          //check if autorefresh enabled
+          if (serverStatusRefresh){
+            echo "var serverStatusRefresh = ".serverStatusRefresh.";\n";
+            echo "var serverStatusRefreshTime = ".serverStatusRefreshTime.";\n";
+          }
+          //status json url
+          echo 'var serverStatusURL = "'.serverStatusURL.'";';
+          echo "\n";
         }
-        //status json url
-        echo 'var serverStatusURL = "'.serverStatusURL.'";';
-        echo "\n";
-      }
+        
+        //Round filesize to KB/MB/GB/TB
+        if(roundFileSize) echo "var roundFileSize = ".roundFileSize.";\n";
       ?>
     </script>
     <script src="<?php echo CDN;echo directory; ?>/js/script.js?v=<?php echo VER;?>"></script>
