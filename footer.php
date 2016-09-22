@@ -12,6 +12,10 @@
         echo 'var root = "'.root.'";';
         echo "\n";
         
+        //Header
+        echo 'var headerMessage = "'.headerMessage.'";';
+        echo "\n";
+        
         //Server Status
        if(serverStatus){
         //Server storage status

@@ -94,7 +94,16 @@ function modalsClicked() {
     });
 }
 
+function setTittle(){
+    var urlPath = window.location.pathname.split( '/' );
+    var currentDir = urlPath[urlPath.length-2];
+    window.document.title = currentDir.toUpperCase() + " | " + headerMessage;
+}
+
 $(document).ready(function(){
+  /// Setting HTML Title
+  setTittle();
+    
   /// convert all selection to dropdown
   $('select.dropdown').dropdown();
   
