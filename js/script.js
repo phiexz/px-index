@@ -48,12 +48,16 @@ function sidebarsClicked() {
       transition       : 'overlay',
       mobileTransition : 'overlay'})
     .sidebar('toggle');
+    //remove pushable class as we using overlay and for fixing black block on mobile
+    $('body').removeClass("pushable");
   });
   $('#btn-mobile-menu').click(function(){
     $('#mobile-menu-item').sidebar({
       transition       : 'overlay',
       mobileTransition : 'overlay'})
     .sidebar('toggle');
+    //remove pushable class as we using overlay and for fixing black block on mobile
+    $('body').removeClass("pushable");
   });
 }
 
