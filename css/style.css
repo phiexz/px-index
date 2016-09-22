@@ -19,7 +19,7 @@ body.pushable>.pusher {
   transition-property: background-position;
 }
 .px-transparent{
-  opacity:0.8;
+  opacity:0.9;
 }
 .px-nav-mobile{
   z-index:99 !important;
