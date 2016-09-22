@@ -1,4 +1,5 @@
 <?php require_once('config.php'); ?>
+        </div><!-- column for table end -->
       </div><!-- grid for table end -->
     <div><!-- pusher end -->
     <script src="<?php echo CDN;echo directory; ?>/js/jquery.min.js?v=<?php echo VER;?>"></script>

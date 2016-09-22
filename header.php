@@ -19,4 +19,5 @@
     <?php require_once('include/header-menu.php'); ?>
     <div class="pusher"> <!-- content pushed by sidebar -->
       <?php require_once('include/header.php'); ?>
-      <div class="sixteen wide column">
+      <div class="ui grid container">
+        <div class="sixteen wide column">
