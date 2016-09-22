@@ -2,6 +2,10 @@
         </div><!-- column for table end -->
       </div><!-- grid for table end -->
     <div><!-- pusher end -->
+    
+    <!-- modals -->
+    <?php require_once('include/modals.php'); ?>
+    
     <script src="<?php echo CDN;echo directory; ?>/js/jquery.min.js?v=<?php echo VER;?>"></script>
     <script src="<?php echo CDN;echo directory; ?>/js/semantic.min.js?v=<?php echo VER;?>"></script>
 
@@ -35,6 +39,5 @@
     <script src="<?php echo CDN;echo directory; ?>/js/server-status.js?v=<?php echo VER;?>"></script>
     
     <?php if(useGoogleAnalytics) {require_once('include/analytics.php');} ?>
-    <?php require_once('include/modals.php'); ?>
   </body>
 </html>
