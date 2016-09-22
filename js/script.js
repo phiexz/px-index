@@ -18,6 +18,12 @@ function getColor(type,number){
   }
 }
 
+function parallax(){
+  $(window).scroll(function () {
+    $("body").css("background-position","50% " + ($(this).scrollTop() / 2 +55) + "px");
+  });
+}
+
 function generateBreadcrumb(){
     var loc = window.location.pathname;
     var segments = loc.split('/');
@@ -180,6 +186,12 @@ $(document).ready(function(){
   /// convert all selection to dropdown
   $('select.dropdown').dropdown();
   
+  /// initialize parallax background
+  // parallax should not used in mobile or tablet
+  if($(window).width() >= 992){
+    parallax();
+  }
+    
   /// sidebar clicked event
   sidebarsClicked()
 

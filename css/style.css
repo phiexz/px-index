@@ -15,6 +15,8 @@ body.pushable>.pusher {
     url('../img/top_bg.png') no-repeat 50% 55px,
     url('../img/alpha.png'),
     url('../img/pattern.jpg');
+  transition: 0s linear;
+  transition-property: background-position;
 }
 .px-transparent{
   opacity:0.8;
