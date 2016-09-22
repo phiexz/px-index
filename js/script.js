@@ -42,13 +42,7 @@ function generateBreadcrumb(){
     $('#breadcrumb').append(breadcrumb);
 }
 
-
-
-$(document).ready(function(){
-  /// convert all selection to dropdown
-  $('select.dropdown').dropdown();
-  
-  /// sidebar
+function sidebarsClicked() {
   $('#btn-sidebar, #btn-sidebar2').click(function(){
     $('#sidebar').sidebar({
       transition       : 'overlay',
@@ -61,8 +55,9 @@ $(document).ready(function(){
       mobileTransition : 'overlay'})
     .sidebar('toggle');
   });
-  
-  /// modals
+}
+
+function modalsClicked() {
   // donate
   $('#btn-donate, #btn-donate2').click(function(){
     $('#modal-donate').modal({
@@ -97,7 +92,19 @@ $(document).ready(function(){
         reportMessage : 'empty'
       }
     });
+}
+
+$(document).ready(function(){
+  /// convert all selection to dropdown
+  $('select.dropdown').dropdown();
   
-  //Generating Breadcrumb
-    generateBreadcrumb();
+  /// sidebar clicked event
+  sidebarsClicked()
+
+  /// modals clicked event
+  modalsClicked()
+  
+  /// Generating Breadcrumb
+  generateBreadcrumb();
+
 });
