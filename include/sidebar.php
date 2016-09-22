@@ -1,4 +1,4 @@
-<div id="sidebar" class="ui left vertical menu sidebar">
+<div id="sidebar" class="ui left vertical menu sidebar px-transparent">
   <a class="item">
     Item 1
   </a>

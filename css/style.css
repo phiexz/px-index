@@ -16,6 +16,9 @@ body.pushable>.pusher {
     url('../img/alpha.png'),
     url('../img/pattern.jpg');
 }
+.px-transparent{
+  opacity:0.8;
+}
 .px-nav-mobile{
   z-index:99 !important;
 }
@@ -24,13 +27,11 @@ body.pushable>.pusher {
   z-index:98 !important;
 }
 .px-header{
-	opacity:0.8;
   padding-top: 100px;
   z-index: 1;
 }
 #sidebar{
   margin-top: 55px !important;
-  opacity:0.8;
 }
 
 .px-pointer{
