@@ -1,6 +1,6 @@
 <div class="px-header px-transparent">
   <div class="ui grid container">
-    <div class="sixteen wide mobile twelve wide computer column centered grid px-header-info">
+    <div class="sixteen wide column centered grid px-header-info">
       <div class="ui piled segment">
         <h2 class="ui center aligned icon header">
           <i class="circular inverted disk outline icon px-pointer"></i>
