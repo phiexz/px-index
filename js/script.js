@@ -48,6 +48,30 @@ function generateBreadcrumb(){
     $('#breadcrumb').append(breadcrumb);
 }
 
+function backToTop(){
+  if ($('#back-to-top').length) {
+    var scrollTrigger = 100, // px
+      backToTop = function () {
+        var scrollTop = $(window).scrollTop();
+        if (scrollTop > scrollTrigger) {
+          $('#back-to-top').addClass('show');
+        } else {
+          $('#back-to-top').removeClass('show');
+        }
+      };
+    backToTop();
+    $(window).on('scroll', function () {
+      backToTop();
+    });
+    $('#back-to-top').on('click', function (e) {
+      e.preventDefault();
+      $('html,body').animate({
+          scrollTop: 0
+      }, 700);
+    });
+  }
+}
+
 function sidebarsClicked() {
   $('#btn-sidebar, #btn-sidebar2').click(function(){
     $('#sidebar').sidebar({
@@ -130,7 +154,6 @@ function bytesToSize(bytes) {
     return (bytes / Math.pow(1024, i)).toFixed(2) + sizes[i];
 };
 
-
 function tableListDOM() {
   //add semantic ui class to table
   $('#list').addClass("ui unstackable selectable fixed single line striped compact table px-transparent");
@@ -201,10 +224,12 @@ $(document).ready(function(){
   /// Generating Breadcrumb
   generateBreadcrumb();
   
+  /// Back to Top
+  backToTop();
+  
   /// Filter/Search Box Event
   filterBoxEvent();
 
   /// Table list DOM Hack
   tableListDOM();
-
 });

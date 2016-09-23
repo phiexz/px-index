@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo CDN;echo directory; ?>/css/style.css?v=<?php echo VER;?>">
   </head>
   <body>
+    <i class="bordered arrow up big icon" id="back-to-top" title="Back to top"></i>
     <?php require_once('include/sidebar.php'); ?>
     <?php require_once('include/header-menu.php'); ?>
     <div class="pusher"> <!-- content pushed by sidebar -->
