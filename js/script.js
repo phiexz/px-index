@@ -129,9 +129,14 @@ function modalsClicked() {
 }
 
 function setTittle(){
+  if ( window.location.pathname == root ){
+    window.document.title = headerMessage.toUpperCase();
+  }
+  else{
     var urlPath = window.location.pathname.split( '/' );
     var currentDir = urlPath[urlPath.length-2];
-    window.document.title = currentDir.toUpperCase() + " | " + headerMessage;
+    window.document.title = currentDir.toUpperCase() + " | " + headerMessage.toUpperCase();
+  }
 }
 
 function filterBoxEvent() {
