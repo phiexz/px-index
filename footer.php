@@ -7,6 +7,7 @@
     
     <script src="<?php echo CDN;echo directory; ?>/js/jquery.min.js?v=<?php echo VER;?>"></script>
     <script src="<?php echo CDN;echo directory; ?>/js/semantic.min.js?v=<?php echo VER;?>"></script>
+    <script src="<?php echo CDN;echo directory; ?>/js/jquery-ui.min.js?v=<?php echo VER;?>"></script>
 
     <!-- Parsing Configuration from php to javascript -->
     <script type="text/javascript">

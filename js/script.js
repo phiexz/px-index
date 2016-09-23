@@ -171,6 +171,11 @@ function tableListDOM() {
     $('#list > thead > tr > th:nth-child(2)').addClass("two wide");
     $('#list > thead > tr > th:nth-child(3)').addClass("three wide");
   }
+  //initializing selectable row
+  $("#list>tbody").selectable({
+      filter: '.file',
+      cancel: 'a'
+  });
   
     
   /// Column 1 Hack ///
@@ -180,6 +185,10 @@ function tableListDOM() {
     if (lastChar == "/"){
       //Remove slash from last directory name
       $(this).children("a").text(removedLastChar);
+    }
+    else{
+      //Add file class to parent for selectable
+      $(this).parent().addClass("file");
     }
   });
   /// Column 2 Hack ///

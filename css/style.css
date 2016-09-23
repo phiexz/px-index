@@ -55,6 +55,19 @@ body.pushable>.pusher {
   color: black;
 }
 
+/** selectable **/
+.ui-selectable {
+	-ms-touch-action: none;
+	touch-action: none;
+}
+.ui-selectable-helper {
+	position: absolute;
+	z-index: 100;
+	border: 1px dotted black;
+}
+#list tbody .ui-selecting { background: #e6f9ff;}
+#list tbody .ui-selected { background: #b3ecff; color: white; }
+
 /* ==========================================================================
    Icon
    ========================================================================== */
