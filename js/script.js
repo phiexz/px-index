@@ -229,8 +229,8 @@ function tableListDOM() {
     $('#list > thead > tr > th:nth-child(3)').addClass("three wide");
   }
   /// initializing selectable row
-  // selectable not needed in mobile
-  if($(window).width() >= 768){
+  // disable selectable on mobile & tablet
+  if($(window).width() >= 992){
     $("#list>tbody").selectable({
       filter: '.file',
       cancel: 'a',
