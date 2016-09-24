@@ -31,7 +31,7 @@ function parallax(){
 }
 
 function generateBreadcrumb(){
-    var loc = window.location.pathname;
+    var loc = decodeURIComponent(window.location.pathname);
     var segments = loc.split('/');
     var breadcrumb = '';
     var currentPath = '/';
@@ -156,7 +156,7 @@ function setTittle(){
   }
   else{
     var urlPath = window.location.pathname.split( '/' );
-    var currentDir = urlPath[urlPath.length-2];
+    var currentDir = decodeURIComponent(urlPath[urlPath.length-2]);
     window.document.title = currentDir.toUpperCase() + " | " + headerMessage.toUpperCase();
   }
 }
