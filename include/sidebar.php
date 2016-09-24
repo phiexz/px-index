@@ -11,7 +11,7 @@
   </a>
   <a class="item">
     <div class="ui message">
-      <div class="ui centered header">Site UI</div>
+      <div class="ui centered header">Site Interface</div>
     </div>
     <div class="px-sidebar-label">Font Size</div>
     <div class="ui fluid buttons">
