@@ -26,7 +26,7 @@
 </div>
 
 <div id="mobile-menu-item" class="ui top fluid vertical menu sidebar px-nav-item-mobile">
-  <a id="btn-download2" class="item"><i class="large download icon"></i>Download</a>
+  <!--<a id="btn-download2" class="item"><i class="large download icon"></i>Download</a>-->
   <a id="btn-donate2" class="item"><i class="large money icon"></i>Donate</a>
   <a id="btn-report2" class="item"><i class="large envelope icon"></i>Report</a>
   <a class="item"><i class="large filter icon"></i>

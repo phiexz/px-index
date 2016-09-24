@@ -209,8 +209,10 @@ function tableListDOM() {
     $('#list > thead > tr > th:nth-child(2)').addClass("two wide");
     $('#list > thead > tr > th:nth-child(3)').addClass("three wide");
   }
-  //initializing selectable row
-  $("#list>tbody").selectable({
+  /// initializing selectable row
+  // selectable not needed in mobile
+  if($(window).width() >= 768){
+    $("#list>tbody").selectable({
       filter: '.file',
       cancel: 'a',
       selected: function(event, ui){
@@ -219,7 +221,8 @@ function tableListDOM() {
       unselected: function(event, ui){
         $('#btn-download').css("display", "none");
       }
-  });
+    });
+  }
   
     
   /// Column 1 Hack ///
