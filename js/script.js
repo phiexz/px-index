@@ -18,6 +18,12 @@ function getColor(type,number){
   }
 }
 
+function toggleButton(selectorTrigger, selectorToggled, speed = "slow"){
+  $(selectorTrigger).click(function() {
+    $(selectorToggled).slideToggle(speed);
+  });
+}
+
 function parallax(){
   $(window).scroll(function () {
     $("body").css("background-position","50% " + ($(this).scrollTop() / 2 +55) + "px");
@@ -92,6 +98,22 @@ function sidebarsClicked() {
 }
 
 function modalsClicked() {
+  // download
+  $('#btn-download, #btn-download2').click(function(){
+    $('#modal-download').modal({
+      onShow : function(){
+        generateLinks();
+      },
+      onHidden: function(){
+        //hide copy link message
+        $('#message-copy-success').css('display','none');
+        $('#message-copy-error').css('display','none');
+      }
+    })
+    .modal('setting', 'transition', 'scale')
+    .modal('show');
+  });
+  
   // donate
   $('#btn-donate, #btn-donate2').click(function(){
     $('#modal-donate').modal({
@@ -159,6 +181,17 @@ function bytesToSize(bytes) {
     return (bytes / Math.pow(1024, i)).toFixed(2) + sizes[i];
 };
 
+function sizeToBytes(size){
+  var sizes = ['B ', 'KB', 'MB', 'GB', 'TB'];
+  var x;
+
+  for (i in sizes) {
+    if (size.slice(-2) == sizes[i])
+      x=i;
+  }
+  return(Math.pow(1024, x) * parseFloat(size));
+}
+
 function tableListDOM() {
   //add semantic ui class to table
   $('#list').addClass("ui unstackable selectable fixed single line striped compact table px-transparent");
@@ -179,7 +212,13 @@ function tableListDOM() {
   //initializing selectable row
   $("#list>tbody").selectable({
       filter: '.file',
-      cancel: 'a'
+      cancel: 'a',
+      selected: function(event, ui){
+        $('#btn-download').css("display", "block");
+      },
+      unselected: function(event, ui){
+        $('#btn-download').css("display", "none");
+      }
   });
   
     
@@ -216,6 +255,42 @@ function tableListDOM() {
   
 }
 
+function generateLinks(){
+  // count number of selected items
+  var generatedLinkNum = $('.ui-selected', '#list .ui-selectable').length;
+  var totalSize = 0;
+  var generatedLinks = '';
+  // count total file size of selected items
+  $("#list tbody tr").each(function() {
+    if($(this).hasClass('ui-selected')){
+      totalSize = totalSize + sizeToBytes($(this).find("td:nth-child(2)").text());
+      generatedLinks = generatedLinks + $(this).find('a')[0] + '\n';
+    }
+  });
+  var generatedLinkSize = bytesToSize(totalSize);
+  
+  
+  //DOM change on #modal-download
+  $('#label-generated-links-num').text(generatedLinkNum);
+  $('#label-generated-links-size').text(generatedLinkSize);
+  $('#generated-links textarea').text(generatedLinks);
+  
+  // initialize clipboard.js
+  var clipboard = new Clipboard('#btn-copy-link',{
+    text: function(trigger) {
+      return generatedLinks;
+    }
+  });
+  
+  clipboard.on('success', function(e) {
+    $('#message-copy-success').css('display','block');
+  });
+
+  clipboard.on('error', function(e) {
+    $('#message-copy-error').css('display','block');
+  });
+}
+
 $(document).ready(function(){
   /// Setting HTML Title
   setTittle();
@@ -228,6 +303,10 @@ $(document).ready(function(){
   if($(window).width() >= 992){
     parallax();
   }
+  
+  /// Toggle Buttons
+  // show hide generated links
+  toggleButton("#btn-generated-links", "#generated-links");
     
   /// sidebar clicked event
   sidebarsClicked()

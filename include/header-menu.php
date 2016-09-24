@@ -1,10 +1,9 @@
-
 <div class="ui grid px-nav">
   <div class="computer tablet only column">
     <div class="ui fixed stackable menu">
       <a id="btn-sidebar" class="item" data-tooltip="Open Menu" data-position="bottom left" data-inverted=""><i class="large bars icon"></i></a>
       <a href="/" class="header item active" data-tooltip="Back to Home" data-position="bottom center" data-inverted=""><i class="large disk outline icon"></i><strong><?php echo headerMessage ?></strong></a>
-      <a class="item" data-tooltip="Download selected items" data-position="bottom center" data-inverted=""><i class="large download icon"></i>Download</a>
+      <a id="btn-download" class="item" data-tooltip="Generate Links from selected items" data-position="bottom center" data-inverted="" style="display:none;"><i class="large download icon"></i>Download</a>
       <a id="btn-donate" class="item" data-tooltip="Donation to keep server alive!!" data-position="bottom center" data-inverted=""><i class="large money icon"></i>Donate</a>
       <a id="btn-report" class="item" data-tooltip="Report broken / ilegal files" data-position="bottom center" data-inverted=""><i class="large envelope icon"></i>Report</a>
       <a class="item" data-tooltip="Filter List by name" data-position="bottom center" data-inverted=""><i class="large filter icon"></i>
@@ -27,7 +26,7 @@
 </div>
 
 <div id="mobile-menu-item" class="ui top fluid vertical menu sidebar px-nav-item-mobile">
-  <a class="item"><i class="large download icon"></i>Download</a>
+  <a id="btn-download2" class="item"><i class="large download icon"></i>Download</a>
   <a id="btn-donate2" class="item"><i class="large money icon"></i>Donate</a>
   <a id="btn-report2" class="item"><i class="large envelope icon"></i>Report</a>
   <a class="item"><i class="large filter icon"></i>

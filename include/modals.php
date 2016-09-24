@@ -1,3 +1,35 @@
+<!-- Download Modal -->
+<div id="modal-download" class="ui small modal">
+  <div class="ui icon header">
+    <i class="download icon"></i>
+    Generate Links
+  </div>
+  <div class="content">
+    <div class="ui info message">
+      <div class="ui labels">
+        Generated <a id="label-generated-links-num" class="ui label"></a>links. Total size: <a id="label-generated-links-size" class="ui label"></a>
+      </div>
+    </div>
+    <button id="btn-generated-links" class="ui button">Show/Hide Links</button>
+    <div id="generated-links" class="ui form" style="display:none;">
+      <div class="field"><br>
+        <label>Links:</label>
+        <textarea readonly=""></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui red deny button">Close</div>
+    <div id="btn-copy-link" class="ui blue button">Copy Link</div>
+    <div id="message-copy-success" class="ui success message" style="display:none;">
+      <p>Success.. Links Copied :)</p>
+    </div>
+    <div id="message-copy-error" class="ui error message" style="display:none;">
+      <p>Ooops.. something error, you need to copy it yourself :(</p>
+    </div>
+  </div>
+</div>
+
 <!-- Donation Modal -->
 <div id="modal-donate" class="ui small basic modal">
   <i class="close icon"></i>
