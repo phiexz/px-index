@@ -381,6 +381,20 @@ function changeSite(type, value, defaultValue){
       localStorage.setItem("usingTransparent",false);
     }
   }
+  else if(type=="fullscreen"){
+    if(value=="true"){
+      $('#container-list').removeClass("container");
+      $('#container-header').removeClass("container");
+      $('#container-breadcrumb').removeClass("container");
+      localStorage.setItem("fullscreenMode",true);
+    }
+    else{
+      $('#container-list').addClass("container");
+      $('#container-header').addClass("container");
+      $('#container-breadcrumb').addClass("container");
+      localStorage.setItem("fullscreenMode",false);
+    }
+  }
 }
 
 function loadSiteSetting(){
@@ -424,7 +438,28 @@ function loadSiteSetting(){
         changeSite("transparent","false")
     }
   });
-  
+  //fullscreen mode
+  if (localStorage.getItem("fullscreenMode") === null)
+    $('#fullscreen-mode').checkbox('uncheck');
+  else{
+    fullscreenMode=localStorage.getItem("fullscreenMode");
+    if(fullscreenMode=="false")
+      $('#fullscreen-mode').checkbox('uncheck');
+    else{
+       $('#fullscreen-mode').checkbox('check');
+       changeSite("fullscreen","true");
+    }
+  }
+  //checkbox fullscreen changed
+  $('#fullscreen-mode').checkbox({
+    onChange: function() {
+      //check if checkbox checked
+      if($('#fullscreen-mode').checkbox('is checked'))
+        changeSite("fullscreen","true")
+      else
+        changeSite("fullscreen","false")
+    }
+  });
 }
 
 $(document).ready(function(){

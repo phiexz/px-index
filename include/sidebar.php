@@ -31,6 +31,10 @@
       <input type="checkbox">
       <label>Using Transparent</label>
     </div>
+    <div id="fullscreen-mode" class="ui toggle checkbox px-sidebar-label">
+      <input type="checkbox">
+      <label>Fullscreen Mode</label>
+    </div>
   </a>
   <a class="item">
     <div class="ui message">
