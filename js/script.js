@@ -341,6 +341,92 @@ function generateLinks(){
   });
 }
 
+function changeSite(type, value, defaultValue){
+  fontSize = parseInt($('table#list').css('font-size'));
+
+  if(type=="font"){
+    if (value=="increase"){
+        $('table#list').css('font-size', fontSize+2);
+        localStorage.setItem("fontSize", fontSize+2);
+    }
+    else if(value=="decrease"){
+        $('table#list').css('font-size', fontSize-2);
+        localStorage.setItem("fontSize", fontSize-2);
+    }
+    else if(value=="default"){
+        $('table#list').css('font-size', defaultValue);
+        localStorage.setItem("fontSize", defaultValue);
+    }
+    else
+        $('table#list').css('font-size', parseInt(value));
+  }
+  else if(type=="icon"){
+    //add custom css to head
+    $('head').append('<style>#list a[href*="#"]:before, #list a[href*="."]:before, #list a[href*="/"]:before{ font-size:'+value+'px }</style>');
+    $('#btn-icon-size > button').each(function() {
+      //remove all active class on button icon size
+      $(this).removeClass("active");
+    });
+    //add active class to selected size button
+    $("#btn-icon-" + value).addClass("active");
+    localStorage.setItem("iconSize",value);
+  }
+  else if(type=="transparent"){
+    if(value=="true"){
+      $('head').append('<style>.px-transparent{opacity: '+defaultValue+';}</style>');
+      localStorage.setItem("usingTransparent",true);
+    }
+    else{
+      $('head').append('<style>.px-transparent{opacity: 1;}</style>');
+      localStorage.setItem("usingTransparent",false);
+    }
+  }
+}
+
+function loadSiteSetting(){
+  /// initialize
+  defaultFontSize = parseInt($('table#list').css('font-size'));
+  defaultIconSize = 24;
+  opacityValue = parseFloat($('.px-transparent').css('opacity'));
+  
+  //Check local storage for site settings
+  //fontsize
+  if (localStorage.getItem("fontSize") !== null){
+    fontSize = parseInt(localStorage.getItem("fontSize"));
+    changeSite("font", fontSize);
+  }
+  //icon size
+  if (localStorage.getItem("iconSize") === null)
+    $("#btn-icon-"+defaultIconSize).addClass("active");
+  else{
+    iconSize = parseInt(localStorage.getItem("iconSize"));
+    changeSite("icon", iconSize);
+  }
+  //using transparent
+  if (localStorage.getItem("usingTransparent") === null)
+    $('#using-transparent').checkbox('check');
+  else{
+    usingTransparent=localStorage.getItem("usingTransparent");
+    if(usingTransparent=="true")
+      $('#using-transparent').checkbox('check');
+    else{
+       $('#using-transparent').checkbox('uncheck');
+       changeSite("transparent",usingTransparent);
+    }
+  }
+  //checkbox transparent changed
+  $('#using-transparent').checkbox({
+    onChange: function() {
+      //check if checkbox checked
+      if($('#using-transparent').checkbox('is checked'))
+        changeSite("transparent","true",opacityValue)
+      else
+        changeSite("transparent","false")
+    }
+  });
+  
+}
+
 $(document).ready(function(){
   /// Setting HTML Title
   setTittle();
@@ -353,6 +439,9 @@ $(document).ready(function(){
   if($(window).width() >= 992){
     parallax();
   }
+  
+  /// Load site settings
+  loadSiteSetting();
   
   /// Toggle Buttons
   // show hide generated links

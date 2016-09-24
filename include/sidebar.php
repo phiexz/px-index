@@ -15,20 +15,20 @@
     </div>
     <div class="px-sidebar-label">Font Size</div>
     <div class="ui fluid buttons">
-      <button class="ui button"><i class="minus icon"></i></button>
-      <button class="ui button">Default</button>
-      <button class="ui button"><i class="plus icon"></i></button>
+      <button class="ui button" onclick='changeSite("font", "decrease")'><i class="minus icon"></i></button>
+      <button class="ui button" onclick='changeSite("font", "default", defaultFontSize)'>Default</button>
+      <button class="ui button" onclick='changeSite("font", "increase")'><i class="plus icon"></i></button>
     </div>
     <div class="px-sidebar-label">Icon Size</div>
-    <div class="ui fluid buttons">
-      <button class="ui button">16</button>
-      <button class="ui button">20</button>
-      <button class="ui button">24</button>
-      <button class="ui button">32</button>
-      <button class="ui button">48</button>
+    <div id="btn-icon-size" class="ui fluid buttons">
+      <button id="btn-icon-16" class="ui button" onclick='changeSite("icon", "16")'>16</button>
+      <button id="btn-icon-20" class="ui button" onclick='changeSite("icon", "20")'>20</button>
+      <button id="btn-icon-24" class="ui button" onclick='changeSite("icon", "24")'>24</button>
+      <button id="btn-icon-32" class="ui button" onclick='changeSite("icon", "32")'>32</button>
+      <button id="btn-icon-48" class="ui button" onclick='changeSite("icon", "48")'>48</button>
     </div>
-    <div class="ui toggle checkbox px-sidebar-label">
-      <input type="checkbox" name="input-transparent-mode">
+    <div id="using-transparent" class="ui toggle checkbox px-sidebar-label">
+      <input type="checkbox">
       <label>Using Transparent</label>
     </div>
   </a>
