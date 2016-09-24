@@ -238,7 +238,15 @@ function tableListDOM() {
         $('#btn-download').css("display", "block");
       },
       unselected: function(event, ui){
-        $('#btn-download').css("display", "none");
+        var notSelected = true;
+        $('#list > tbody > tr').each(function(){
+          if($(this).hasClass("ui-selected")){
+            notSelected = false;
+            return false;
+          }
+        });
+        if(notSelected)
+          $('#btn-download').css("display", "none");
       }
     });
   }
