@@ -4,9 +4,9 @@
       <div class="ui centered header">Files Selection</div>
     </div>
     <div class="ui fluid buttons">
-      <button class="ui positive button">Select All</button>
+      <button class="ui positive button" onclick='fileSelection("select")'>Select All</button>
       <div class="or"></div>
-      <button class="ui negative button">Deselect</button>
+      <button class="ui negative button" onclick='fileSelection("deselect")'>Deselect</button>
     </div>
   </a>
   <a class="item">

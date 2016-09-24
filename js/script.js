@@ -78,6 +78,26 @@ function backToTop(){
   }
 }
 
+function fileSelection(type){
+  var showDownload = false;
+  if (type=="select"){
+    $("table#list tbody tr").each(function() {
+      if($(this).hasClass("file")){
+        $(this).addClass("ui-selected");
+        showDownload = true;
+      }
+    });
+    if(showDownload)
+      $('#btn-download').css("display", "block");
+  }
+  else if (type=="deselect"){
+    $("table#list tbody tr").each(function() {
+      $(this).removeClass("ui-selected");
+    });
+    $('#btn-download').css("display", "none");
+  }
+}
+
 function sidebarsClicked() {
   $('#btn-sidebar, #btn-sidebar2').click(function(){
     $('#sidebar').sidebar({
