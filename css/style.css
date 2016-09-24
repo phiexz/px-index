@@ -32,6 +32,10 @@ body.pushable>.pusher {
   padding-top: 100px;
   z-index: 1;
 }
+.px-sidebar-label{
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
 #sidebar{
   margin-top: 55px !important;
 }
