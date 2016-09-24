@@ -19,8 +19,8 @@
     </div>
   </div>
   <div class="actions">
-    <div class="ui red deny button">Close</div>
     <div id="btn-copy-link" class="ui blue button">Copy Link</div>
+    <div class="ui red deny button">Close</div>
     <div id="message-copy-success" class="ui success message" style="display:none;">
       <p>Success.. Links Copied :)</p>
     </div>
@@ -42,13 +42,13 @@
     Please consider a <strong>donation</strong> to help server cost for this <strong>free service</strong></p>
   </div>
   <div class="actions">
-    <div class="ui cancel red inverted button">
-      <i class="remove icon"></i>
-      No
-    </div>
     <div class="ui ok green inverted button">
       <i class="checkmark icon" type="submit" name="submit"></i>
       Yes with Paypal
+    </div>
+    <div class="ui cancel red inverted button">
+      <i class="remove icon"></i>
+      No
     </div>
   </div>
   <form id="form-paypal" target="_blank" action="https://www.paypal.com/cgi-bin/webscr" method="post">
@@ -95,7 +95,7 @@
     </form>
   </div>
   <div class="actions">
-    <div class="ui red deny button">Close</div>
     <div id="btn-report-submit" class="ui primary button">Submit</div>
+    <div class="ui red deny button">Close</div>
   </div>
 </div>
