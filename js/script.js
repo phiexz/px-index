@@ -134,7 +134,26 @@ function modalsClicked() {
   });
   // send report when clicked
   $('#btn-report-submit').click(function(){
-    $('#form-report').submit();
+    if($('#form-report').form("is valid")){
+      $.ajax({
+        type: "POST",
+        url: directory + "/include/send-mail.php", //process to mail
+        data: $('#form-report').serialize(),
+        success: function(msg){
+          alert("Report sent! Thank you :)");
+          $('#modal-report').modal("hide");
+          //reset form
+          $( '#form-report' ).each(function(){
+            this.reset();
+          });
+        },
+        error: function(){
+          alert("Ooops.. something error. Please try again :(");
+        }
+    });
+    }
+    else
+      alert("Please complete form before send!!")
   });
   // report validate input
   $('#modal-report .form')

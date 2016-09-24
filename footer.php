@@ -17,6 +17,10 @@
         echo 'var root = "'.root.'";';
         echo "\n";
         
+        //px-index directory
+        echo 'var directory = "'.directory.'";';
+        echo "\n";
+        
         //Header
         echo 'var headerMessage = "'.headerMessage.'";';
         echo "\n";
