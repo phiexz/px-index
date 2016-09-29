@@ -362,7 +362,7 @@ function changeSite(type, value, defaultValue){
   }
   else if(type=="icon"){
     //add custom css to head
-    $('head').append('<style>#list a[href*="#"]:before, #list a[href*="."]:before, #list a[href*="/"]:before{ font-size:'+value+'px }</style>');
+    $('head').append('<style>#list > tbody > tr > td > a:before{ font-size:'+value+'px }</style>');
     $('#btn-icon-size > button').each(function() {
       //remove all active class on button icon size
       $(this).removeClass("active");
