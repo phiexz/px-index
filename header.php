@@ -1,4 +1,8 @@
-<?php require_once('config.php'); ?>
+<?php
+    //Check if open as ajax
+    if(!isset($_COOKIE["openAsAjax"])){
+        require_once('config.php');
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -21,4 +25,8 @@
     <div class="pusher"> <!-- content pushed by sidebar -->
       <?php require_once('include/header.php'); ?>
       <?php require_once('include/breadcrumb.php'); ?>
-      <div id="container-list" class="ui container" style="margin-top:10px;margin-bottom:30px;">
+      <div id="container-list" class="ui container dimmable" style="margin-top:10px;margin-bottom:30px;">
+        <div id="table-dimmer" class="ui inverted dimmer">
+          <div class="ui text loader">Loading</div>
+        </div>
+<?php } ?>

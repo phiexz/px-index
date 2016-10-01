@@ -40,7 +40,7 @@
     <div class="ui message">
       <div class="ui centered header">Ajax Mode</div>
     </div>
-    <div class="ui toggle checkbox">
+    <div id="using-ajax-mode" class="ui toggle checkbox">
       <input type="checkbox" name="input-ajax-mode">
       <label>Using Ajax Mode</label>
     </div>

@@ -1,4 +1,11 @@
-<?php require_once('config.php'); ?>
+<?php
+  if(isset($_COOKIE["openAsAjax"])){
+    //destroy cookie
+    setcookie("openAsAjax", "", time() - 3600);
+  }
+  else{
+    require_once('config.php'); 
+?>
       </div><!-- container for table end -->
     <div><!-- pusher end -->
     
@@ -47,5 +54,6 @@
     <script src="<?php echo CDN;echo directory; ?>/js/server-status.js?v=<?php echo VER;?>"></script>
     
     <?php if(useGoogleAnalytics) {require_once('include/analytics.php');} ?>
+<?php } ?>
   </body>
 </html>

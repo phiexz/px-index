@@ -24,6 +24,13 @@ function toggleButton(selectorTrigger, selectorToggled, speed = "slow"){
   });
 }
 
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires+"; path=/";
+}
+
 function parallax(){
   $(window).scroll(function () {
     $("body").css("background-position","50% " + ($(this).scrollTop() / 2 +55) + "px");
@@ -41,6 +48,9 @@ function generateBreadcrumb(){
       // Index (home) page
       $('#breadcrumb-segment').css('display','none');
     }
+    else{
+      $('#breadcrumb-segment').css('display','block');
+    }
     // construct breadcrumb
     for (var i=0; i<segments.length; i++) {
       if (segments[i] !== '') {
@@ -51,7 +61,7 @@ function generateBreadcrumb(){
         breadcrumb += '<a href="' + currentPath + '"><i class="home icon"></i></a>';
       }
     }
-    $('#breadcrumb').append(breadcrumb);
+    $('#breadcrumb').html(breadcrumb);
 }
 
 function backToTop(){
@@ -277,6 +287,8 @@ function tableListDOM() {
     var lastChar = $(this).text().substr($(this).text().length - 1);
     var removedLastChar = $(this).text().slice(0,-1);
     if (lastChar == "/"){
+      //Add folder class to parent for ajaxcall
+      $(this).parent().addClass("folder");
       //Remove slash from last directory name
       $(this).children("a").text(removedLastChar);
     }
@@ -402,6 +414,7 @@ function loadSiteSetting(){
   defaultFontSize = parseInt($('table#list').css('font-size'));
   defaultIconSize = 24;
   opacityValue = parseFloat($('.px-transparent').css('opacity'));
+  ajaxMode = "true";
   
   //Check local storage for site settings
   //fontsize
@@ -460,6 +473,83 @@ function loadSiteSetting(){
         changeSite("fullscreen","false")
     }
   });
+  //Ajax Mode
+  if (localStorage.getItem("ajaxMode") === null)
+    $('#using-ajax-mode').checkbox('check');
+  else{
+    ajaxMode=localStorage.getItem("ajaxMode");
+    if(ajaxMode=="false")
+      $('#using-ajax-mode').checkbox('uncheck');
+    else
+      $('#using-ajax-mode').checkbox('check');
+  }
+  //Ajax Mode changed
+  $('#using-ajax-mode').checkbox({
+    onChange: function() {
+      //check if checkbox checked
+      if($('#using-ajax-mode').checkbox('is checked')){
+        ajaxMode = true;
+        localStorage.setItem("ajaxMode",true);
+      }
+      else{
+        ajaxMode = false;
+        localStorage.setItem("ajaxMode",false);
+      }
+    }
+  });
+  
+  //Ajax calling
+  var tableCall = function(e) {
+    if (ajaxMode=="true"){
+      e.preventDefault();
+      setCookie("openAsAjax", "true", 30/24/60/60); //set cookie for 30s
+      $("#table-dimmer").dimmer("show");
+      var href = $(this).attr("href");
+      var backForward = false;
+      if (href == null){
+          href = location.href;
+          backForward = true;
+      }
+      $('table#list').load(href, function(response, status, xhr){
+        //destroy cookie
+        setCookie("openAsAjax", "true", -1);
+        if ( status == "error" ) {
+          alert("Error !\n" + xhr.status + " " + xhr.statusText);
+          location.reload();
+        }
+        else{
+        $("#table-dimmer").dimmer('hide');
+        //Set html5 pushstate (harus diatas setTittle & generateBreadcrumb)
+        if(!backForward){
+          history.pushState("", "", href);
+        }
+        //Re-setting page
+        setTittle();
+        generateBreadcrumb();
+        tableListDOM();
+        }
+        ///Event for calling ajax
+        //click on folder link
+        $("#list > tbody > tr.folder > td > a").click(tableCall);
+        //click on header (sort)
+        $("#list > thead > tr > th > a").click(tableCall);
+        //click on breadcrumb
+        $("#breadcrumb > a").click(tableCall);
+        //on back or forward 
+        $(window).on('popstate', tableCall);
+      });
+    }
+  };
+  
+  ///Event for calling ajax
+  //click on folder link
+  $("#list > tbody > tr.folder > td > a").click(tableCall);
+  //click on header (sort)
+  $("#list > thead > tr > th > a").click(tableCall);
+  //click on breadcrumb
+  $("#breadcrumb > a").click(tableCall);
+  //on back or forward 
+  $(window).on('popstate', tableCall);
 }
 
 $(document).ready(function(){
@@ -474,9 +564,6 @@ $(document).ready(function(){
   if($(window).width() >= 992){
     parallax();
   }
-  
-  /// Load site settings
-  loadSiteSetting();
   
   /// Toggle Buttons
   // show hide generated links
@@ -499,4 +586,7 @@ $(document).ready(function(){
 
   /// Table list DOM Hack
   tableListDOM();
+  
+  /// Load site settings
+  loadSiteSetting();
 });
