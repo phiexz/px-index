@@ -243,7 +243,7 @@ function sizeToBytes(size){
 
 function tableListDOM() {
   //add semantic ui class to table
-  $('#list').addClass("ui unstackable selectable fixed single line striped compact table px-transparent");
+  $('#list').addClass("ui unstackable selectable fixed single line striped compact table raised segment px-transparent");
   //remove colgroup, and using semantic ui column size
   $('#list > colgroup').remove();
   //if mobile
