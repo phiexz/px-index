@@ -21,7 +21,7 @@
     <div class="computer tablet only four wide right aligned column"><a class="ui tag black label">Total Bandwith Used</a></div>
     <div class="twelve wide column"><div id="statusUpload" class="ui label"></div><div id="statusDownload" class="ui label"></div></div>
     <!-- bandwith monthly -->
-    <div class="computer tablet only four wide right aligned column"><a class="ui tag black label"><?php echo date("F") ?> Bandwith</a></div>
+    <div class="computer tablet only four wide right aligned column"><a class="ui tag black label"><?php echo gmdate("F") ?> Bandwith</a></div>
     <div class="twelve wide column"><div id="statusUploadMonthly" class="ui label"></div><div id="statusDownloadMonthly" class="ui label"></div></div>
     <!-- uptime -->
     <div class="computer tablet only four wide right aligned column"><a class="ui tag black label">Server Uptime</a></div>
