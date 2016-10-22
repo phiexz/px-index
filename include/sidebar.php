@@ -1,4 +1,4 @@
-<div id="sidebar" class="ui left vertical menu sidebar px-transparent">
+<div id="sidebar" class="ui left vertical menu sidebar">
   <a class="item">
     <div class="ui message">
       <div class="ui centered header">Files Selection</div>
@@ -26,10 +26,6 @@
       <button id="btn-icon-24" class="ui button" onclick='changeSite("icon", "24")'>24</button>
       <button id="btn-icon-32" class="ui button" onclick='changeSite("icon", "32")'>32</button>
       <button id="btn-icon-48" class="ui button" onclick='changeSite("icon", "48")'>48</button>
-    </div>
-    <div id="using-transparent" class="ui toggle checkbox px-sidebar-label">
-      <input type="checkbox">
-      <label>Using Transparent</label>
     </div>
     <div id="fullscreen-mode" class="ui toggle checkbox px-sidebar-label">
       <input type="checkbox">

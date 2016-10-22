@@ -1,4 +1,4 @@
-<div class="px-header px-transparent">
+<div class="px-header">
   <div id="container-header" class="ui grid container">
     <div class="sixteen wide column centered grid px-header-info">
       <div class="ui raised segment">

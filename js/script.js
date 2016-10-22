@@ -237,7 +237,7 @@ function sizeToBytes(size){
 
 function tableListDOM() {
   //add semantic ui class to table
-  $('#list').addClass("ui unstackable selectable fixed single line striped compact table raised segment px-transparent");
+  $('#list').addClass("ui unstackable selectable fixed single line striped compact table raised segment");
   //remove colgroup, and using semantic ui column size
   $('#list > colgroup').remove();
   //if mobile
@@ -377,16 +377,6 @@ function changeSite(type, value, defaultValue){
     $("#btn-icon-" + value).addClass("active");
     localStorage.setItem("iconSize",value);
   }
-  else if(type=="transparent"){
-    if(value=="true"){
-      $('head').append('<style>.px-transparent{opacity: '+defaultValue+';}</style>');
-      localStorage.setItem("usingTransparent",true);
-    }
-    else{
-      $('head').append('<style>.px-transparent{opacity: 1;}</style>');
-      localStorage.setItem("usingTransparent",false);
-    }
-  }
   else if(type=="fullscreen"){
     if(value=="true"){
       $('#container-list').removeClass("container");
@@ -407,7 +397,6 @@ function loadSiteSetting(){
   /// initialize
   defaultFontSize = parseInt($('table#list').css('font-size'));
   defaultIconSize = 24;
-  opacityValue = parseFloat($('.px-transparent').css('opacity'));
   ajaxMode = "true";
   
   //Check local storage for site settings
@@ -423,28 +412,6 @@ function loadSiteSetting(){
     iconSize = parseInt(localStorage.getItem("iconSize"));
     changeSite("icon", iconSize);
   }
-  //using transparent
-  if (localStorage.getItem("usingTransparent") === null)
-    $('#using-transparent').checkbox('check');
-  else{
-    usingTransparent=localStorage.getItem("usingTransparent");
-    if(usingTransparent=="true")
-      $('#using-transparent').checkbox('check');
-    else{
-       $('#using-transparent').checkbox('uncheck');
-       changeSite("transparent",usingTransparent);
-    }
-  }
-  //checkbox transparent changed
-  $('#using-transparent').checkbox({
-    onChange: function() {
-      //check if checkbox checked
-      if($('#using-transparent').checkbox('is checked'))
-        changeSite("transparent","true",opacityValue)
-      else
-        changeSite("transparent","false")
-    }
-  });
   //fullscreen mode
   if (localStorage.getItem("fullscreenMode") === null)
     $('#fullscreen-mode').checkbox('uncheck');
