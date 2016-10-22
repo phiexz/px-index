@@ -31,12 +31,6 @@ function setCookie(cname, cvalue, exdays) {
     document.cookie = cname + "=" + cvalue + "; " + expires+"; path=/";
 }
 
-function parallax(){
-  $(window).scroll(function () {
-    $("body").css("background-position","50% " + ($(this).scrollTop() / 2 +55) + "px");
-  });
-}
-
 function generateBreadcrumb(){
     var loc = decodeURIComponent(window.location.pathname);
     var segments = loc.split('/');
@@ -558,12 +552,6 @@ $(document).ready(function(){
     
   /// convert all selection to dropdown
   $('select.dropdown').dropdown();
-  
-  /// initialize parallax background
-  // parallax should not used in mobile or tablet
-  if($(window).width() >= 992){
-    parallax();
-  }
   
   /// Toggle Buttons
   // show hide generated links
