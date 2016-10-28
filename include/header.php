@@ -1,17 +1,17 @@
 <div class="px-header">
   <div id="container-header" class="ui grid container">
-    <div class="sixteen wide column centered grid px-header-info">
-      <div class="ui raised segment">
-        <h2 class="ui center aligned icon header">
-          <i class="circular inverted disk outline icon px-pointer"></i>
-            <div><?php echo headerMessage; ?></div>
-            <div class="ui label">Version<div class="detail"><?php echo VER; ?></div> </div>
-        </h2>
-        <?php
-          if (serverStatus)
-            {require_once('include/server-status.php');}
-        ?>
-      </div>
+    <div class="sixteen wide column grid px-header-greetings">
+      Hi, Folks! <i class="smile icon"></i>
+    </div><br><br>
+    <div class="eleven wide column grid px-header-greet">
+      Welcome to <dfn>My Storage Server</dfn>
+    </div>
+    <div class="five wide column grid px-header-greet">
+      Version <?php echo VER; ?>
     </div>
   </div>
+    <?php
+      if (serverStatus)
+        {require_once('include/server-status.php');}
+    ?>
 </div>

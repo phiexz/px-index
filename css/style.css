@@ -21,9 +21,11 @@ body.pushable>.pusher {
   padding-top: 55px;
   z-index:98 !important;
 }
-.px-header{
-  padding-top: 100px;
-  z-index: 1;
+#serverStatus{
+  margin: 30px 0 10px 0;
+}
+#container-breadcrumb{
+  margin-top: -200px;
 }
 .px-sidebar-label{
   margin-bottom: 10px;
@@ -83,6 +85,44 @@ body.pushable>.pusher {
 }
 #list tbody .ui-selecting { background: #e6f9ff;}
 #list tbody .ui-selected { background: #b3ecff; color: white; }
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+  .px-header{
+    padding-top: 70px;
+    min-height: 500px;
+    background-image: url("../img/bg-teal.png");
+    color: #ffffff;
+  }
+  .px-header-greetings{
+    font-size: 3rem;
+  }
+  .px-header-greet{
+    font-size: 1.5rem;
+  }
+  .px-header-stats{
+    font-size: 1rem;
+  }
+}
+
+/* Tablet UP */
+@media only screen and (min-width: 768px) {
+  .px-header{
+    padding-top: 100px;
+    min-height: 700px;
+    background-image: url("../img/bg-teal.png");
+    color: #ffffff;
+  }
+  .px-header-greetings{
+    font-size: 6rem;
+  }
+  .px-header-greet{
+    font-size: 3.5rem;
+  }
+  .px-header-stats{
+    font-size: 2rem;
+  }
+}
 
 /* ==========================================================================
    Icon

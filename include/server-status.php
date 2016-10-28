@@ -1,5 +1,8 @@
-<div class="ui centered grid" style="padding: 10px 0px">
-  <div id="serverStatusButton" class="ui centered vertical animated black button">
+<div id="container-server-stats" class="ui centered grid container">
+  <div class="sixteen wide center aligned column grid px-header-stats">
+    <dfn>To view server status, just click button below</dfn>
+  </div>
+  <div id="serverStatusButton" class="ui centered vertical animated white button">
     <div class="visible content">
       <i class="options icon"></i>
       Server Status
@@ -9,7 +12,7 @@
     </div>
   </div>
 </div>
-<div id="serverStatus" class="ui segment" style="display: none;">
+<div id="serverStatus" class="ui segment container" style="display: none;">
   <div id="statusDimmer" class="ui inverted dimmer">
     <div class="ui text loader">Loading</div>
   </div>

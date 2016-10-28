@@ -104,8 +104,12 @@ $(document).ready(function(){
     if(isStatusOPen){
       $("#statusDimmer").dimmer('show');
       getStatus("call");
+      $('#container-breadcrumb').css('margin-top', '0px')
     }
-    else{getStatus("destroy");}
+    else{
+      getStatus("destroy");
+      $('#container-breadcrumb').css('margin-top', '-200px')
+    }
     
   });
   // check server status info autorefresh
