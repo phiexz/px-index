@@ -382,6 +382,7 @@ function changeSite(type, value, defaultValue){
       $('#container-header').removeClass("container");
       $('#header-menu > > ').unwrap();
       $('#container-breadcrumb').removeClass("container");
+      $('#container-footer').removeClass("container");
       localStorage.setItem("fullscreenMode",true);
     }
     else{
@@ -389,6 +390,7 @@ function changeSite(type, value, defaultValue){
       $('#container-header').addClass("container");
       $('#header-menu').wrapInner('<div class="ui container"></div>');
       $('#container-breadcrumb').addClass("container");
+      $('#container-footer').addClass("container");
       localStorage.setItem("fullscreenMode",false);
     }
   }

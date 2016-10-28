@@ -1,5 +1,5 @@
 <div id="footer" class="ui teal inverted segment px-footer">
-  <div class="ui grid container">
+  <div id="container-footer" class="ui grid container">
     <div class="eight wide column">
       <p>Made with love by: <b>phiexz</b></p>
     </div>
