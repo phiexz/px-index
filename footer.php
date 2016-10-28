@@ -49,6 +49,10 @@
         
         //Round filesize to KB/MB/GB/TB
         if(roundFileSize) echo "var roundFileSize = ".roundFileSize.";\n";
+        
+        //for count execution code time
+        echo 'var time_stop = '.microtime(true).';';
+        echo "\n";
       ?>
     </script>
     <script src="<?php echo urlPrefix; ?>/js/script.js<?php echo urlSuffix; ?>"></script>

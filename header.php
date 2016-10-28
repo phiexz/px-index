@@ -1,4 +1,6 @@
 <?php
+    //for count execution code time
+    $time_start = microtime(true);
     //Check if open as ajax
     if(!isset($_COOKIE["openAsAjax"])){
         require_once('config.php');
@@ -24,6 +26,9 @@
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="<?php echo urlPrefix; ?>/css/semantic.min.css<?php echo urlSuffix; ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo urlPrefix; ?>/css/style.css<?php echo urlSuffix; ?>">
+    <script type="text/javascript">
+      var time_start = <?php echo $time_start ?>;
+    </script>
   </head>
   <body>
     <i class="bordered arrow up big icon px-pointer" id="back-to-top" title="Back to top"></i>

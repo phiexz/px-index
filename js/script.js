@@ -547,4 +547,7 @@ $(document).ready(function(){
   
   /// Load site settings
   loadSiteSetting();
+  
+  /// Generate php execution timw
+  $('#execution-time > b').text((time_stop - time_start).toFixed(6));
 });
