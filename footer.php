@@ -7,6 +7,7 @@
     require_once('config.php'); 
 ?>
       </div><!-- container for table end -->
+      <?php require_once('include/footer.php') ?>
     <div><!-- pusher end -->
     
     <!-- modals -->
