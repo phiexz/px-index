@@ -12,7 +12,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     
     <!-- favicon -->
-    <link rel="icon" href="<?php echo CDN;echo directory; ?>/favicon.ico<?php echo urlSuffix; ?>" type="image/x-icon" sizes="16x16">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo urlPrefix; ?>/img/icons/apple-touch-icon.png<?php echo urlSuffix;?>">
+    <link rel="icon" type="image/png" href="<?php echo urlPrefix; ?>/img/icons/favicon-32x32.png" sizes="32x32<?php echo urlSuffix;?>">
+    <link rel="icon" type="image/png" href="<?php echo urlPrefix; ?>/img/icons/favicon-16x16.png" sizes="16x16<?php echo urlSuffix;?>">
+    <link rel="manifest" href="<?php echo urlPrefix; ?>/img/icons/manifest.json<?php echo urlSuffix;?>">
+    <link rel="mask-icon" href="<?php echo urlPrefix; ?>/img/icons/safari-pinned-tab.svg<?php echo urlSuffix;?>" color="#5bbad5">
+    <link rel="shortcut icon" href="<?php echo urlPrefix; ?>/img/icons/favicon.ico<?php echo urlSuffix;?>">
+    <meta name="msapplication-config" content="<?php echo urlPrefix; ?>/img/icons/browserconfig.xml<?php echo urlSuffix;?>">
+    <meta name="theme-color" content="#ffffff">
 
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="<?php echo urlPrefix; ?>/css/semantic.min.css<?php echo urlSuffix; ?>">
