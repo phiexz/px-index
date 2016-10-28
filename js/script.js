@@ -349,14 +349,17 @@ function changeSite(type, value, defaultValue){
   if(type=="font"){
     if (value=="increase"){
         $('table#list').css('font-size', fontSize+2);
+        $('#breadcrumb').css('font-size', fontSize+2);
         localStorage.setItem("fontSize", fontSize+2);
     }
     else if(value=="decrease"){
         $('table#list').css('font-size', fontSize-2);
+        $('#breadcrumb').css('font-size', fontSize-2);
         localStorage.setItem("fontSize", fontSize-2);
     }
     else if(value=="default"){
         $('table#list').css('font-size', defaultValue);
+        $('#breadcrumb').css('font-size', defaultValue+1);
         localStorage.setItem("fontSize", defaultValue);
     }
     else
