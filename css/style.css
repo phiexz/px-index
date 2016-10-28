@@ -6,6 +6,12 @@ html.ios,
 html.ios body {
   height: initial !important;
 }
+.pusher {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
 .px-transparent{
   opacity:0.9;
 }
@@ -49,7 +55,9 @@ html.ios body {
 }#sidebar > .item > .message{
   box-shadow: none;
 }
-
+#container-list {
+  flex: 1;
+}
 #list tr th:nth-child(2),
 #list tr td:nth-child(2) {
     text-align: right;
