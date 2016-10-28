@@ -8,7 +8,7 @@
 ?>
       </div><!-- container for table end -->
       <?php require_once('include/footer.php') ?>
-    <div><!-- pusher end -->
+    </div><!-- pusher end -->
     
     <!-- modals -->
     <?php require_once('include/modals.php'); ?>
