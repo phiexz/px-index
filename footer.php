@@ -12,10 +12,10 @@
     <!-- modals -->
     <?php require_once('include/modals.php'); ?>
     
-    <script src="<?php echo CDN;echo directory; ?>/js/jquery.min.js?v=<?php echo VER;?>"></script>
-    <script src="<?php echo CDN;echo directory; ?>/js/semantic.min.js?v=<?php echo VER;?>"></script>
-    <script src="<?php echo CDN;echo directory; ?>/js/jquery-ui.min.js?v=<?php echo VER;?>"></script>
-    <script src="<?php echo CDN;echo directory; ?>/js/clipboard.min.js?v=<?php echo VER;?>"></script>
+    <script src="<?php echo urlPrefix; ?>/js/jquery.min.js<?php echo urlSuffix; ?>"></script>
+    <script src="<?php echo urlPrefix; ?>/js/semantic.min.js<?php echo urlSuffix; ?>"></script>
+    <script src="<?php echo urlPrefix; ?>/js/jquery-ui.min.js<?php echo urlSuffix; ?>"></script>
+    <script src="<?php echo urlPrefix; ?>/js/clipboard.min.js<?php echo urlSuffix; ?>"></script>
 
     <!-- Parsing Configuration from php to javascript -->
     <script type="text/javascript">
@@ -50,8 +50,8 @@
         if(roundFileSize) echo "var roundFileSize = ".roundFileSize.";\n";
       ?>
     </script>
-    <script src="<?php echo CDN;echo directory; ?>/js/script.js?v=<?php echo VER;?>"></script>
-    <script src="<?php echo CDN;echo directory; ?>/js/server-status.js?v=<?php echo VER;?>"></script>
+    <script src="<?php echo urlPrefix; ?>/js/script.js<?php echo urlSuffix; ?>"></script>
+    <script src="<?php echo urlPrefix; ?>/js/server-status.js<?php echo urlSuffix; ?>"></script>
     
     <?php if(useGoogleAnalytics) {require_once('include/analytics.php');} ?>
 <?php } ?>

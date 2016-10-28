@@ -12,11 +12,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     
     <!-- favicon -->
-    <link rel="icon" href="<?php echo CDN;echo directory; ?>/favicon.ico?v=<?php echo VER;?>" type="image/x-icon" sizes="16x16">
+    <link rel="icon" href="<?php echo CDN;echo directory; ?>/favicon.ico<?php echo urlSuffix; ?>" type="image/x-icon" sizes="16x16">
 
     <!-- css -->
-    <link rel="stylesheet" type="text/css" href="<?php echo CDN;echo directory; ?>/css/semantic.min.css?v=<?php echo VER;?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo CDN;echo directory; ?>/css/style.css?v=<?php echo VER;?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo urlPrefix; ?>/css/semantic.min.css<?php echo urlSuffix; ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo urlPrefix; ?>/css/style.css<?php echo urlSuffix; ?>">
   </head>
   <body>
     <i class="bordered arrow up big icon px-pointer" id="back-to-top" title="Back to top"></i>

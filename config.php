@@ -6,10 +6,14 @@
   // Root directory for autoindex
   // ex: "/" or "/files" or anything
   define('root', '/');
-  
+
   // Location for px-index file
   // ex: /px-index or ../px-index or else
   define('directory', '/px-index');
+
+  // Prefix & Suffix Url
+  define('urlPrefix', CDN.directory.'/');
+  define('urlSuffix', '?v='.VER);
 
   // Google Analytics
   define('useGoogleAnalytics', false);
