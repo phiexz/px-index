@@ -490,6 +490,8 @@ function loadSiteSetting(){
         setTittle();
         generateBreadcrumb();
         tableListDOM();
+        //hide download button after loading ajax
+        $('#btn-download').css('display','none');
         }
         ///Event for calling ajax
         //click on folder link
