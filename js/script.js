@@ -381,12 +381,14 @@ function changeSite(type, value, defaultValue){
     if(value=="true"){
       $('#container-list').removeClass("container");
       $('#container-header').removeClass("container");
+      $('#header-menu > > ').unwrap();
       $('#container-breadcrumb').removeClass("container");
       localStorage.setItem("fullscreenMode",true);
     }
     else{
       $('#container-list').addClass("container");
       $('#container-header').addClass("container");
+      $('#header-menu').wrapInner('<div class="ui container"></div>');
       $('#container-breadcrumb').addClass("container");
       localStorage.setItem("fullscreenMode",false);
     }

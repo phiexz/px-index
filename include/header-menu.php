@@ -1,7 +1,7 @@
 <div class="ui grid px-nav">
   <!-- tablet & computer menu -->
   <div class="computer tablet only column">
-    <div class="ui fixed teal inverted large menu">
+    <div id="header-menu" class="ui fixed teal inverted large menu">
       <div class="ui container">
         <a id="btn-sidebar" class="item" data-tooltip="Open Menu" data-position="bottom left" data-inverted=""><i class="large bars icon"></i></a>
         <a href="/" class="header item active" data-tooltip="Back to Home" data-position="bottom center" data-inverted=""><i class="large disk outline icon"></i><strong><?php echo headerMessage ?></strong></a>
