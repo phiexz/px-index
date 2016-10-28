@@ -105,19 +105,15 @@ function fileSelection(type){
 function sidebarsClicked() {
   $('#btn-sidebar, #btn-sidebar2').click(function(){
     $('#sidebar').sidebar({
-      transition       : 'overlay',
-      mobileTransition : 'overlay'})
+      transition       : 'uncover',
+      mobileTransition : 'uncover'})
     .sidebar('toggle');
-    //remove pushable class as we using overlay and for fixing black block on mobile
-    $('body').removeClass("pushable");
   });
   $('#btn-mobile-menu').click(function(){
     $('#mobile-menu-item').sidebar({
       transition       : 'overlay',
       mobileTransition : 'overlay'})
     .sidebar('toggle');
-    //remove pushable class as we using overlay and for fixing black block on mobile
-    $('body').removeClass("pushable");
   });
 }
 
