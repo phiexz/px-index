@@ -10,7 +10,6 @@ body,
 body.pushable>.pusher {
   width:100%;
   height:100%;
-  background: rgba(224, 255, 255, 0.5);
 }
 .px-transparent{
   opacity:0.9;
