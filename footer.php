@@ -51,7 +51,7 @@
         if(roundFileSize) echo "var roundFileSize = ".roundFileSize.";\n";
         
         //for count execution code time
-        echo 'var time_stop = '.microtime(true).';';
+        echo 'var time2 = '.(microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"]).';';
         echo "\n";
       ?>
     </script>

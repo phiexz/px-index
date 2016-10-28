@@ -551,5 +551,5 @@ $(document).ready(function(){
   loadSiteSetting();
   
   /// Generate php execution timw
-  $('#execution-time > b').text((time_stop - time_start).toFixed(6));
+  $('#execution-time > b').text((time1 + time2).toFixed(6));
 });
