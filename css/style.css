@@ -28,6 +28,9 @@ html.ios body {
 #container-breadcrumb{
   margin-top: -200px;
 }
+#breadcrumb-segment{
+  border-radius: 0 !important;
+}
 .px-sidebar-label{
   margin: 10px
 }
@@ -57,6 +60,9 @@ html.ios body {
 }
 #container-list {
   flex: 1;
+}
+#list{
+  border-radius: 0 !important;
 }
 #list tr th:nth-child(2),
 #list tr td:nth-child(2) {
