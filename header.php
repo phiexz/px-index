@@ -26,7 +26,9 @@
     <link rel="stylesheet" type="text/css" href="<?php echo urlPrefix; ?>/css/style.css<?php echo urlSuffix; ?>">
   </head>
   <body>
-    <i class="bordered arrow up big icon px-pointer" id="back-to-top" title="Back to top"></i>
+    <div class="ui inverted teal segment" id="back-to-top" data-tooltip="Back to Top" data-position="left center" data-inverted="">
+      <i class="arrow up big icon px-pointer" ></i>
+    </div>
     <?php require_once('include/sidebar.php'); ?>
     <?php require_once('include/header-menu.php'); ?>
     <div class="pusher"> <!-- content pushed by sidebar -->
