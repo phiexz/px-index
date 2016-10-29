@@ -1,7 +1,7 @@
 <?php
   // CDN & Versioning
   define('CDN', '');
-  define('VER', '4.0.1');
+  define('VER', '4.0.2');
   
   // Root directory for autoindex
   // ex: "/" or "/files" or anything
