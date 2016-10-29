@@ -63,6 +63,7 @@ html.ios body {
 }
 #list{
   border-radius: 0 !important;
+  line-height: 1 !important;
 }
 #list tr th:nth-child(2),
 #list tr td:nth-child(2) {
