@@ -22,6 +22,10 @@ html.ios body {
   padding-top: 55px;
   z-index:98 !important;
 }
+.px-header{
+  color: #ffffff;
+  background-color: #000000
+}
 #serverStatus{
   margin: 30px 0 10px 0;
 }
@@ -102,16 +106,34 @@ html.ios body {
 	z-index: 100;
 	border: 1px dotted black;
 }
-#list tbody .ui-selecting { background: #E0F2F1;}
-#list tbody .ui-selected { background: #B2DFDB;}
+/** selectable theming **/
+/* Blue */
+#list.blue tbody .ui-selecting { background: #E3F2FD;}
+#list.blue tbody .ui-selected { background: #BBDEFB;}
+/* Green */
+#list.green tbody .ui-selecting { background: #E8F5E9;}
+#list.green tbody .ui-selected { background: #C8E6C9;}
+/* Grey */
+#list.grey tbody .ui-selecting { background: #EEEEEE;}
+#list.grey tbody .ui-selected { background: #E0E0E0;}
+/* Orange */
+#list.orange tbody .ui-selecting { background: #FFF3E0;}
+#list.orange tbody .ui-selected { background: #FFE0B2;}
+/* Pink */
+#list.pink tbody .ui-selecting { background: #FCE4EC;}
+#list.pink tbody .ui-selected { background: #F8BBD0;}
+/* Purple */
+#list.purple tbody .ui-selecting { background: #F3E5F5;}
+#list.purple tbody .ui-selected { background: #E1BEE7;}
+/* Teal */
+#list.teal tbody .ui-selecting { background: #E0F2F1;}
+#list.teal tbody .ui-selected { background: #B2DFDB;}
 
 /* Mobile */
 @media only screen and (max-width: 767px) {
   .px-header{
     padding-top: 70px;
     min-height: 500px;
-    background-image: url("../img/bg-teal.png");
-    color: #ffffff;
   }
   .px-header-greetings{
     font-size: 3rem;
@@ -132,8 +154,6 @@ html.ios body {
   .px-header{
     padding-top: 100px;
     min-height: 700px;
-    background-image: url("../img/bg-teal.png");
-    color: #ffffff;
   }
   .px-header-greetings{
     font-size: 6rem;

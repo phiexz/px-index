@@ -1,6 +1,6 @@
 <div id="sidebar" class="ui left vertical menu sidebar">
   <a class="item">
-    <div class="ui teal message">
+    <div class="ui message">
       <div class="ui centered header">Files Selection</div>
     </div>
     <div class="ui fluid buttons">
@@ -10,7 +10,7 @@
     </div>
   </a>
   <a class="item">
-    <div class="ui teal message">
+    <div class="ui message">
       <div class="ui centered header">Site Interface</div>
     </div>
     <div class="px-sidebar-label"><i class="font icon"></i>Font Size</div>
@@ -37,7 +37,7 @@
     </div>
   </a>
   <a class="item">
-    <div class="ui teal message">
+    <div class="ui message">
       <div class="ui centered header">Ajax Mode</div>
     </div>
     <div id="using-ajax-mode" class="ui toggle checkbox">

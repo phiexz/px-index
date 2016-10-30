@@ -19,6 +19,11 @@
   // Prefix & Suffix Url
   define('urlPrefix', CDN.directory.'/');
   define('urlSuffix', '?v='.VER);
+  
+  // Theming
+  // value could be: 
+  // random/blue/green/grey/orange/pink/purple/teal
+  define('siteTheme', 'random');
 
   // Google Analytics
   define('useGoogleAnalytics', false);

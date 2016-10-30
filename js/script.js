@@ -519,6 +519,31 @@ function loadSiteSetting(){
   $(window).on('popstate', tableCall);
 }
 
+function loadTheme(){
+  //if random
+  if(theme=="random"){
+    var colors = ['blue','green','grey','orange','pink','purple','teal'];
+    theme = colors[Math.floor(Math.random() * colors.length)];
+  }
+  
+  //add class color theme
+  //#back-to-top
+  $('#back-to-top').addClass(theme);
+  //#sidebar > .item > .ui.message
+  $('#sidebar > .item > .ui.message').addClass(theme);
+  //#header-menu
+  $('#header-menu').addClass(theme);
+  //.px-nav-mobile > .ui.menu
+  $('.px-nav-mobile > .ui.menu').addClass(theme);
+  //#list
+  $('#list').addClass(theme);
+  //#footer
+  $('#footer').addClass(theme);
+  
+  //css: .px-header
+  $('.px-header').css('background-image', 'url('+urlPrefix+'/img/bg-'+theme+'.png'+urlSuffix+')');
+}
+
 function detectIE() {
     var ua = window.navigator.userAgent;
 
@@ -574,8 +599,9 @@ $(document).ready(function(){
   /// Table list DOM Hack
   tableListDOM();
   
-  /// Load site settings
+  /// Load site settings & theme
   loadSiteSetting();
+  loadTheme();
   
   /// Generate php execution timw
   $('#execution-time > b').text((time1 + time2).toFixed(6));

@@ -53,6 +53,16 @@
         //for count execution code time
         echo 'var time2 = '.(microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"]).';';
         echo "\n";
+        
+        //Theme
+        echo 'var theme = "'.siteTheme.'";';
+        echo "\n";
+        
+        //Url Prefix & Suffix
+        echo 'var urlPrefix = "'.urlPrefix.'";';
+        echo "\n";
+        echo 'var urlSuffix = "'.urlSuffix.'";';
+        echo "\n";
       ?>
     </script>
     <script src="<?php echo urlPrefix; ?>/js/script.js<?php echo urlSuffix; ?>"></script>
