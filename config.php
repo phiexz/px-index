@@ -6,7 +6,7 @@
   
   // CDN & Versioning
   define('CDN', '');
-  define('VER', '4.0.2');
+  define('VER', '4.1.0');
   
   // Root directory for autoindex
   // ex: "/" or "/files" or anything
