@@ -30,7 +30,7 @@
         echo "\n";
         
         //Header
-        echo 'var headerMessage = "'.headerMessage.'";';
+        echo 'var siteName = "'.siteName.'";';
         echo "\n";
         
         //Server Status

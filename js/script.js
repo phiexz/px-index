@@ -191,12 +191,12 @@ function modalsClicked() {
 
 function setTittle(){
   if ( window.location.pathname == root ){
-    window.document.title = headerMessage.toUpperCase();
+    window.document.title = siteName.toUpperCase();
   }
   else{
     var urlPath = window.location.pathname.split( '/' );
     var currentDir = decodeURIComponent(urlPath[urlPath.length-2]);
-    window.document.title = currentDir.toUpperCase() + " | " + headerMessage.toUpperCase();
+    window.document.title = currentDir.toUpperCase() + " | " + siteName.toUpperCase();
   }
 }
 

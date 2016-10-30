@@ -1,4 +1,9 @@
 <?php
+  // Name & Message
+  define('siteName','PX STORAGE SERVER');
+  define('primaryMessage', 'Hi, Folks! <i class="smile icon"></i>');
+  define('secondaryMessage', 'Welcome to <dfn>My Storage Server</dfn>');
+  
   // CDN & Versioning
   define('CDN', '');
   define('VER', '4.0.2');
@@ -18,9 +23,6 @@
   // Google Analytics
   define('useGoogleAnalytics', false);
   define('googleAnalyticsID','');
-  
-  // Header Message
-  define('headerMessage', 'PX STORAGE SERVER');
   
   //// Server Status
   // server status using json file generated from server.

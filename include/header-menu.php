@@ -4,7 +4,7 @@
     <div id="header-menu" class="ui fixed teal inverted large menu">
       <div class="ui container">
         <a id="btn-sidebar" class="item" data-tooltip="Open Menu" data-position="bottom left" data-inverted=""><i class="large bars icon"></i></a>
-        <a href="/" class="header item active" data-tooltip="Back to Home" data-position="bottom center" data-inverted=""><i class="large disk outline icon"></i><strong><?php echo headerMessage ?></strong></a>
+        <a href="/" class="header item active" data-tooltip="Back to Home" data-position="bottom center" data-inverted=""><i class="large disk outline icon"></i><strong><?php echo siteName ?></strong></a>
         <a id="btn-download" class="item" data-tooltip="Generate Links from selected items" data-position="bottom center" data-inverted="" style="display:none;"><i class="large download icon"></i>Download</a>
         <a id="btn-donate" class="item" data-tooltip="Donation to keep server alive!!" data-position="bottom center" data-inverted=""><i class="large money icon"></i>Donate</a>
         <?php if(ReportEmail){ ?>
@@ -22,7 +22,7 @@
   <div class="mobile only column px-nav-mobile">
     <div class="ui fixed teal inverted menu">
       <a id="btn-sidebar2" class="item"><i class="large bars icon"></i></a>
-      <a href="/" class="header item"><i class="large disk outline icon"></i><strong><?php echo headerMessage ?></strong></a>
+      <a href="/" class="header item"><i class="large disk outline icon"></i><strong><?php echo siteName ?></strong></a>
       
       <div class="right menu">
         <a id="btn-mobile-menu" class="item"><i class="large caret down icon"></i></a>
