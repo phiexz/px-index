@@ -395,6 +395,10 @@ function changeSite(type, value, defaultValue){
       localStorage.setItem("fullscreenMode",false);
     }
   }
+  else if(type=="theme"){
+    loadTheme(value);
+    localStorage.setItem("theme",value);
+  }
 }
 
 function loadSiteSetting(){
@@ -416,6 +420,9 @@ function loadSiteSetting(){
     iconSize = parseInt(localStorage.getItem("iconSize"));
     changeSite("icon", iconSize);
   }
+  //theme
+  if (localStorage.getItem("theme") !== null)
+    loadTheme(localStorage.getItem("theme"));
   //fullscreen mode
   if (localStorage.getItem("fullscreenMode") === null)
     $('#fullscreen-mode').checkbox('uncheck');
@@ -597,8 +604,8 @@ $(document).ready(function(){
   tableListDOM();
   
   /// Load site settings & theme
-  loadSiteSetting();
   loadTheme(theme);
+  loadSiteSetting();
   
   /// Generate php execution timw
   $('#execution-time > b').text((time1 + time2).toFixed(6));

@@ -31,6 +31,19 @@
         <button id="btn-icon-48" class="ui button" onclick='changeSite("icon", "48")'>48</button>
       </div>
     </div>
+    <div class="px-sidebar-label"><i class="paint brush icon"></i>Theme Color</div>
+    <div style="text-align: center;">
+      <div id="btn-color-theme" class="ui buttons">
+        <button id="btn-theme-random" class="ui button" onclick='changeSite("theme", "random")' data-tooltip="Random" data-position="bottom left" data-inverted="">?</button>
+        <button id="btn-theme-pink" class="ui pink button" onclick='changeSite("theme", "pink")' data-tooltip="Pink" data-position="bottom left" data-inverted="">&nbsp;&nbsp;</button>
+        <button id="btn-theme-orange" class="ui orange button" onclick='changeSite("theme", "orange")' data-tooltip="Orange" data-position="bottom left" data-inverted="">&nbsp;&nbsp;</button>
+        <button id="btn-theme-green" class="ui green button" onclick='changeSite("theme", "green")' data-tooltip="Green" data-position="bottom left" data-inverted="">&nbsp;&nbsp;</button>
+        <button id="btn-theme-teal" class="ui teal button" onclick='changeSite("theme", "teal")' data-tooltip="Teal" data-position="bottom left" data-inverted="">&nbsp;&nbsp;</button>
+        <button id="btn-theme-blue" class="ui blue button" onclick='changeSite("theme", "blue")' data-tooltip="Blue" data-position="bottom left" data-inverted="">&nbsp;&nbsp;</button>
+        <button id="btn-theme-purple" class="ui purple button" onclick='changeSite("theme", "purple")' data-tooltip="Purple" data-position="bottom left" data-inverted="">&nbsp;&nbsp;</button>
+        <button id="btn-theme-grey" class="ui grey button" onclick='changeSite("theme", "grey")' data-tooltip="Grey" data-position="bottom left" data-inverted="">&nbsp;&nbsp;</button>
+      </div>
+    </div>
     <div id="fullscreen-mode" class="ui toggle checkbox px-sidebar-label">
       <input type="checkbox">
       <label>Fullscreen Mode</label>
