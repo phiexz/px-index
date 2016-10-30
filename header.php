@@ -26,8 +26,8 @@
     <link rel="stylesheet" type="text/css" href="<?php echo urlPrefix; ?>/css/style.css<?php echo urlSuffix; ?>">
   </head>
   <body>
-    <div class="ui inverted segment" id="back-to-top" data-tooltip="Back to Top" data-position="left center" data-inverted="">
-      <i class="arrow up big icon px-pointer" ></i>
+    <div class="ui inverted segment px-pointer" id="back-to-top" data-tooltip="Back to Top" data-position="left center" data-inverted="">
+      <i class="arrow up big icon" ></i>
     </div>
     <?php require_once('include/sidebar.php'); ?>
     <?php require_once('include/header-menu.php'); ?>
