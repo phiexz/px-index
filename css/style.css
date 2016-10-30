@@ -89,7 +89,9 @@ html.ios body {
 #back-to-top.show {
     opacity: 1;
 }
-
+#container-footer a{
+  color: #fff;
+}
 /** selectable **/
 .ui-selectable {
 	-ms-touch-action: none;
