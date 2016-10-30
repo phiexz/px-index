@@ -18,7 +18,8 @@ function getColor(type,number){
   }
 }
 
-function toggleButton(selectorTrigger, selectorToggled, speed = "slow"){
+function toggleButton(selectorTrigger, selectorToggled, speed){
+  speed = speed || 'slow'
   $(selectorTrigger).click(function() {
     $(selectorToggled).slideToggle(speed);
   });
