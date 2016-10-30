@@ -519,26 +519,23 @@ function loadSiteSetting(){
   $(window).on('popstate', tableCall);
 }
 
-function loadTheme(){
+function loadTheme(theme){
+  var colors = ['blue','green','grey','orange','pink','purple','teal'];
+  var colorsString = colors.join(" ");
+  var elemen = ['#back-to-top', '#sidebar > .item > .ui.message', '#header-menu', '.px-nav-mobile > .ui.menu', '#list', '#footer'];
+  
   //if random
   if(theme=="random"){
-    var colors = ['blue','green','grey','orange','pink','purple','teal'];
     theme = colors[Math.floor(Math.random() * colors.length)];
   }
   
-  //add class color theme
-  //#back-to-top
-  $('#back-to-top').addClass(theme);
-  //#sidebar > .item > .ui.message
-  $('#sidebar > .item > .ui.message').addClass(theme);
-  //#header-menu
-  $('#header-menu').addClass(theme);
-  //.px-nav-mobile > .ui.menu
-  $('.px-nav-mobile > .ui.menu').addClass(theme);
-  //#list
-  $('#list').addClass(theme);
-  //#footer
-  $('#footer').addClass(theme);
+  //theming elemen
+  for (i = 0; i < elemen.length; ++i) {
+    //remove color class
+    $(elemen[i]).removeClass(colorsString);
+    //add color class
+    $(elemen[i]).addClass(theme);
+  }
   
   //css: .px-header
   $('.px-header').css('background-image', 'url('+urlPrefix+'/img/bg-'+theme+'.png'+urlSuffix+')');
@@ -601,7 +598,7 @@ $(document).ready(function(){
   
   /// Load site settings & theme
   loadSiteSetting();
-  loadTheme();
+  loadTheme(theme);
   
   /// Generate php execution timw
   $('#execution-time > b').text((time1 + time2).toFixed(6));
