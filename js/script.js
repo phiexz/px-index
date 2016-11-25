@@ -401,6 +401,58 @@ function changeSite(type, value, defaultValue){
   }
 }
 
+function ajaxGenerateFile(href){
+  setCookie("openAsAjax", "true", 30/24/60/60); //set cookie for 30s
+  $("#table-dimmer").dimmer("show");
+  var backForward = false;
+  if (href == null){
+      href = location.href;
+      backForward = true;
+  }
+  
+  $('table#list').load(href, function(response, status, xhr){
+    //destroy cookie
+    setCookie("openAsAjax", "true", -1);
+    if ( status == "error" ) {
+      alert("Error !\n" + xhr.status + " " + xhr.statusText);
+      location.reload();
+    }
+    else{
+    $("#table-dimmer").dimmer('hide');
+    //Set html5 pushstate (harus diatas setTittle & generateBreadcrumb)
+    if(!backForward){
+      history.pushState("", "", href);
+    }
+    //Re-setting page
+    setTittle();
+    generateBreadcrumb();
+    tableListDOM();
+    //hide download button after loading ajax
+    $('#btn-download').css('display','none');
+    }
+    //Event listener for calling ajax
+    ajaxCall()
+  });
+}
+
+function ajaxCall(){
+  var list = '#list > tbody > tr.folder > td > a, \ ' +  //click on folder link
+             '#list > thead > tr > th > a, \ ' +         //click on header (sort)
+             '#breadcrumb > a';                          //click on breadcrumb
+  //Call Ajax if clicked
+  $(list).mousedown(function(e) {
+    //only on left click
+    if (e.which === 1) {
+        e.preventDefault();
+        ajaxGenerateFile($(this).attr("href"));
+    }
+  });
+  //Call Ajax on back / forward history
+  window.onpopstate = function(e) {
+    ajaxGenerateFile();
+  };
+}
+
 function loadSiteSetting(){
   /// initialize
   defaultFontSize = parseInt($('table#list').css('font-size'));
@@ -469,61 +521,6 @@ function loadSiteSetting(){
       }
     }
   });
-  
-  //Ajax calling
-  var tableCall = function(e) {
-    if (ajaxMode=="true"){
-      e.preventDefault();
-      setCookie("openAsAjax", "true", 30/24/60/60); //set cookie for 30s
-      $("#table-dimmer").dimmer("show");
-      var href = $(this).attr("href");
-      var backForward = false;
-      if (href == null){
-          href = location.href;
-          backForward = true;
-      }
-      $('table#list').load(href, function(response, status, xhr){
-        //destroy cookie
-        setCookie("openAsAjax", "true", -1);
-        if ( status == "error" ) {
-          alert("Error !\n" + xhr.status + " " + xhr.statusText);
-          location.reload();
-        }
-        else{
-        $("#table-dimmer").dimmer('hide');
-        //Set html5 pushstate (harus diatas setTittle & generateBreadcrumb)
-        if(!backForward){
-          history.pushState("", "", href);
-        }
-        //Re-setting page
-        setTittle();
-        generateBreadcrumb();
-        tableListDOM();
-        //hide download button after loading ajax
-        $('#btn-download').css('display','none');
-        }
-        ///Event for calling ajax
-        //click on folder link
-        $("#list > tbody > tr.folder > td > a").click(tableCall);
-        //click on header (sort)
-        $("#list > thead > tr > th > a").click(tableCall);
-        //click on breadcrumb
-        $("#breadcrumb > a").click(tableCall);
-        //on back or forward 
-        $(window).on('popstate', tableCall);
-      });
-    }
-  };
-  
-  ///Event for calling ajax
-  //click on folder link
-  $("#list > tbody > tr.folder > td > a").click(tableCall);
-  //click on header (sort)
-  $("#list > thead > tr > th > a").click(tableCall);
-  //click on breadcrumb
-  $("#breadcrumb > a").click(tableCall);
-  //on back or forward 
-  $(window).on('popstate', tableCall);
 }
 
 function loadTheme(theme){
@@ -615,4 +612,7 @@ $(document).ready(function(){
     $('#footer').css('display','none');
     $('#list').css('margin-bottom','30px');
   }
+  
+  /// Event listener for calling ajax
+  ajaxCall();
 });
